@@ -1,49 +1,67 @@
-body {
-    font-family: Georgia, serif;
-    font-size: 100%;
-    background-color: white;
-    margin: 0;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+/* custom scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::selection{
+background: rgb(0,123,255,0.3);
 }
 
-/* link styles */
-a:link, a:visited { color: #DC6903;
+.content{
+  max-width: 1250px;
+  margin: auto;
+  padding: 0px 30px;
+}
+.navbar{
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  padding: 25px 0;
+  transition: all 0.3s ease;
+}
+.navbar.sticky{
+  padding: 10px 0;
+  background: #fcd4c4;
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+}
+.navbar .content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .logo a{
+  color: #4d1b03;
+  font-size: 40px;
+  font-weight: 600;
   text-decoration: none;
-  border-bottom: 1px dotted;
-  padding-bottom: 0.2em;
 }
-a:focus, a:hover, a:active { color: #F9AB33; }
-
-
-/* header styles */
-header {
-  color: white;
-  /*background:  url(../images/home_pic.png) no-repeat center;*/
-  background-size: cover; 
-  text-align: center;
-  height: 15em;
-  grid-area: header;
-
-
+.navbar .menu-list{
+  display: inline-flex;
 }
-
-/* nav styles */
-nav {
-  font-family: verdana, sans-serif;
-  font-weight: bold;
-  background-color: #783F27;
+.menu-list li{
+  list-style: none;
 }
+.menu-list li a{
 
-.navbar-brand {
-    padding-top: 0.3125rem;
-    padding-bottom: 0.3125rem;
-
-    font-size: 1.25rem;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-nav ul li a:link, nav ul li a:visited {
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
   color: #F9AB33;
+  background-color: #FFF;
   margin: 0;
   display: block;
   border: 1px solid;
@@ -52,28 +70,87 @@ nav ul li a:link, nav ul li a:visited {
   margin: 0.5em;
   justify-content: center;
 }
-nav ul li a:focus, nav ul li a:hover, nav ul li a:active {
+.menu-list li a:hover{
+  color: #007bff;
+}
+.banner{
+  height: 650px;
+  background: url("../images/header.png") no-repeat center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.about{
+  padding: 40px 0;
+}
+.about .title{
+  font-size: 35px;
+  font-weight: 700;
+}
+.about p{
+  padding-top: 20px;
+  text-align: justify;
+}
+.icon{
   color: #fff;
-  margin: 0;
-  display: block;
-  border: 1px solid;
-  border-radius: 0.5em;
-  padding: 0.5em 1em;
-  margin:0.5em;
-  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
 }
-nav ul li {
-  font-size: .8em;
-  text-transform: uppercase;
-  letter-spacing: .2em;
-  margin: 0;
-  justify-content: center;
-
+.icon.cancel-btn{
+  position: absolute;
+  right: 30px;
+  top: 20px;
 }
+.navbar.sticky .icon.cancel-btn{
+  top: 10px;
+}
+@media (max-width: 868px) {
+  body.disabledScroll{
+    overflow: hidden;
+  }
+  .icon{
+    display: block;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    z-index: 9;
+  }
+  .icon.cancel-btn{
+    display: none;
+  }
 
-nav ul {
-  margin: 0; padding: 0; 
-  list-style-type: none;
-  display: flex;
-  justify-content: left;
+  .icon.cancel-btn.show{
+    display: block;
+  }
+  .icon.hide{
+    display: none;
+  }
+  .navbar .menu-list{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: #fabb9d;
+    display: block;
+    padding: 40px 0;
+    text-align: center;
+    clip-path: circle(25px at calc(100% - 55px) calc(0% + 50px));
+    transition: all 0.3s ease;
+  }
+  .navbar.sticky .menu-list{
+    clip-path: circle(25px at calc(100% - 55px) calc(0% + 35px));
+  }
+  .navbar .menu-list.active{
+    clip-path: circle(75%);
+  }
+  .navbar .menu-list li{
+    margin-top: 45px;
+  }
+  .navbar .menu-list li a{
+    font-size: 23px;
+  }
 }
