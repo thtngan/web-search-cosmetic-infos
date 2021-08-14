@@ -1,0 +1,138 @@
+/* Thông tin sản phẩm */
+.info {
+    position: relative;
+    /* width: 1440px; */
+    background: #4B1EAA;
+    mix-blend-mode: normal;
+}
+
+/* footer/desktop */
+.footer-app{
+    /* width: 1440px; */
+    left: 0px;
+    top: 1325px;
+}
+.footer-1 {
+    background-color: black;
+}
+.inner {
+    width: 80%;
+    margin: auto;
+    padding: 3rem 0rem;
+}
+.wrap {
+    padding-top: 2rem;
+    display: flex;
+}
+.wrap .item {
+    width:  50%;
+    padding: 2rem 0rem;
+}
+.wrap .right {
+    display: flex;
+}
+.wrap .right .inner-item {
+    width: 30%;
+}
+
+/* logo */
+/* .logo {
+    position: absolute;
+    width: 236px;
+    height: 63.36px;
+    left: 0px;
+    top: 16px;
+} */
+.logo {
+    position: relative;
+}
+.text-white {
+    color : #FFF;
+}
+.left .text-white {
+    position: absolute;
+    display: inline-block;
+    top: 35%;
+    margin-left: 1rem;
+}
+.content-f {
+    color: #FFF;
+    padding-top: 20px;
+}
+.white {
+    color: #FFF;
+}
+
+.right .inner-item h4{
+    margin-bottom: 2rem;
+}
+
+/* // end */
+.end {
+    /* position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 96.48%;
+    bottom: 0%; */
+    background-color: #FFF;
+}
+.wrap-end {
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+.wrap-end .item {
+    width: 50%;
+    padding-top: 23px;
+    padding-bottom: 23px;
+}
+
+
+/* body */
+.body-content {
+    padding: 1rem;
+    display: flex;
+}
+.body-content .left {
+    width: 15%;
+}
+.body-content .left .menu {
+    padding: 1rem;
+}
+.body-content .right {
+    width: 85%;
+    border-radius: 10px;
+    background-color: #FFF;
+    padding: 1rem;
+}
+.body-content .right .search {
+    text-align: right;
+}
+.body-content .right .product {
+    padding: 2rem 0rem;
+}
+.body-content .right .p-info {
+    margin-left: 5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.p-info .image {
+    /* text-align: center; */
+    width: 20%;
+}
+.p-info img {
+    width: 100%;
+    height: auto;
+}
+.p-content {
+    width: 75%;
+    /* padding-left: 2rem; */
+}
+.special {
+    width: 70%;
+    padding: 1rem;
+    border : 1px solid gray;
+}
+.description {
+    margin-left: 5rem;
+}
