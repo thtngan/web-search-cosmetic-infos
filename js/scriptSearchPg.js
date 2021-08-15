@@ -62,6 +62,7 @@ const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 const icon = searchWrapper.querySelector(".icon");
 let linkTag = searchWrapper.querySelector("a");
+
 let webLink;
 
 // if user press any key and release
@@ -72,16 +73,25 @@ inputBox.onkeyup = (e)=>{
             suggestions.push(items.Name);
         }  
     }
- 
 
-    let userData = e.target.value; //user enetered data
+    let userData = e.target.value; //data from user input
+    word = userData;
     let emptyArray = [];
     if(userData){
+        /*Click search button*/
         icon.onclick = ()=>{
-            webLink = `https://www.google.com/search?q=${userData}`;
-            linkTag.setAttribute("href", webLink);
-            linkTag.click();
+            // webLink = `https://www.google.com/search?q=${userData}`;
+            // linkTag.setAttribute("href", webLink);
+            // linkTag.click();
+            var results = document.getElementById('results');
+            results.removeChild(results.childNodes[0])
+            var newCourse = document.createTextNode('Result: ' + userData);
+            results.appendChild(newCourse);
+            console.log(results);
+
         }
+
+        /*Create array to suggestion*/
         emptyArray = suggestions.filter((data)=>{
             //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
             return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
@@ -100,17 +110,25 @@ inputBox.onkeyup = (e)=>{
     }else{
         searchWrapper.classList.remove("active"); //hide autocomplete box
     }
+    
 }
+
 function select(element){
     let selectData = element.textContent;
     inputBox.value = selectData;
     icon.onclick = ()=>{
-        webLink = `https://www.google.com/search?q=${selectData}`;
-        linkTag.setAttribute("href", webLink);
-        linkTag.click();
+        // webLink = `https://www.google.com/search?q=${selectData}`;
+        // linkTag.setAttribute("href", webLink);
+        // linkTag.click();
+        var results = document.getElementById('results');
+        results.removeChild(results.childNodes[0])
+        var newCourse = document.createTextNode('Result: ' + selectData);
+        results.appendChild(newCourse);
+        console.log(results);
     }
     searchWrapper.classList.remove("active");
 }
+
 function showSuggestions(list){
     let listData;
     if(!list.length){

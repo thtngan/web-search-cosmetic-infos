@@ -12,7 +12,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/homeStyle.css">
-  <link rel="stylesheet" href="css/searchStyle.css"
+  <link rel="stylesheet" href="css/searchStyle.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
@@ -72,7 +72,7 @@
                         </div>
                         <div class="col">
                             <input type="radio" id="control_02" class="c1" name="select" value="Nước tấy trang">
-                            <label for="control_02">Nước tấy trang</label>
+                            <label for="control_02">Nước tẩy trang</label>
                         </div>
                         <div class="col">
                             <input type="radio" id="control_03" class="c1" name="select" value="Dầu tẩy trang">
@@ -80,7 +80,7 @@
                         </div>
                         <div class="col">
                             <input type="radio" id="control_04" class="c1" name="select" value="Khăn tấy trang">
-                            <label for="control_04">Khăn tấy trang</label>
+                            <label for="control_04">Khăn tẩy trang</label>
                         </div>
                         <div class="col">
                             <input type="radio" id="control_05" class="c1" name="select" value="Sáp tẩy trang">
@@ -312,7 +312,9 @@
       <div class="head">
         <h1>Kết quả tìm kiếm</h1>
       </div>
-      <div class="horizontal-scroll-wrapper squares" id="list">
+      <div id="results" class="hidden">Result: </div>
+
+      <div class="horizontal-scroll-wrapper squares" id="list list-hidden">
         <button type="button" class="btn btn-light" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
         <div class="card"><a href="#">
           <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
@@ -400,6 +402,7 @@
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
   <script src="./js/homeScript.js"></script>
+  <script src="js/scriptSearchPg.js"></script>
 </body>
 
 </html>
