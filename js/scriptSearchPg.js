@@ -41,7 +41,6 @@ function closeTag(tagID) {
 }
 
 /*Function search*/
-var word;
 var jsonData;
 
 fetch('dbcosmetic.json')
@@ -56,6 +55,8 @@ function onJsonReady(json) {
     jsonData = json;
 }
 let suggestions = [];
+let emptyArray = [];
+let Array = []; //include results    
 
 const searchWrapper = document.querySelector(".search-input");
 const inputBox = searchWrapper.querySelector("input");
@@ -67,16 +68,15 @@ let webLink;
 
 // if user press any key and release
 inputBox.onkeyup = (e)=>{
+    /*Add items to suggestions*/
     if (suggestions.length == 0){
         for (const items of jsonData){
-            console.log(items)
             suggestions.push(items.Name);
         }  
     }
 
     let userData = e.target.value; //data from user input
-    word = userData;
-    let emptyArray = [];
+    
     if(userData){
         /*Click search button*/
         icon.onclick = ()=>{
@@ -85,19 +85,21 @@ inputBox.onkeyup = (e)=>{
             // linkTag.click();
             var results = document.getElementById('results');
             results.removeChild(results.childNodes[0])
-            var newCourse = document.createTextNode('Result: ' + userData);
+            var newCourse = document.createTextNode('Result: ' + suggestions);
             results.appendChild(newCourse);
             console.log(results);
 
         }
 
         /*Create array to suggestion*/
-        emptyArray = suggestions.filter((data)=>{
+        Array = suggestions.filter((data)=>{
             //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
             
-            return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
+            //return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
+            return data.toLocaleLowerCase().includes(userData.toLocaleLowerCase());
         });
-        emptyArray = emptyArray.map((data)=>{
+
+        emptyArray = Array.map((data)=>{
             // passing return data inside li tag
             return data = `<li>${data}</li>`;
         });
@@ -121,9 +123,10 @@ function select(element){
         // webLink = `https://www.google.com/search?q=${selectData}`;
         // linkTag.setAttribute("href", webLink);
         // linkTag.click();
+        console.log(suggestions);
         var results = document.getElementById('results');
         results.removeChild(results.childNodes[0])
-        var newCourse = document.createTextNode('Result: ' + selectData);
+        var newCourse = document.createTextNode('Result: ' + suggestions);
         results.appendChild(newCourse);
         console.log(results);
     }
