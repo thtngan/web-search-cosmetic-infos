@@ -61,7 +61,7 @@ body {
   /* border-top-right-radius: -20%; */
   /* color: #818181; */
 }
-.active {
+.sidebar .active {
   background-color: #fff;
   color: #ff9900;
   border-top-left-radius: 30px;
@@ -157,7 +157,7 @@ input[type="checkbox"] + label span {
 input[type="checkbox"]:checked + label span {
   background: url(../images/caret-left-solid.svg) left top no-repeat;
 }
-.openbtn {
+/* .openbtn {
   font-size: 20px;
   cursor: pointer;
   background-color: #111;
@@ -168,7 +168,7 @@ input[type="checkbox"]:checked + label span {
 
 .openbtn:hover {
   background-color: #444;
-}
+} */
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 
@@ -330,22 +330,22 @@ div {
   transform-origin: right top;
 }
 
-.card {
+.squares .card {
   width: 300px;
   border: solid 3px #4b1eaa;
   border-radius: 2em;
 }
 
-.card img {
+.squares .card img {
   border-radius: 2em;
   width: 100%;
   height: 100%;
 }
 
-.card:hover {
+.squares .card:hover {
   box-shadow: 0px 0px 20px #6c3ada;
 }
-.card:hover .overlay {
+.squares .card:hover .overlay {
   opacity: 1;
 }
 
