@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>QPANK Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/867a38eeb9.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/homeStyle.css">
+    <link rel="stylesheet" href="css/aboutStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rasa:ital,wght@1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div id="mySidebar" class="sidebar">
+            <span id="logo">Q</span>
+            <h2>QPANK</h2>
+            <input type="checkbox" id="action" value="" checked="checked"><label for="action"><span></span></label>
+            <!-- <input type="checkbox" id="action" value="1"/> <label>Bạn có thích blog freetuts.net không?</label> -->
+            <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-caret-left"></i></a> -->
+            <a href="homePage.html" class="menu"><i class="fas fa-home"></i><span>&nbsp;&nbsp;Trang chủ</span></a>
+            <a href="searchPage.html" class="menu"><i class="fas fa-search"></i><span>&nbsp;&nbsp;Tìm kiếm</span></a>
+            <a href="aboutPage.html" class="menu active"><i class="fas fa-info-circle"></i><span>&nbsp;&nbsp;Về chúng tôi</span></a>
+            <!-- <button class="openbtn" onclick="openNav()">☰</button> -->
+            <div class="row" id="contact">
+                <div class="col"><a href="#" class="fa fa-facebook media" id="fb"></a></div>
+                <div class="col"><a href="#" class="fa fa-instagram media" id="ins"></a></div>
+                <div class="col"><a href="#" class="fa fa-pinterest media" id="pin"></a></div>
+            </div>
+            <p class="text-center">Designed with <i class="far fa-heart"></i> by QPANK</p>
+        </div>
+
+        <div id="main">
+            <div class="sticky-top">
+                <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading1">Về QPANK</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading2">Thành Viên QPANK</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading3">Góp ý</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example"
+                tabindex="0">
+                <h4 id="scrollspyHeading1"><br><br>Về QPANK</h4>
+                <div class="row about">
+                    <div class="col-sm-12 col-lg-6">
+                        <h5>Câu chuyện</h5>
+                        <p>Khoa học là nền tảng. Nghệ thuật thúc đẩy cảm hứng. Đã từ rất lâu, khoa học và nghệ thuật là
+                            hai mảng hội tụ hình thành mọi thứ xung quanh chúng ta. QPANK luôn đánh giá cao tầm quan
+                            trọng của sự kết hợp hài hoà giữa thiết kết thanh lịch và chất lượng sản phẩm. Bởi QPANK
+                            tin rằng chỉ khi ấy chúng ta mới có thể hoàn toàn khám phá và cảm nhận vẻ đẹp hoàn mỹ trong
+                            sự giao thoa giữa nghệ thuật và khoa học.</p>
+                        <p>Trong đó điều cốt lõi mà QPANK hướng đến là nâng cao nhận thức về dưỡng da khoa học, xóa bỏ
+                            đi những kiến thức, phương pháp truyền miệng thiếu chính xác và không căn cứ, đồng thời mang
+                            đến những sản phẩm chất lượng do chính bản thân mình đã sử dụng và kiểm nghiệm.</p>
+                    </div>
+                    <div class="col-sm-12 col-lg-6 text-end"><img src="images/passion.jpg" class="img-fluid"
+                            alt="eco-cosmetic"></div>
+                </div>
+                <div class="row about">
+                    <div class="col-sm-12 col-lg-6"><img src="images/passionn.webp" class="img-fluid"
+                            alt="cosmetic with nature"></div>
+                    <div class="col-sm-12 col-lg-6">
+                        <h5>Cảm hứng</h5>
+                        <p> QPANK mong muốn sẽ giúp bạn thực sự hiểu được làn da của mình, cảm nhận được những thay đổi
+                            và
+                            biến chuyển của làn da theo thời gian. Từ đó, QPANK sẽ gợi ý cho bạn những quy trình dưỡng
+                            da
+                            phù hợp cũng như sử dụng những sản phẩm một cách hiệu quả nhất.
+                        </p>
+                        <p>
+                            Vì QPANK tin rằng vẻ đẹp thật sự xuất phát từ một tâm hồn, cơ thể khỏe mạnh và tràn đầy sức
+                            sống.
+                            Ở mỗi khoảnh khắc và suốt cả cuộc đời bạn, chúng tôi trao quyền năng cho làn da bạn để làm
+                            sống
+                            dậy vẻ đẹp bên ngoài và cả nội lực bên trong.
+                        </p>
+                    </div>
+                </div>
+                <h4 id="scrollspyHeading2"><br><br>Thành viên QPANK</h4>
+                <div class="row team">
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="images/HA.jpg" class="card-img-top" alt="Hoàng Anh">
+                            <div class="card-body">
+                                <h5 class="card-title">Vũ Hoàng Anh</h5>
+                                <p class="card-text">Thành viên</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="images/Quang.jpg" class="card-img-top" alt="Thiên Quang">
+                            <div class="card-body">
+                                <h5 class="card-title">Ngô Thiên Quang</h5>
+                                <p class="card-text">Nhóm trưởng</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="images/Kim.jpg" class="card-img-top" alt="Thiên Kim">
+                            <div class="card-body">
+                                <h5 class="card-title">Lê Thiên Kim</h5>
+                                <p class="card-text">Thành viên</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="images/Ngan.jpg" class="card-img-top" alt="Thảo Ngân">
+                            <div class="card-body">
+                                <h5 class="card-title">Trần Hoàng Thảo Ngân</h5>
+                                <p class="card-text">Thành viên</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="images/Phong.png" class="card-img-top" alt="Trọng Phong">
+                            <div class="card-body">
+                                <h5 class="card-title">Phan Võ Trọng Phong</h5>
+                                <p class="card-text">Thành viên</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <h4 id="scrollspyHeading3"><br><br>Đóng góp ý kiến</h4>
+                <p>Chúng tôi trân trọng ý kiến của khách hàng. Hãy đóng góp ý kiến hoặc thắc mắc của bạn ở đây để chúng
+                    tôi
+                    có thể giải đáp và QPANK ngày càng được hoàn thiện hơn.</p>
+                <form class="row g-3 needs-validation" novalidate>
+                    <div class="col-md-12 position-relative">
+                        <label for="validationTooltip01" class="form-label">Tên</label>
+                        <input type="text" class="form-control" id="validationTooltip01" placeholder="Họ và tên của bạn"
+                            required>
+                        <div class="invalid-tooltip">
+                            Mời bạn điền tên
+                        </div>
+                    </div>
+                    <div class="col-md-6 position-relative">
+                        <label for="validationTooltip02" class="form-label">Số điện thoại</label>
+                        <input type="text" class="form-control" id="validationTooltip02" placeholder="---- --- ---"
+                            required>
+                        <div class="invalid-tooltip">
+                            Mời bạn nhập số điện thoại
+                        </div>
+                    </div>
+                    <div class="col-md-6 position-relative">
+                        <label for="validationTooltip02" class="form-label">Email</label>
+                        <input type="text" name="email" class="form-control" id="validationTooltip02"
+                            placeholder="name@example.com" required>
+                        <div class="invalid-tooltip">
+                            Mời bạn nhập email
+                        </div>
+                    </div>
+                    <div class="col-md-12 position-relative">
+                        <label for="validationTooltip03" class="form-label">Tiêu đề</label>
+                        <input type="text" class="form-control" id="validationTooltip03" required>
+                        <div class="invalid-tooltip">
+                            Mời bạn tóm tắt nội dung thành một vài từ
+                        </div>
+                    </div>
+                    <div class="col-md-12 position-relative">
+                        <label for="validationTooltip04" class="form-label">Nội dung</label>
+                        <textarea class="form-control" rows="3" placeholder="Mô tả chi tiết" id="validationTooltip04"
+                            required></textarea>
+                        <!-- <input type="text" class="form-control" id="validationTooltip04" required> -->
+                        <div class="invalid-tooltip">
+                            Mời bạn mô tả nội dung mà bạn muốn đóng góp để QPANK có thế phản hồi tốt hơn
+                        </div>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button class="btn btn-primary" type="submit" id="send_request"><i
+                                class="fas fa-paper-plane"></i>&nbsp;&nbsp;&nbsp;Gửi yêu cầu</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="navigation text-center">
+            <a href="#home">Trang chủ</a> <i class="fas fa-circle"></i>
+            <a href="#news">Tìm kiếm</a> <i class="fas fa-circle"></i>
+            <a href="#about">Về chúng tôi</a>
+        </div>
+        <p class="rights">&copy;QPANK All Rights Reserved.</p>
+        <hr>
+
+        <div class="row">
+            <div class="col">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>
+                                <h5>LIÊN HỆ</h5>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-envelope"></i></td>
+                            <td>QPANK@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-phone-alt"></i></td>
+                            <td>(84)13 456 789</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col text-center">
+                <h5>ĐĂNG KÝ</h5>
+                <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="email" placeholder="Email" aria-label="Email"
+                        aria-describedby="button-addon2" id="newletter">
+                    <button type="button" class="btn btn-outline-secondary btnNewletter" id="button-addon2"><i
+                            class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <script src="./js/aboutScript.js"></script>
+</body>
+
+</html>
