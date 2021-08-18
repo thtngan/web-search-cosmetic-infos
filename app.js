@@ -8,6 +8,7 @@ const ejs = require('ejs');
 
 var indexRouter = require('./routes/index');
 var searchRouter = require('./routes/search');
+var aboutRouter = require('./routes/about');
 
 var app = express();
 
@@ -37,6 +38,7 @@ mongoose.connect('mongodb+srv://admin1:0123456789@cluster0.zv3pu.mongodb.net/Cos
   });
 app.use('/', indexRouter);
 app.use('/search', searchRouter);
+app.use('/about', aboutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

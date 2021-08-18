@@ -5,11 +5,7 @@ var product = require('../models/model')
 
 /* GET home page */
 router.get('/', (req, res) => {
-    product.find({ View: { $eq: 0 } }, (err, products) => {
-        res.render('index', {
-            productList : products
-        })
-    })
+        res.render('about')
 });
 
 module.exports = router;
