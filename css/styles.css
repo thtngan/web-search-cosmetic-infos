@@ -11263,3 +11263,36 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+#logo {
+  display: block;
+  color: #ff9900;
+  font-family: 'Merienda', cursive;
+  font-size: 70px;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav h2 {
+  font-family: 'Paytone One', sans-serif;
+  font-weight: bolder;
+  font-size: 50px;
+  text-align: center;
+  color: #f1f1f1;
+  margin-bottom: 20px;
+}
+
+th {
+  cursor: pointer;
+  text-align: center;
+}
+
+td {
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
