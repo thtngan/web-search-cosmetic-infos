@@ -41,3 +41,7 @@ form {
     left: 45%;
     
 }
+
+td#pwd{
+    -webkit-text-security: disc;
+}

@@ -93,87 +93,75 @@
                                 <button type="button" class="btn btn-primary" id="formButton">Thêm</button>
                             </th>
                         </tr>
-                        <tr>
-                            <td scope="col" class="edit">001</th>
-                            <td scope="col">Trần Văn A</td>
-                            <td scope="col">admin</td>
-                            <td scope="col">123</td>
-                            <td scope="col">Quản trị viên</td>
-                            <td scope="col" class="edit">
-                                <a href="#"><i class="fas fa-edit"></i></a>
-                                <a href="#"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="col" class="edit">002</th>
-                            <td scope="col">Hoàng Thị B</td>
-                            <td scope="col">user</td>
-                            <td scope="col">123</td>
-                            <td scope="col">Nhân viên</td>
-                            <td scope="col" class="edit">
-                                <a href="#"><i class="fas fa-edit"></i></a>
-                                <a href="#"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="col" class="edit">003</th>
-                            <td scope="col">Hoàng Thị C</td>
-                            <td scope="col">user</td>
-                            <td scope="col">123</td>
-                            <td scope="col">Nhân viên</td>
-                            <td scope="col" class="edit">
-                                <a href="#"><i class="fas fa-edit"></i></a>
-                                <a href="#"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="col" class="edit">004</th>
-                            <td scope="col">Trần Văn C</td>
-                            <td scope="col">user</td>
-                            <td scope="col">123</td>
-                            <td scope="col">Nhân viên</td>
-                            <td scope="col" class="edit">
-                                <a href="#"><i class="fas fa-edit"></i></a>
-                                <a href="#"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td scope="col" class="edit">1</th>
+                                <td scope="col">Trần Văn A</td>
+                                <td scope="col">admin</td>
+                                <td scope="col" id="pwd">123</td>
+                                <td scope="col">Quản trị viên</td>
+                                <td scope="col" class="edit">
+                                    <a href="#"><i class="fas fa-edit" onclick="userDisplay(this)"></i></a>
+                                    <a href="#"><i class="fas fa-trash-alt" onclick="userDelete(this)"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col" class="edit">2</th>
+                                <td scope="col">Hoàng Thị B</td>
+                                <td scope="col">user</td>
+                                <td scope="col" id="pwd">123</td>
+                                <td scope="col">Nhân viên</td>
+                                <td scope="col" class="edit">
+                                    <a href="#"><i class="fas fa-edit" onclick="userDisplay(this)"></i></a>
+                                    <a href="#"><i class="fas fa-trash-alt" onclick="userDelete(this)"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div id="draggable" class="ui-widget-content">
                     <form id="userForm">
-                        <legend>Chỉnh sửa thành viên</legend>
+                        <legend>Thông tin thành viên</legend>
                         <div class="mb-3">
                             <label for="number">Mã nhân viên</label><br>
                             <input type="number" id="number">
                         </div>
                         <div class="mb-3">
                             <label for="input">Họ và tên</label><br>
-                            <input type="text" id="input">
+                            <input type="text" id="inputName">
                         </div>
                         <div class="mb-3">
                             <label for="input">Tài khoản</label><br>
-                            <input type="text" id="input">
+                            <input type="text" id="inputAccount">
                         </div>
                         <div class="mb-3">
                             <label for="password">Mật khẩu</label><br>
                             <input type="password" id="password">
+                            <input type='checkbox' id='toggle' value='0' onchange='togglePassword(this);'>&nbsp;
+                            <span id='toggleText'>Hiện</span>
+
+
                         </div>
                         <div class="mb-3">
                             <label for="select">Quyền hạn:</label><br>
                             <select id="select">
-                                <option value>(Lựa chọn quyền hạn)</option>
-                                <option value>Quản trị viên</option>
-                                <option value>Nhân viên</option>
+                                <option value="">(Lựa chọn quyền hạn)</option>
+                                <option value="1">Quản trị viên</option>
+                                <option value="2">Nhân viên</option>
                             </select>
                         </div>
-                        <button type="button" class="btn btn-success">Lưu</button>
+                        <button type="button" class="btn btn-success" id="updateButton"
+                            onclick="userUpdate()">Lưu</button>
+                        <button type="button" class="btn btn-danger" id="exitButton">Thoát</button>
+
 
                     </form>
                 </div>
+
             </main>
 
             <footer>
-                <p class="text-center">Designed with <i class="far fa-heart"></i> by QPANK</p>
+                <p class=" text-center">Designed with <i class="far fa-heart"></i> by QPANK</p>
             </footer>
         </div>
     </div>
@@ -191,8 +179,13 @@
             $("#draggable").draggable();
         });
         $("#formButton").click(function () {
-            $("#userForm").toggle();
+            $("#userForm").show();
         });
+        $("#exitButton").click(function () {
+            $("#userForm").hide();
+            $("#updateButton").text("Lưu");
+            formClear();
+        })
     </script>
     <script src="js/scripts.js"></script>
     <script src="js/userScript.js"></script>
