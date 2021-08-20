@@ -1,0 +1,47 @@
+#myInput {
+    background-image: url('../images/searchIcon.png');
+    background-position: 5px 5px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
+
+td.edit {
+    text-align: center !important;
+}
+
+i.fas.fa-edit {
+    size: 30px;
+    color: green;
+}
+
+i.fas.fa-trash-alt {
+    color: red;
+}
+
+form {
+    padding: 15px;
+    border: 1px solid #666;
+    background: #fff;
+    display: none;
+    margin: 30px 0;
+    
+
+}
+
+#draggable { 
+    width: 400px; 
+    height: 150px; 
+    padding: 0.5em; 
+    position: fixed;
+    top: 10%;
+    left: 45%;
+    
+}
+
+td#pwd{
+    -webkit-text-security: disc;
+}
