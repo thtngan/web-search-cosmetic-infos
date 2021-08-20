@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/867a38eeb9.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/homeStyle.css">
+    <link rel="stylesheet" href="css/menuStyle.css">
     <link rel="stylesheet" href="css/aboutStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
@@ -20,7 +20,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Rasa:ital,wght@1,700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example"
+tabindex="0">
 
     <div class="container-fluid">
         <div id="mySidebar" class="sidebar">
@@ -31,7 +32,8 @@
             <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-caret-left"></i></a> -->
             <a href="homePage.html" class="menu"><i class="fas fa-home"></i><span>&nbsp;&nbsp;Trang chủ</span></a>
             <a href="searchPage.html" class="menu"><i class="fas fa-search"></i><span>&nbsp;&nbsp;Tìm kiếm</span></a>
-            <a href="aboutPage.html" class="menu active"><i class="fas fa-info-circle"></i><span>&nbsp;&nbsp;Về chúng tôi</span></a>
+            <a href="aboutPage.html" class="menu active"><i class="fas fa-info-circle"></i><span>&nbsp;&nbsp;Về chúng
+                    tôi</span></a>
             <!-- <button class="openbtn" onclick="openNav()">☰</button> -->
             <div class="row" id="contact">
                 <div class="col"><a href="#" class="fa fa-facebook media" id="fb"></a></div>
@@ -56,9 +58,9 @@
                         </li>
                     </ul>
                 </nav>
+
             </div>
-            <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example"
-                tabindex="0">
+            <div>
                 <h4 id="scrollspyHeading1"><br><br>Về QPANK</h4>
                 <div class="row about">
                     <div class="col-sm-12 col-lg-6">
@@ -185,7 +187,6 @@
                         <label for="validationTooltip04" class="form-label">Nội dung</label>
                         <textarea class="form-control" rows="3" placeholder="Mô tả chi tiết" id="validationTooltip04"
                             required></textarea>
-                        <!-- <input type="text" class="form-control" id="validationTooltip04" required> -->
                         <div class="invalid-tooltip">
                             Mời bạn mô tả nội dung mà bạn muốn đóng góp để QPANK có thế phản hồi tốt hơn
                         </div>
@@ -209,7 +210,7 @@
         <hr>
 
         <div class="row">
-            <div class="col">
+            <div class="col-md-6 col-sm-4">
                 <table class="table table-borderless">
                     <thead>
                         <tr>
@@ -231,7 +232,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col text-center">
+            <div class="col-md-6 col-sm-8 text-center">
                 <h5>ĐĂNG KÝ</h5>
                 <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
                 <div class="input-group mb-3">
@@ -252,6 +253,7 @@
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>
     <script src="./js/aboutScript.js"></script>
+    <script src="./js/menuScript.js"></script>
 </body>
 
 </html>

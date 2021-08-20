@@ -1,22 +1,17 @@
-  #main {
-    /* margin: 30px 10px 0 240px;
-    transition: margin-left .5s;
-    border-radius: 2em;
-    background-color: #fff; */
-    padding: 50px 50px 50px 50px;
-    /* height: fit-content; */
+  body{
+    position: relative;
   }
-  
   .head {
     font-family: 'Roboto', sans-serif;
     text-align: left;
-    /* margin-top: 6em; */
   }
-  .nav-tabs a{
+
+  .nav-tabs a {
     color: #4B1EAA;
     font-family: 'Mitr', sans-serif;
   }
-  .about h5{
+
+  .about h5 {
     font-family: 'Rasa', serif;
     font-size: 60px;
     background: #4B1EAA;
@@ -26,20 +21,25 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .about p{
-      text-align: justify;
+
+  .about p {
+    text-align: justify;
   }
-  .about{
-      margin: 0 0 3em;
+
+  .about {
+    margin: 0 0 3em;
   }
-  .team .card{
+
+  .team .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: 1em;
   }
-  .card img{
+
+  .card img {
     border-radius: 0;
   }
-  #send_request{
+
+  #send_request {
     text-decoration: none;
     border-radius: 2em;
     background-color: #4B1EAA;
@@ -48,13 +48,13 @@
     height: 40px;
     border: #4B1EAA;
   }
-  #send_request:hover{
+
+  #send_request:hover {
     border: #ff9900;
     background-color: #ff9900;
     color: #111;
   }
-  #send_request:hover .fa-paper-plane{
+
+  #send_request:hover .fa-paper-plane {
     color: #111;
   }
-
-  
