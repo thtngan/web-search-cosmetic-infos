@@ -147,8 +147,8 @@ function userAddToTable() {
         '<td scope="col">' +
             $('#select option:selected').text() + "</td>" +
         '<td scope="col" class="edit">' +
-            '<i class="fas fa-edit" onclick="userDisplay(this)"></i>' + " " +
-            '<i class="fas fa-trash-alt" onclick="userDelete(this)"></i>' + 
+            '<i class="fas fa-edit" onclick="userDisplay(this)" style="cursor:pointer></i>' + " " +
+            '<i class="fas fa-trash-alt" onclick="userDelete(this) style="cursor:pointer"></i>' + 
         "</td>"
     "</tr>"
 
