@@ -11,6 +11,7 @@
   <script src="https://kit.fontawesome.com/867a38eeb9.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../public/stylesheets/menuStyle.css">
   <link rel="stylesheet" href="../public/stylesheets/homeStyle.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
@@ -58,7 +59,7 @@
               Khám phá các sản phẩm từ thiên nhiên
             </div>
             <div class="col-3 text-end">
-              <a href="#" class="btn btn-primary" id="explore">Khám phá ngay</a>
+              <a href="#" class="btn btn-primary" id="explore">Đến ngay</a>
             </div>
           </div>
         </div>
@@ -70,19 +71,17 @@
         <button type="button" class="btn btn-light" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
         <% for(var i=0; i < productList.length; i++) { %>
           <div class="card">
-            <a href="#">
-              <img src="<%= productList[i].Photos[0].Url1 %>" width="200" height="240" class="card-img-top"
-              alt="product images">
+            <a href="<%= '/info/' + productList[i].Name %>">
+              <img src="<%= productList[i].Photos[0].Url1 %>" class="card-img-top" alt="product images">
               <div class="overlay"><%= productList[i].Name %></div>
             </a>
           </div>
        <% } %>
-
         <button type="button" class="btn btn-light" id="preBtn"><i class="fas fa-chevron-left"></i></button>
       </div>
     </div>
     <footer>
-      <div class="navigation text-center"> 
+      <div class="navigation text-center">
         <a href="/">Trang chủ</a> <i class="fas fa-circle"></i>
         <a href="/search">Tìm kiếm</a> <i class="fas fa-circle"></i>
         <a href="/about">Về chúng tôi</a>
@@ -91,12 +90,14 @@
       <hr>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-sm-4">
           <table class="table table-borderless">
             <thead>
               <tr>
                 <th></th>
-                <th><h5>LIÊN HỆ</h5></th>
+                <th>
+                  <h5>LIÊN HỆ</h5>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -109,15 +110,16 @@
                 <td>(84)13 456 789</td>
               </tr>
             </tbody>
-          </table>          
+          </table>
         </div>
-        <div class="col text-center">
+        <div class="col-md-6 col-sm-8 text-center">
           <h5>ĐĂNG KÝ</h5>
           <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
           <div class="input-group mb-3">
             <input type="text" class="form-control subcribe" name="email" placeholder="Email" aria-label="Email"
-            aria-describedby="button-addon2">
-            <button type="button" class="btn btn-outline-secondary" id="button-addon2"><i class="fas fa-paper-plane"></i></button>
+              aria-describedby="button-addon2">
+            <button type="button" class="btn btn-outline-secondary" id="button-addon2"><i
+                class="fas fa-paper-plane"></i></button>
           </div>
         </div>
       </div>
@@ -127,6 +129,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
+  <script src="../public/javascripts/menuScript.js"></script>
   <script src="../public/javascripts/homeScript.js"></script>
 </body>
 
