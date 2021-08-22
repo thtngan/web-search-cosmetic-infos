@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Trang chủ</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+        <script src="https://kit.fontawesome.com/867a38eeb9.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../public/stylesheets/styleLogIn.css" />
+        <script type="text/javascript" src="../public/javascripts/signup_signin.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="login">
+                <span id="logo">Q</span>
+                <h2>QPANK</h2>
+                <form class="login-form" action="#" onsubmit="return false;">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input autocomplete="off" id="_email" type="text" class="form-control" placeholder="Email" />
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input autocomplete="off" id="_password" type="password" class="form-control" placeholder="Mật khẩu" />
+                    </div>
+                    <div class="form-group" style="width: 100%; text-align: center;">
+                        <input onclick="signin();" type="submit" value="Đăng nhập" class="btn float-right login_btn" />
+                        <input onclick="document.getElementById('id01').style.display='block';" type="submit" value="Đăng ký" class="btn float-right login_btn" />
+                    </div>
+                </form>
+                <div id="contact">
+                    <p>Designed with <i class="far fa-heart"></i> by QPANK</p>
+                    <a href="#" class="fa fa-facebook media-notabs" id="fb"></a>
+                    <a href="#" class="fa fa-instagram media-notabs" id="ins"></a>
+                    <a href="#" class="fa fa-pinterest media-notabs" id="pin"></a>
+                </div>
+            </div>
+        </div>
+        <div id="id01" class="modal">
+            <form class="modal-content animate" action="#" onsubmit="return false;">
+                <div class="imgcontainer">
+                    <p>Đăng ký</p>
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                </div>
+
+                <div class="container">
+					<div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input autocomplete="off" id="email" type="text" class="form-control" placeholder="Email" />
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input autocomplete="off" id="username" type="text" class="form-control" placeholder="Tên người dùng" />
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input autocomplete="off" id="password" type="password" class="form-control" placeholder="Mật khẩu" />
+                    </div>
+                    <div class="form-group" style="width: 100%; text-align: center;">
+                        <input onclick="signup();" type="submit" value="Đăng ký" class="btn float-right login_btn" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="snackbar-container"></div>
+    </body>
+</html>
