@@ -46,15 +46,15 @@
 
         <div id="main">
             <div class="row">
-                <div class="col-4"><img src="./images/Klairs-Rich-Moist-Soothing-Serum.jpg" alt="..." class="img-fluid">
+                <div class="col-4"><img src="<%= prod[0].Photos[0].Url1 %>" alt="..." class="img-fluid">
                 </div>
                 <div class="col-8">
-                    <h2 id="name">Klairs Rich Moist Soothing Serum</h2>
-                    <p>Nhãn hiêu: NaN</p>
-                    <p>Loại sản phầm: Serum</p>
+                    <h2 id="name"><%= prod[0].Name %></h2>
+                    <p>Nhãn hiệu: <%= prod[0].Brand %></p>
+                    <p>Loại sản phầm: <%= prod[0].Type %></p>
                     <div>
                         <p>Dung tích:</p>
-                        <span class="volume"></span>
+                        <span class="volume"><%= prod[0].Volume %></span>
                     </div>
                 </div>
             </div>
@@ -77,15 +77,13 @@
                 <div class="col-lg-8 col-md-12">
                     <h4 id="scrollspyHeading1"><br><br>Mô tả</h4>
             <p>
-                Sữa Rửa Mặt NARUKO 120ml là dòng sản phẩm đến từ thương hiệu mỹ phẩm thiên nhiên NARUKO nổi tiếng của
-                Đài Loan, giúp làm sạch sâu lỗ chân lông và loại bỏ các tạp chất tồn đọng trên da, đồng thời chăm sóc da
-                mặt dịu nhẹ cùng các chiết xuất tự nhiên.
+                <%= prod[0].Description %>
             </p>
             <h4 id="scrollspyHeading2"><br>Thành phần</h4>
             <ul>
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
+                <% prod[0].Ingredients.split(",").forEach(element => { %>
+                        <li> <%= element %></li>
+                <% }); %>
             </ul>
             <h4 id="scrollspyHeading3"><br><br>Đánh giá & Nhận xét</h4>
             <div class="statistic">
@@ -270,46 +268,15 @@
             </div>
             <div class="horizontal-scroll-wrapper squares" id="list">
                 <button type="button" class="btn btn-light" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
-                <div class="card"><a href="#">
-                        <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-                        <div class="overlay">1</div>
-                    </a>
-                </div>
-                <div class="card"><a href="#">
-                        <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-                        <div class="overlay">1</div>
-                    </a>
-                </div>
-                <div class="card"><a href="#">
-                        <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-                        <div class="overlay">1</div>
-                    </a>
-                </div>
-                <div class="card"><a href="#">
-                        <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-                        <div class="overlay">1</div>
-                    </a>
-                </div>
-                <div class="card"><a href="#">
-                        <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-                        <div class="overlay">1</div>
-                    </a>
-                </div>
-                <div class="card"><a href="#">
-                        <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-                        <div class="overlay">1</div>
-                    </a>
-                </div>
-                <div class="card"><a href="#">
-                        <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-                        <div class="overlay">1</div>
-                    </a>
-                </div>
-                <div class="card"><a href="#">
-                        <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-                        <div class="overlay">1</div>
-                    </a>
-                </div>
+                <% for(var i=0; i < recomm.length; i++) { %>
+                    <div class="card">
+                      <a href="<%= '/info/' + recomm[i].Name %>">
+                        <img src="<%= recomm[i].Photos[0].Url1 %>" class="card-img-top" alt="product images">
+                        <div class="overlay"><%= recomm[i].Name %></div>
+                      </a>
+                    </div>
+                 <% } %>
+                
 
                 <button type="button" class="btn btn-light" id="preBtn"><i class="fas fa-chevron-left"></i></button>
             </div>
