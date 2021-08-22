@@ -21,7 +21,9 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
+.sticky-top{
+  transition: 10s;
+}
   .about p {
     text-align: justify;
   }
