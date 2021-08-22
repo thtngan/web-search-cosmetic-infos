@@ -9,9 +9,9 @@ body {
 
 .sidebar {
     height: 100%;
-    width: 252px;
+    width: 92px;
     position: fixed;
-    z-index: 1;
+    z-index: 99;
     top: 0;
     left: 0;
     background-color: #4b1eaa;
@@ -38,6 +38,7 @@ body {
     text-align: center;
     color: #fff;
     margin-bottom: 20px;
+    display: none;
 }
 
 .menu {
@@ -49,9 +50,9 @@ body {
     transition: 0.3s;
 }
 
-/* .sidebar a span {
+.sidebar a span {
     display: none;
-  } */
+}
 
 .menu:hover {
     background-color: #fff;
@@ -77,41 +78,6 @@ body {
     font-size: 70px;
 }
 
-/* Contact */
-
-.media {
-    padding: 15px 20px 20px 17px;
-    font-size: 30px;
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
-    border-radius: 50%;
-    display: inline-block;
-    position: absolute;
-    bottom: 100px;
-}
-
-.media:hover {
-    opacity: 0.7;
-}
-
-#fb {
-    background: #3b5998;
-    color: white;
-}
-
-#ins {
-    background: url("../images/InsBG.jpg");
-    color: white;
-}
-
-#pin {
-    background: #cb2027;
-    color: white;
-}
-
 .sidebar p {
     color: #fff;
     margin: 0 10px 0 20px;
@@ -121,10 +87,6 @@ body {
 
 .fa-heart {
     color: #ff9900;
-}
-
-#contact {
-    margin: 10px;
 }
 
 .sidebar .closebtn {
@@ -163,18 +125,22 @@ input[type="checkbox"]:checked+label span {
     background: url(../images/caret-left-solid.svg) left top no-repeat;
 }
 
-/* .openbtn {
+.openbtn {
     font-size: 20px;
     cursor: pointer;
     background-color: #111;
     color: white;
     padding: 10px 15px;
     border: none;
+    position: fixed;
+    z-index: 1;
+    display: none;
+    opacity: .3;
   }
   
-  .openbtn:hover {
-    background-color: #444;
-  } */
+  .openbtn:hover .openbtn:focus{
+    opacity: 1;
+  }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 
@@ -190,24 +156,18 @@ input[type="checkbox"]:checked+label span {
 /* MAIN */
 
 #main {
-    margin: 30px 0 0 240px;
+    margin: 30px 0 0 80px;
     transition: margin-left 0.5s;
     border-radius: 2em;
     background-color: #fff;
     padding: 50px 20px 50px 30px;
-    height: fit-content;
+    height: auto;
 }
-/* @media screen and (max-width: 600px) {
-    #main{
-        margin-right: 0;
-        background-color: aqua;
-    }
-} */
 /* FOOTER */
 
 footer {
     /* margin: 0 10px 0 240px; */
-    margin-left: 240px;
+    margin-left: 92px;
     padding: 10px;
     transition: margin-left 0.5s;
     height: fit-content;
@@ -243,6 +203,44 @@ footer h5 {
     text-decoration: underline;
 }
 
+.rounded-social{
+    text-align: center;
+}
+
+.rounded-social .media {
+    font-size: 30px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 2;
+    margin: 5px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    
+}
+
+.rounded-social .media:hover {
+    opacity: 0.7;
+}
+
+#fb {
+    background: #3b5998;
+    color: white;
+}
+
+#ins {
+    background: url("../images/InsBG.jpg");
+    color: white;
+}
+
+#pin {
+    background: #cb2027;
+    color: white;
+}
+
 .fa-circle {
     font-size: 5px;
     color: #fff;
@@ -269,4 +267,23 @@ footer h5 {
 
 .table-borderless th h5 {
     text-align: left;
+}
+@media screen and (max-width: 600px) {
+    .openbtn{
+        display: block;
+    }
+    .sidebar{
+        width: 0;
+    }
+    #main{
+        margin: 0;
+        margin-top: 30px;
+        width: 100%;
+    }
+    footer{
+        margin-left: 0;
+    }
+    /* .sticky-top{
+        display: none;
+    } */
 }

@@ -27,6 +27,7 @@
   padding: 15px 20px 15px 15px;
   background-color: #ff9900;
   border: #ff9900 solid 2px;
+  z-index: 0;
 }
 
 /* Discovery */
@@ -95,6 +96,7 @@ div {
   display: block;
   width: 400px;
   margin: 0;
+  margin-bottom: 50px;
   /* background: #abc; */
   overflow-y: auto;
   overflow-x: hidden;

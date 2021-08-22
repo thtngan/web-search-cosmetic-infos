@@ -1,14 +1,51 @@
-#name{
-    font-family: 'Fredoka One', cursive;
+.product-info{
+  padding-top: 2em;
+  font-size: 20px;
+}
+.product-info h2{
+  font-family: 'Baloo Thambi 2', cursive;
+}
+.product-info .volume div{
+  display: inline-block;
+  border: 3px solid #111;
+  border-radius: 2em;
+  padding: 0 10px;
+  margin: 0 5px;
+}
+/* IMAGE ZOOM */
+.img-zoom-container {
+  position: relative;
 }
 
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  visibility: hidden;
+  /*set the size of the lens:*/
+  width: 40px;
+  height: 40px;
+}
+
+.img-zoom-result {
+  border: 1px solid #000;
+  visibility: hidden;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  /* margin-left: -60px; */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
 /* RATING STATISTIC  */
 .statistic {
     margin: 0 auto;
     margin-top: 2em;
     background-color: #EFEFEF;
     padding: 4px;
-    width: 500px;
     height: fit-content;
   }
   
@@ -278,4 +315,7 @@
     width: 200px;
     height: 40px;
     border: #4B1EAA;
+  }
+  #myDiv{
+    margin-top: 2em;
   }

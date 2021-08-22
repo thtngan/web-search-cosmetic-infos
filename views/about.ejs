@@ -27,7 +27,7 @@ tabindex="0">
         <div id="mySidebar" class="sidebar">
             <span id="logo">Q</span>
             <h2>QPANK</h2>
-            <input type="checkbox" id="action" value="" checked="checked"><label for="action"><span></span></label>
+            <input type="checkbox" id="action" value=""><label for="action"><span></span></label>
             <!-- <input type="checkbox" id="action" value="1"/> <label>Bạn có thích blog freetuts.net không?</label> -->
             <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-caret-left"></i></a> -->
             <a href="/" class="menu"><i class="fas fa-home"></i><span>&nbsp;&nbsp;Trang chủ</span></a>
@@ -35,16 +35,11 @@ tabindex="0">
             <a href="/about" class="menu active"><i class="fas fa-info-circle"></i><span>&nbsp;&nbsp;Về chúng
                     tôi</span></a>
             <!-- <button class="openbtn" onclick="openNav()">☰</button> -->
-            <div class="row" id="contact">
-                <div class="col"><a href="#" class="fa fa-facebook media" id="fb"></a></div>
-                <div class="col"><a href="#" class="fa fa-instagram media" id="ins"></a></div>
-                <div class="col"><a href="#" class="fa fa-pinterest media" id="pin"></a></div>
-            </div>
-            <p class="text-center">Designed with <i class="far fa-heart"></i> by QPANK</p>
         </div>
 
         <div id="main">
-            <div class="sticky-top">
+            <button class="openbtn" onclick="openNav()">&#9776;</button>
+            <div class="sticky-top"> 
                 <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
@@ -203,49 +198,56 @@ tabindex="0">
     </div>
     <footer>
         <div class="navigation text-center">
-            <a href="/">Trang chủ</a> <i class="fas fa-circle"></i>
-            <a href="/search">Tìm kiếm</a> <i class="fas fa-circle"></i>
-            <a href="/about">Về chúng tôi</a>
+          <a href="/">Trang chủ</a> <i class="fas fa-circle"></i>
+          <a href="/search">Tìm kiếm</a> <i class="fas fa-circle"></i>
+          <a href="/about">Về chúng tôi</a>
         </div>
+        <div class="rounded-social">
+          <a href="#" class="fa fa-facebook media" id="fb"></a>
+          <a href="#" class="fa fa-instagram media" id="ins"></a>
+          <a href="#" class="fa fa-pinterest media" id="pin"></a>
+      </div>
+        <p class="text-center">Designed with <i class="far fa-heart"></i> by QPANK</p>
         <p class="rights">&copy;QPANK All Rights Reserved.</p>
         <hr>
-
+  
         <div class="row">
-            <div class="col-md-6 col-sm-4">
-                <table class="table table-borderless">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>
-                                <h5>LIÊN HỆ</h5>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><i class="fas fa-envelope"></i></td>
-                            <td>QPANK@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-phone-alt"></i></td>
-                            <td>(84)13 456 789</td>
-                        </tr>
-                    </tbody>
-                </table>
+          <div class="col-md-6 col-sm-4">
+            <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>
+                    <h5>LIÊN HỆ</h5>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><i class="fas fa-envelope"></i></td>
+                  <td>QPANK@gmail.com</td>
+                </tr>
+                <tr>
+                  <td><i class="fas fa-phone-alt"></i></td>
+                  <td>(84)13 456 789</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-6 col-sm-8 text-center">
+            <h5>ĐĂNG KÝ</h5>
+            <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control subcribe" name="email" placeholder="Email" aria-label="Email"
+                aria-describedby="button-addon2">
+              <button type="button" class="btn btn-outline-secondary" id="button-addon2"><i
+                  class="fas fa-paper-plane"></i></button>
             </div>
-            <div class="col-md-6 col-sm-8 text-center">
-                <h5>ĐĂNG KÝ</h5>
-                <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control subcribe" name="email" placeholder="Email" aria-label="Email"
-                        aria-describedby="button-addon2" id="newletter">
-                    <button type="button" class="btn btn-outline-secondary btnNewletter" id="button-addon2"><i
-                            class="fas fa-paper-plane"></i></button>
-                </div>
-            </div>
+          </div>
         </div>
-    </footer>
+      </footer>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>

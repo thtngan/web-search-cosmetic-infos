@@ -25,22 +25,16 @@
     <div id="mySidebar" class="sidebar">
       <span id="logo">Q</span>
       <h2>QPANK</h2>
-      <input type="checkbox" id="action" value="" checked="checked"><label for="action"><span></span></label>
+      <input type="checkbox" id="action" value=""><label for="action"><span></span></label>
       <!-- <input type="checkbox" id="action" value="1"/> <label>Bạn có thích blog freetuts.net không?</label> -->
       <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-caret-left"></i></a> -->
       <a href="/" class="menu active"><i class="fas fa-home"></i><span>&nbsp;&nbsp;Trang chủ</span></a>
       <a href="/search" class="menu"><i class="fas fa-search"></i><span>&nbsp;&nbsp;Tìm kiếm</span></a>
       <a href="/about" class="menu"><i class="fas fa-info-circle"></i><span>&nbsp;&nbsp;Về chúng tôi</span></a>
-      <!-- <button class="openbtn" onclick="openNav()">☰</button> -->
-      <div class="row" id="contact">
-        <div class="col"><a href="#" class="fa fa-facebook media" id="fb"></a></div>
-        <div class="col"><a href="#" class="fa fa-instagram media" id="ins"></a></div>
-        <div class="col"><a href="#" class="fa fa-pinterest media" id="pin"></a></div>
-      </div>
-      <p class="text-center">Designed with <i class="far fa-heart"></i> by QPANK</p>
     </div>
 
     <div id="main">
+      <button class="openbtn" onclick="openNav()">&#9776;</button>
       <div class="col input-group input-group-sm mb-3">
         <input type="text" class="form-control" id="searchbar" placeholder="Search" aria-label="Search"
           aria-describedby="button-addon2">
@@ -49,7 +43,7 @@
       </div>
       <div class="d-flex p-2" id="myDiv"></div>
       <div class="head">
-        <h1>Khám phá</h1>
+          <h1>Khám phá</h1>
       </div>
       <div class="discovery-img">
         <img src="../public/images/Lavender_Fields.jpg" alt="Lavender" style="width:100%; height: auto;">
@@ -82,10 +76,16 @@
     </div>
     <footer>
       <div class="navigation text-center">
-        <a href="/">Trang chủ</a> <i class="fas fa-circle"></i>
+        <a href="/home">Trang chủ</a> <i class="fas fa-circle"></i>
         <a href="/search">Tìm kiếm</a> <i class="fas fa-circle"></i>
         <a href="/about">Về chúng tôi</a>
       </div>
+      <div class="rounded-social">
+        <a href="#" class="fa fa-facebook media" id="fb"></a>
+        <a href="#" class="fa fa-instagram media" id="ins"></a>
+        <a href="#" class="fa fa-pinterest media" id="pin"></a>
+    </div>
+      <p class="text-center">Designed with <i class="far fa-heart"></i> by QPANK</p>
       <p class="rights">&copy;QPANK All Rights Reserved.</p>
       <hr>
 
