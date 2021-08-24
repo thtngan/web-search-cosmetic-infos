@@ -73,10 +73,15 @@ $('#searchbar').autocomplete({
       }
     });
   },
+  // The minimum number of characters a user must type before a search is performed.
+  minLength: 1,
+  focus: function(event, ui) {
+    this.value = ui.item.label,
+    event.preventDefault();
+  },
   select: function(event, ui){
-    if(ui.item){
-      $('#searchbar').text(ui.item.label);
-    }
+    //window.location.href = 'Search.aspx?q=' + ui.item.value;;
+    window.location.href = 'info/' + ui.item.value;
   }
   
 }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
