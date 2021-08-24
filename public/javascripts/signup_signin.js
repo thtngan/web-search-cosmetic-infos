@@ -21,24 +21,28 @@ function show(message) {
 
 
 function signin() {
-	var email = document.getElementById('_email').value;
+	var userId = document.getElementById('_user_id').value;
 	var password = document.getElementById('_password').value;
-	if(email.trim() == '' || password.trim() == '') {
-		show('Nhập thiếu thông tin email hoặc mật khẩu');
+	if(userId.trim() == '' || password.trim() == '') {
+		show('Nhập thiếu thông tin mã nhân viên hoặc mật khẩu');
 		return;
 	}
-	fetch('/api/auth/signin', {
+	fetch('signin', {
 		method: 'POST',
 		headers: {
 	      'Accept': 'application/json',
 	      'Content-Type': 'application/json'
 	    },
 	    body: JSON.stringify({
-	    	email: email,
+	    	userId: userId,
 	    	password: password
 	    })
 	})
 	.then(response => {
+		if(response.status == 200) {
+			window.location = '/admin';
+			return;
+		}
 		response.json().then(data => {
 			show(data['message']);
 		});
@@ -54,7 +58,7 @@ function signup() {
 		return;
 	}
 	console.log(username, password);
-	fetch('/api/auth/signup', {
+	fetch('signup', {
 		method: 'POST',
 		headers: {
 	      'Accept': 'application/json',

@@ -483,7 +483,7 @@ input:focus{
   visibility: hidden;
   min-width: 250px;
   margin-left: -125px;
-  background-color: green;
+  background-color: black;
   margin-bottom : 20px;
   color: #fff;
   text-align: center;

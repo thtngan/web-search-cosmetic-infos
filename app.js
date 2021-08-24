@@ -6,13 +6,16 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 const ejs = require('ejs');
 
+
+const checkDuplicateUsername = require("./middlewares/verifySignUp");
+const controller = require("./middlewares/auth.controller");
+
 var indexRouter = require('./routes/index');
 var searchRouter = require('./routes/search');
 var aboutRouter = require('./routes/about');
 var adminRouter = require('./routes/admin');
 var infoRouter = require('./routes/info');
 var loginRouter = require('./routes/login');
-
 var app = express();
 
 // view engine setup
@@ -45,6 +48,17 @@ app.use('/about', aboutRouter);
 app.use('/admin', adminRouter);
 app.use('/info', infoRouter);
 app.use('/login',loginRouter);
+
+
+app.use(function(req, res, next) {
+  res.header(
+        "Access-Control-Allow-Headers",
+        "x-access-token, Origin, Content-Type, Accept"
+      );
+      next();
+});
+
+app.post("/signin", controller.signin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
