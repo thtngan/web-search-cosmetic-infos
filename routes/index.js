@@ -14,17 +14,19 @@ router.get('/', (req, res) => {
 
 router.get('/autocomplete/', function(req, res, next) {
     var regex = new RegExp(req.query["term"], 'i');
-
-    var productFilter = product.find({Name:regex},{'Name': 1}).sort({"updated_at": -1}).sort({"created_at" :-1}).limit(20);
+    
+    var productFilter = product.find({Name:regex}).limit(5);
     productFilter.exec(function(err, data){
-        // console.log(data);
+        //console.log(data);
         var result =[];
         if (!err){
             if (data && data.length && data.length >0){
                data.forEach(prod =>{
+                   //console.log(prod);
                     let obj = {
                         id: prod._id,
-                        label: prod.Name
+                        label: prod.Name,
+                        picture: prod.Photos[0].Url1
                     };
                     result.push(obj);
                });

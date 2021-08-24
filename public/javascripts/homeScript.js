@@ -54,23 +54,35 @@ $('#searchbar').autocomplete({
   source: function(req, res){
     $.ajax({
       url:"autocomplete",
-      dataType: "jsonp",
+      dataType: "json",
       type: "GET",
       data: req, 
       success: function(data){
-        // console.log(data);
+        //console.log(data);
         res(data);
+        // res($.map(data, function(item) {
+        //   return {
+        //     value: item.Name,
+        //     avatar: item.picture
+        //   };
+        // }))
       },
       err: function(err){
         console.log(err.status);
       }
     });
   },
-
-  minLength: 1,
   select: function(event, ui){
     if(ui.item){
       $('#searchbar').text(ui.item.label);
     }
   }
-})
+  
+}).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+  console.log(item);
+  var inner_html = '<div class="list_item_container"><div class="imageSearch"><img src="' + item.picture + '" ></div><div class="labelSearch"><h4><b>' + item.label + '</b></h4></div></div>';
+  return $( "<li></li>" )
+          .data( "item.autocomplete", item )
+          .append(inner_html)
+          .appendTo( ul );
+};
