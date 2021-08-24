@@ -31,6 +31,13 @@ router.get('/autocomplete/', function(req, res, next) {
                     result.push(obj);
                });
             }
+            else{
+                let obj = {
+                    label: 'Không tìm thấy sản phẩm',
+                    picture: null
+                }
+                result.push(obj);
+            }
             //console.log(result);
             res.jsonp(result);
         }

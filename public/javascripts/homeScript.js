@@ -58,7 +58,8 @@ $('#searchbar').autocomplete({
       type: "GET",
       data: req, 
       success: function(data){
-        //console.log(data);
+        // console.log(data);
+        
         res(data);
         // res($.map(data, function(item) {
         //   return {
@@ -79,10 +80,14 @@ $('#searchbar').autocomplete({
   }
   
 }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-  console.log(item);
-  var inner_html = '<div class="list_item_container"><div class="imageSearch"><img src="' + item.picture + '" ></div><div class="labelSearch"><h4><b>' + item.label + '</b></h4></div></div>';
-  return $( "<li></li>" )
+  if (item.picture == null){
+    var inner_html = '<h4><b>' + item.label + '</b></h4>>';
+  }
+  else{
+    var inner_html = '<div class="list_item_container"><div class="imageSearch"><img src="' + item.picture + '" ></div><div class="labelSearch"><h4><b>' + item.label + '</b></h4></div></div>';
+  }
+    return $( "<li></li>" )
           .data( "item.autocomplete", item )
           .append(inner_html)
-          .appendTo( ul );
+          .appendTo( ul );  
 };
