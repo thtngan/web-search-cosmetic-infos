@@ -49,3 +49,28 @@ $('#myDiv').on('widthChanged', function () {
   // console.log($('.horizontal-scroll-wrapper').height());
 });
 
+//Search script
+$('#searchbar').autocomplete({
+  source: function(req, res){
+    $.ajax({
+      url:"autocomplete",
+      dataType: "jsonp",
+      type: "GET",
+      data: req, 
+      success: function(data){
+        // console.log(data);
+        res(data);
+      },
+      err: function(err){
+        console.log(err.status);
+      }
+    });
+  },
+
+  minLength: 1,
+  select: function(event, ui){
+    if(ui.item){
+      $('#searchbar').text(ui.item.label);
+    }
+  }
+})
