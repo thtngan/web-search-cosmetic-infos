@@ -44,7 +44,9 @@ const productSchema = new mongoose.Schema({
         type: [webSchema],
         default: undefined
     },
-    Skin: [String],
+    Skin:{
+        type:String
+    },
     Photos:{
         type: [imgSchema],
         default: undefined
