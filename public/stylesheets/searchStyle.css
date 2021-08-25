@@ -216,6 +216,15 @@ iframe.width-changed {
   width: 80px;
   height : 60px;
 }
+
+.skinSearch{
+  width: 85%;
+  color: #fff;
+  margin : 0px 0px 8px;
+  text-align: left;
+  background-color: #6c3ada ;
+  display: inline;
+}
 .labelSearch{
   width: 85%;
   float:right;
@@ -223,7 +232,6 @@ iframe.width-changed {
   overflow: hidden;
   color: black;
   text-align: left;
-  margin-top: 30px;
 }
 
 #ui-id-1 {
