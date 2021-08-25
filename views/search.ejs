@@ -47,32 +47,34 @@
         <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"
             id="searchicon"></i></i></button>
       </div>
-      <div class="d-flex p-2" id="myDiv"></div>
+      <strong id="numberResult"></strong>
 
-      <div class="head">
-        <h1>Kết quả tìm kiếm</h1>
+      <div id="result" class="hiddenSearch">
+        <br>
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio0" autocomplete="off" checked>
+          <label class="btn btn-outline-primary" for="btnradio0">Mọi loại da</label>
+
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btnradio1">Da dầu</label>
+
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btnradio2">Da khô</label>
+
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btnradio3">Da mụn</label>
+
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btnradio4">Da nhạy cảm</label>
+        </div>
       </div>
 
-      <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
 
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio0" autocomplete="off" checked>
-        <label class="btn btn-outline-primary" for="btnradio0">Mọi loại da</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio1">Da dầu</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio2">Da khô</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio3">Da mụn</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio4">Da nhạy cảm</label>
+      <div class="containerSearch">
+        <ul id="containerItem">
+        </ul>
       </div>
-      <ul id="containerSearch">
-      </ul>
-
 
     </div>
     <footer>
