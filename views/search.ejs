@@ -15,12 +15,14 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../public/stylesheets/menuStyle.css">
-  <link rel="stylesheet" href="../public/stylesheets/homeStyle.css">
   <link rel="stylesheet" href="../public/stylesheets/searchStyle.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
   <script src="https://kit.fontawesome.com/867a38eeb9.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -29,13 +31,12 @@
     <div id="mySidebar" class="sidebar">
       <span id="logo">Q</span>
       <h2>QPANK</h2>
-      <input type="checkbox" id="action" value="" checked="checked"><label for="action"><span></span></label>
+      <input type="checkbox" id="action" value=""><label for="action"><span></span></label>
       <!-- <input type="checkbox" id="action" value="1"/> <label>Bạn có thích blog freetuts.net không?</label> -->
       <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-caret-left"></i></a> -->
       <a href="/" class="menu"><i class="fas fa-home"></i><span>&nbsp;&nbsp;Trang chủ</span></a>
       <a href="/search" class="menu active"><i class="fas fa-search"></i><span>&nbsp;&nbsp;Tìm kiếm</span></a>
       <a href="/about" class="menu"><i class="fas fa-info-circle"></i><span>&nbsp;&nbsp;Về chúng tôi</span></a>
-      <!-- <button class="openbtn" onclick="openNav()">☰</button> -->
     </div>
 
     <div id="main">
@@ -51,68 +52,86 @@
       <div class="head">
         <h1>Kết quả tìm kiếm</h1>
       </div>
-      <div id="results" class="hidden">Result: </div>
 
-    </div>
+      <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
 
-  </div>
-  <footer>
-    <div class="navigation text-center">
-      <a href="/">Trang chủ</a> <i class="fas fa-circle"></i>
-      <a href="/search">Tìm kiếm</a> <i class="fas fa-circle"></i>
-      <a href="/about">Về chúng tôi</a>
-    </div>
-    <div class="rounded-social">
-      <a href="#" class="fa fa-facebook media" id="fb"></a>
-      <a href="#" class="fa fa-instagram media" id="ins"></a>
-      <a href="#" class="fa fa-pinterest media" id="pin"></a>
-    </div>
-    <p class="text-center">Designed with <i class="far fa-heart"></i> by QPANK</p>
-    <p class="rights">&copy;QPANK All Rights Reserved.</p>
-    <hr>
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio0" autocomplete="off" checked>
+        <label class="btn btn-outline-primary" for="btnradio0">Mọi loại da</label>
 
-    <div class="row">
-      <div class="col-md-6 col-sm-4">
-        <table class="table table-borderless">
-          <thead>
-            <tr>
-              <th></th>
-              <th>
-                <h5>LIÊN HỆ</h5>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><i class="fas fa-envelope"></i></td>
-              <td>QPANK@gmail.com</td>
-            </tr>
-            <tr>
-              <td><i class="fas fa-phone-alt"></i></td>
-              <td>(84)13 456 789</td>
-            </tr>
-          </tbody>
-        </table>
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btnradio1">Da dầu</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btnradio2">Da khô</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btnradio3">Da mụn</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btnradio4">Da nhạy cảm</label>
       </div>
-      <div class="col-md-6 col-sm-8 text-center">
-        <h5>ĐĂNG KÝ</h5>
-        <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control subcribe" name="email" placeholder="Email" aria-label="Email"
-            aria-describedby="button-addon2">
-          <button type="button" class="btn btn-outline-secondary" id="button-addon2"><i
-              class="fas fa-paper-plane"></i></button>
+      <ul id="containerSearch">
+      </ul>
+
+
+    </div>
+    <footer>
+      <div class="navigation text-center">
+        <a href="/home">Trang chủ</a> <i class="fas fa-circle"></i>
+        <a href="/search">Tìm kiếm</a> <i class="fas fa-circle"></i>
+        <a href="/about">Về chúng tôi</a>
+      </div>
+      <div class="rounded-social">
+        <a href="#" class="fa fa-facebook media" id="fb"></a>
+        <a href="#" class="fa fa-instagram media" id="ins"></a>
+        <a href="#" class="fa fa-pinterest media" id="pin"></a>
+      </div>
+      <p class="text-center">Designed with <i class="far fa-heart"></i> by QPANK</p>
+      <p class="rights">&copy;QPANK All Rights Reserved.</p>
+      <hr>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-4">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th></th>
+                <th>
+                  <h5>LIÊN HỆ</h5>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><i class="fas fa-envelope"></i></td>
+                <td>QPANK@gmail.com</td>
+              </tr>
+              <tr>
+                <td><i class="fas fa-phone-alt"></i></td>
+                <td>(84)13 456 789</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6 col-sm-8 text-center">
+          <h5>ĐĂNG KÝ</h5>
+          <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control subcribe" name="email" placeholder="Email" aria-label="Email"
+              aria-describedby="button-addon2">
+            <button type="button" class="btn btn-outline-secondary" id="button-addon2"><i
+                class="fas fa-paper-plane"></i></button>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
   <script src="../public/javascripts/menuScript.js"></script>
-  <script src="../public/javascripts/homeScript.js"></script>
-  <!-- <script src="./js/scriptSearchPg.js"></script> -->
+  <script src="../public/javascripts/searchScript.js"></script>
 </body>
 
 </html>

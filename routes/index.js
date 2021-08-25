@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get('/autocomplete/', function(req, res, next) {
+router.get('/autocompleteIndex/', function(req, res, next) {
     var regex = new RegExp(req.query["term"], 'i');
     
     var productFilter = product.find({Name:regex}).limit(5);

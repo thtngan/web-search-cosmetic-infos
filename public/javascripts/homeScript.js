@@ -53,7 +53,7 @@ $('#myDiv').on('widthChanged', function () {
 $('#searchbar').autocomplete({
   source: function(req, res){
     $.ajax({
-      url:"autocomplete",
+      url:"autocompleteIndex",
       dataType: "json",
       type: "GET",
       data: req, 
