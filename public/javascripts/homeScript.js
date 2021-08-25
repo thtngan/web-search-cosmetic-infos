@@ -86,7 +86,7 @@ $('#searchbar').autocomplete({
   
 }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
   if (item.picture == null){
-    var inner_html = '<h4><b>' + item.label + '</b></h4>>';
+    var inner_html = '<h4><b>' + item.label + '</b></h4>';
   }
   else{
     var inner_html = '<div class="list_item_container"><div class="imageSearch"><img src="' + item.picture + '" ></div><div class="labelSearch"><h4><b>' + item.label + '</b></h4></div></div>';
