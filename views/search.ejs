@@ -5,19 +5,22 @@
   <title>QPANK Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/867a38eeb9.js" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../public/stylesheets/menuStyle.css">
-  <link rel="stylesheet" href="../public/stylesheets/homeStyle.css">
-  <link rel="stylesheet" href="../public/stylesheets/searchStyle.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../public/stylesheets/menuStyle.css">
+  <link rel="stylesheet" href="../public/stylesheets/homeStyle.css">
+  <link rel="stylesheet" href="../public/stylesheets/searchStyle.css">
+
+  <script src="https://kit.fontawesome.com/867a38eeb9.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -36,126 +39,80 @@
     </div>
 
     <div id="main">
-      <div class="wrapper">
-        <div class="search-input">
-          <a href="" target="_blank" hidden></a>
-          <input type="text" placeholder="Type to search..">
-          <div class="autocom-box">
-            <!-- here list are inserted from javascript -->
-          </div>
-          <div class="icon"><i class="fas fa-search"></i></div>
-        </div>
-        <div class="d-flex p-2" id="myDiv"></div>
-
-        <div class="head">
-          <h1>Kết quả tìm kiếm</h1>
-        </div>
-        <div id="results" class="hidden">Result: </div>
-        <div class="horizontal-scroll-wrapper squares" id="list">
-          <button type="button" class="btn btn-light" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
-          <div class="card"><a href="#">
-              <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-              <div class="overlay">1</div>
-            </a>
-          </div>
-          <div class="card"><a href="#">
-              <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-              <div class="overlay">1</div>
-            </a>
-          </div>
-          <div class="card"><a href="#">
-              <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-              <div class="overlay">1</div>
-            </a>
-          </div>
-          <div class="card"><a href="#">
-              <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-              <div class="overlay">1</div>
-            </a>
-          </div>
-          <div class="card"><a href="#">
-              <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-              <div class="overlay">1</div>
-            </a>
-          </div>
-          <div class="card"><a href="#">
-              <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-              <div class="overlay">1</div>
-            </a>
-          </div>
-          <div class="card"><a href="#">
-              <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-              <div class="overlay">1</div>
-            </a>
-          </div>
-          <div class="card"><a href="#">
-              <img src="images/Klairs-Rich-Moist-Soothing-Serum.jpg" class="card-img-top" alt="serum">
-              <div class="overlay">1</div>
-            </a>
-          </div>
-
-          <button type="button" class="btn btn-light" id="preBtn"><i class="fas fa-chevron-left"></i></button>
-        </div>
+      <button class="openbtn" onclick="openNav()">&#9776;</button>
+      <div class="col input-group input-group-sm mb-3">
+        <input type="text" class="form-control" id="searchbar" placeholder="Search" aria-label="Search"
+          aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"
+            id="searchicon"></i></i></button>
       </div>
-      
+      <div class="d-flex p-2" id="myDiv"></div>
+
+      <div class="head">
+        <h1>Kết quả tìm kiếm</h1>
+      </div>
+      <div id="results" class="hidden">Result: </div>
+
     </div>
-    <footer>
-      <div class="navigation text-center">
-        <a href="/">Trang chủ</a> <i class="fas fa-circle"></i>
-        <a href="/search">Tìm kiếm</a> <i class="fas fa-circle"></i>
-        <a href="/about">Về chúng tôi</a>
-      </div>
-      <div class="rounded-social">
-        <a href="#" class="fa fa-facebook media" id="fb"></a>
-        <a href="#" class="fa fa-instagram media" id="ins"></a>
-        <a href="#" class="fa fa-pinterest media" id="pin"></a>
-      </div>
-      <p class="text-center">Designed with <i class="far fa-heart"></i> by QPANK</p>
-      <p class="rights">&copy;QPANK All Rights Reserved.</p>
-      <hr>
 
-      <div class="row">
-        <div class="col-md-6 col-sm-4">
-          <table class="table table-borderless">
-            <thead>
-              <tr>
-                <th></th>
-                <th>
-                  <h5>LIÊN HỆ</h5>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><i class="fas fa-envelope"></i></td>
-                <td>QPANK@gmail.com</td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-phone-alt"></i></td>
-                <td>(84)13 456 789</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6 col-sm-8 text-center">
-          <h5>ĐĂNG KÝ</h5>
-          <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control subcribe" name="email" placeholder="Email" aria-label="Email"
-              aria-describedby="button-addon2">
-            <button type="button" class="btn btn-outline-secondary" id="button-addon2"><i
-                class="fas fa-paper-plane"></i></button>
-          </div>
+  </div>
+  <footer>
+    <div class="navigation text-center">
+      <a href="/">Trang chủ</a> <i class="fas fa-circle"></i>
+      <a href="/search">Tìm kiếm</a> <i class="fas fa-circle"></i>
+      <a href="/about">Về chúng tôi</a>
+    </div>
+    <div class="rounded-social">
+      <a href="#" class="fa fa-facebook media" id="fb"></a>
+      <a href="#" class="fa fa-instagram media" id="ins"></a>
+      <a href="#" class="fa fa-pinterest media" id="pin"></a>
+    </div>
+    <p class="text-center">Designed with <i class="far fa-heart"></i> by QPANK</p>
+    <p class="rights">&copy;QPANK All Rights Reserved.</p>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-6 col-sm-4">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th></th>
+              <th>
+                <h5>LIÊN HỆ</h5>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><i class="fas fa-envelope"></i></td>
+              <td>QPANK@gmail.com</td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-phone-alt"></i></td>
+              <td>(84)13 456 789</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6 col-sm-8 text-center">
+        <h5>ĐĂNG KÝ</h5>
+        <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control subcribe" name="email" placeholder="Email" aria-label="Email"
+            aria-describedby="button-addon2">
+          <button type="button" class="btn btn-outline-secondary" id="button-addon2"><i
+              class="fas fa-paper-plane"></i></button>
         </div>
       </div>
-    </footer>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-      crossorigin="anonymous"></script>
-    <script src="../public/javascripts/menuScript.js"></script>
-    <script src="../public/javascripts/homeScript.js"></script>
-    <!-- <script src="./js/scriptSearchPg.js"></script> -->
+  </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+  <script src="../public/javascripts/menuScript.js"></script>
+  <script src="../public/javascripts/homeScript.js"></script>
+  <!-- <script src="./js/scriptSearchPg.js"></script> -->
 </body>
 
 </html>
