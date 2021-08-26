@@ -5,13 +5,16 @@ $('#myDiv').on('widthChanged', function () {
 });
 
 //Auto fill input search
-// var pathArray = window.location.pathname.split('/');
-// var param = pathArray[2];
-// document.getElementById('searchbar').value = param;
+var parameter = location.search.split("=");
+var text = parameter[1];
+console.log(text);
+if (text !== undefined) {
+  $("#searchbar").val(text);
+  // $('#searchbar').autocomplete("search");
+}
 
 //Search script
 $('#searchbar').autocomplete({
-  autoFocus: true,
   source: function (req, res) {
     $.ajax({
       url: "/search/autocompleteSearch",
@@ -33,6 +36,7 @@ $('#searchbar').autocomplete({
       }
     });
   },
+  minLength: 0
 
 }).data("ui-autocomplete")._renderItem = function (ul, item) {
   if (item.picture == null) {
