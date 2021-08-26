@@ -4,10 +4,14 @@ $('#myDiv').on('widthChanged', function () {
   // console.log($('.horizontal-scroll-wrapper').height());
 });
 
-
+//Auto fill input search
+// var pathArray = window.location.pathname.split('/');
+// var param = pathArray[2];
+// document.getElementById('searchbar').value = param;
 
 //Search script
 $('#searchbar').autocomplete({
+  autoFocus: true,
   source: function (req, res) {
     $.ajax({
       url: "/search/autocompleteSearch",
@@ -59,6 +63,9 @@ $('input[type=radio][name=btnradio]').on('change', function () {
     case 'btnradio0':
       //alert("Mọi loại da");
       $("#containerItem li").show();
+      const ul0 = document.querySelectorAll("#containerItem li .linkSearch .skinSearch");
+
+      document.getElementById('numberResult').innerHTML = ul0.length + " kết quả";
       break;
     case 'btnradio1':
       //alert("Da dầu");
