@@ -48,31 +48,3 @@ function signin() {
 		});
 	});
 }
-
-function signup() {
-	var email = document.getElementById('email').value;
-	var username = document.getElementById('username').value;
-	var password = document.getElementById('password').value;
-	if(username.trim() == '' || password.trim() == '') {
-		show('Nhập thiếu thông tin tài khoản hoặc mật khẩu');
-		return;
-	}
-	console.log(username, password);
-	fetch('signup', {
-		method: 'POST',
-		headers: {
-	      'Accept': 'application/json',
-	      'Content-Type': 'application/json'
-	    },
-	    body: JSON.stringify({
-			email: email,
-	    	username: username,
-	    	password: password
-	    })
-	})
-	.then(response => {
-		response.json().then(data => {
-			show(data['message']);
-		});
-	});
-}
