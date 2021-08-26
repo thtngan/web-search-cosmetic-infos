@@ -146,11 +146,11 @@ tabindex="0">
                 <p>Chúng tôi trân trọng ý kiến của khách hàng. Hãy đóng góp ý kiến hoặc thắc mắc của bạn ở đây để chúng
                     tôi
                     có thể giải đáp và QPANK ngày càng được hoàn thiện hơn.</p>
-                <form class="row g-3 needs-validation" novalidate>
+                <form class="row g-3 needs-validation" action="/about/fb" method="POST" novalidate>
                     <div class="col-md-12 position-relative">
                         <label for="validationTooltip01" class="form-label">Tên *</label>
                         <input type="text" class="form-control" id="validationTooltip01" placeholder="Họ và tên của bạn"
-                            required>
+                            required name="name">
                         <div class="invalid-tooltip">
                             Mời bạn điền tên
                         </div>
@@ -158,7 +158,7 @@ tabindex="0">
                     <div class="col-md-6 position-relative">
                         <label for="validationTooltip02" class="form-label">Số điện thoại *</label>
                         <input type="text" class="form-control" id="validationTooltip02" placeholder="---- --- ---"
-                            required>
+                            required name="phone">
                         <div class="invalid-tooltip">
                             Mời bạn nhập số điện thoại
                         </div>
@@ -166,21 +166,21 @@ tabindex="0">
                     <div class="col-md-6 position-relative">
                         <label for="validationTooltip02" class="form-label">Email *</label>
                         <input type="text" name="email" class="form-control" id="validationTooltip02"
-                            placeholder="name@example.com" required>
+                            placeholder="name@example.com" name="mail" required>
                         <div class="invalid-tooltip">
                             Mời bạn nhập email
                         </div>
                     </div>
                     <div class="col-md-12 position-relative">
                         <label for="validationTooltip03" class="form-label">Tiêu đề *</label>
-                        <input type="text" class="form-control" id="validationTooltip03" required>
+                        <input type="text" class="form-control" id="validationTooltip03" name="title" required>
                         <div class="invalid-tooltip">
                             Mời bạn tóm tắt nội dung thành một vài từ
                         </div>
                     </div>
                     <div class="col-md-12 position-relative">
                         <label for="validationTooltip04" class="form-label">Nội dung *</label>
-                        <textarea class="form-control" rows="3" placeholder="Mô tả chi tiết" id="validationTooltip04"
+                        <textarea class="form-control" rows="3" placeholder="Mô tả chi tiết" name="content" id="validationTooltip04"
                             required></textarea>
                         <div class="invalid-tooltip">
                             Mời bạn mô tả nội dung mà bạn muốn đóng góp để QPANK có thế phản hồi tốt hơn

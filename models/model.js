@@ -7,9 +7,6 @@ const webSchema = new mongoose.Schema({
     },
     Url2:{
         type:String
-    },
-    Url3:{
-        type:String
     }
 })
 const imgSchema = new mongoose.Schema({
@@ -47,7 +44,9 @@ const productSchema = new mongoose.Schema({
         type: [webSchema],
         default: undefined
     },
-    Skin: [String],
+    Skin:{
+        type:String
+    },
     Photos:{
         type: [imgSchema],
         default: undefined

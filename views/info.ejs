@@ -30,11 +30,10 @@
             <input type="checkbox" id="action" value=""><label for="action"><span></span></label>
       <!-- <input type="checkbox" id="action" value="1"/> <label>Bạn có thích blog freetuts.net không?</label> -->
       <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-caret-left"></i></a> -->
-      <a href="/" class="menu"><i class="fas fa-home"></i><span>&nbsp;&nbsp;Trang chủ</span></a>
-      <a href="/search" class="menu"><i class="fas fa-search"></i><span>&nbsp;&nbsp;Tìm kiếm</span></a>
-      <a href="/about" class="menu"><i class="fas fa-info-circle"></i><span>&nbsp;&nbsp;Về chúng tôi</span></a>
+            <a href="/" class="menu"><i class="fas fa-home"></i><span>&nbsp;&nbsp;Trang chủ</span></a>
+            <a href="/search" class="menu"><i class="fas fa-search"></i><span>&nbsp;&nbsp;Tìm kiếm</span></a>
+            <a href="/about" class="menu"><i class="fas fa-info-circle"></i><span>&nbsp;&nbsp;Về chúng tôi</span></a>
         </div>
-
         <div id="main">
             <button class="openbtn" onclick="openNav()">&#9776;</button>
             <div class="row">
@@ -260,7 +259,22 @@
                 </div>
             </div>
                 </div>
-                <div class="col-lg-4 col-md-12"></div>
+                <div class="col-lg-4 col-md-12">
+                    <div id="place">
+                        <h4 id="scrollspyHeading1"><br><br>Địa điểm mua khuyến nghị</h4>
+                          <a href="<%= prod[0].Web[0].Url1 %>">
+                            <img src="<%= prod[0].Web[0].Url2 %>" class="recommend">
+                          </a>
+                          <div></div>
+                          <a href="<%= prod[0].Web[1].Url1 %>">
+                            <img src="<%= prod[0].Web[1].Url2 %>" class="recommend">
+                          </a>
+                          <div></div>
+                          <a href="<%= prod[0].Web[2].Url1 %>">
+                            <img src="<%= prod[0].Web[2].Url2 %>" class="recommend">
+                          </a>
+                    </div>      
+                </div>
             </div>
             
             <div class="d-flex p-2" id="myDiv"></div>

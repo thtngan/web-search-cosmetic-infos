@@ -1,5 +1,5 @@
 body {
-  background-color: #4B1EAA;
+  background-color: white;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -18,7 +18,7 @@ body {
   font-weight: bolder;
   font-size: 50px;
   text-align: center;
-  color: #f1f1f1;
+  color: #0047AB;
   margin-bottom: 20px;
 }
 

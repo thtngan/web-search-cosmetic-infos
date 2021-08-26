@@ -53,24 +53,46 @@ $('#myDiv').on('widthChanged', function () {
 $('#searchbar').autocomplete({
   source: function(req, res){
     $.ajax({
-      url:"autocomplete",
-      dataType: "jsonp",
+      url:"autocompleteIndex",
+      dataType: "json",
       type: "GET",
       data: req, 
       success: function(data){
         // console.log(data);
+        
         res(data);
+        // res($.map(data, function(item) {
+        //   return {
+        //     value: item.Name,
+        //     avatar: item.picture
+        //   };
+        // }))
       },
       err: function(err){
         console.log(err.status);
       }
     });
   },
-
+  // The minimum number of characters a user must type before a search is performed.
   minLength: 1,
+  focus: function(event, ui) {
+    this.value = ui.item.label,
+    event.preventDefault();
+  },
   select: function(event, ui){
-    if(ui.item){
-      $('#searchbar').text(ui.item.label);
-    }
+    //window.location.href = 'Search.aspx?q=' + ui.item.value;;
+    window.location.href = 'info/' + ui.item.value;
   }
-})
+  
+}).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+  if (item.picture == null){
+    var inner_html = '<h4><b>' + item.label + '</b></h4>';
+  }
+  else{
+    var inner_html = '<div class="list_item_container"><div class="imageSearch"><img src="' + item.picture + '" ></div><div class="labelSearch"><h4><b>' + item.label + '</b></h4></div></div>';
+  }
+    return $( "<li></li>" )
+          .data( "item.autocomplete", item )
+          .append(inner_html)
+          .appendTo( ul );  
+};

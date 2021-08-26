@@ -1,3 +1,17 @@
+.recommend{
+  max-width: 100%; 
+  width:300px;
+  height: 110px;
+  border: 2px solid rgb(202, 202, 202);
+  border-radius: 8px;
+  margin: 5px;
+  object-fit: fill;
+}
+
+#place{
+  text-align: center;
+}
+
 .product-info{
   padding-top: 2em;
   font-size: 20px;
