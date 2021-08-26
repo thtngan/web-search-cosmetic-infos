@@ -17,3 +17,24 @@ router.get('/users',(req, res) =>{
 })
 
 module.exports = router;
+//================================================================
+
+
+
+const notesSchema = {
+    inputName: String,
+    inputAccount: String,
+    password: String
+}
+
+const Note = mongoose.model("Note", notesSchema);
+
+router.post('/users', async(req, res) =>{
+   let newNote = await new Note({
+       inputName: req.body.inputName,
+       inputAccount: req.body.inputAccount,
+       password: req.body.password
+   })
+   newNote.save();
+   res.redirect('/users');
+})
