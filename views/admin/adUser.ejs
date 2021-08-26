@@ -122,23 +122,23 @@
                     </table>
                 </div>
                 <div id="draggable" class="ui-widget-content">
-                    <form id="userForm">
+                    <form id="userForm" method="post" action="/">
                         <legend>Thông tin thành viên</legend>
                         <div class="mb-3">
                             <label for="number">Mã nhân viên</label><br>
-                            <input type="number" id="number">
+                            <input type="number" id="number" name="number">
                         </div>
                         <div class="mb-3">
                             <label for="input">Họ và tên</label><br>
-                            <input type="text" id="inputName">
+                            <input type="text" id="inputName" name="inputName">
                         </div>
                         <div class="mb-3">
                             <label for="input">Tài khoản</label><br>
-                            <input type="text" id="inputAccount">
+                            <input type="text" id="inputAccount" name="inputAccount">
                         </div>
                         <div class="mb-3">
                             <label for="password">Mật khẩu</label><br>
-                            <input type="password" id="password">
+                            <input type="password" id="password" name="password">
                             <input type='checkbox' id='toggle' value='0' onchange='togglePassword(this);'>&nbsp;
                             <span id='toggleText'>Hiện</span>
 
@@ -146,7 +146,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="select">Quyền hạn:</label><br>
-                            <select id="select">
+                            <select id="select" name="select">
                                 <option value="">(Lựa chọn quyền hạn)</option>
                                 <option value="1">Quản trị viên</option>
                                 <option value="2">Nhân viên</option>
