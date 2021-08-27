@@ -16,6 +16,7 @@ var aboutRouter = require('./routes/about');
 var adminRouter = require('./routes/admin');
 var infoRouter = require('./routes/info');
 var loginRouter = require('./routes/login');
+var subscribeRouter = require('./routes/subscribe');
 var app = express();
 
 // view engine setup
@@ -32,7 +33,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 mongoose.connect('mongodb+srv://admin1:0123456789@cluster0.zv3pu.mongodb.net/Cosmetic?retryWrites=true&w=majority',
   {
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
+      useCreateIndex:true
   },
   (err) => {
       if (!err) {
@@ -48,6 +50,7 @@ app.use('/about', aboutRouter);
 app.use('/admin', adminRouter);
 app.use('/info', infoRouter);
 app.use('/login',loginRouter);
+app.use('/subscribe',subscribeRouter);
 
 
 app.use(function(req, res, next) {
