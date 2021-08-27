@@ -15,9 +15,10 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
     <!-- Jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
-        integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
     <title>Admin QPANK</title>
 </head>
 
@@ -96,7 +97,8 @@
                         <tbody>
                             <tr>
                                 <td scope="col" class="edit">1</th>
-                                <td scope="col">Trần Văn A</td>
+                                <td scope="col">
+                                </td>
                                 <td scope="col">admin</td>
                                 <td scope="col" id="pwd">123</td>
                                 <td scope="col">Quản trị viên</td>
@@ -120,23 +122,23 @@
                     </table>
                 </div>
                 <div id="draggable" class="ui-widget-content">
-                    <form id="userForm">
+                    <form id="userForm" method="post" action="/">
                         <legend>Thông tin thành viên</legend>
                         <div class="mb-3">
                             <label for="number">Mã nhân viên</label><br>
-                            <input type="number" id="number">
+                            <input type="number" id="number" name="number">
                         </div>
                         <div class="mb-3">
                             <label for="input">Họ và tên</label><br>
-                            <input type="text" id="inputName">
+                            <input type="text" id="inputName" name="inputName">
                         </div>
                         <div class="mb-3">
                             <label for="input">Tài khoản</label><br>
-                            <input type="text" id="inputAccount">
+                            <input type="text" id="inputAccount" name="inputAccount">
                         </div>
                         <div class="mb-3">
                             <label for="password">Mật khẩu</label><br>
-                            <input type="password" id="password">
+                            <input type="password" id="password" name="password">
                             <input type='checkbox' id='toggle' value='0' onchange='togglePassword(this);'>&nbsp;
                             <span id='toggleText'>Hiện</span>
 
@@ -144,7 +146,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="select">Quyền hạn:</label><br>
-                            <select id="select">
+                            <select id="select" name="select">
                                 <option value="">(Lựa chọn quyền hạn)</option>
                                 <option value="1">Quản trị viên</option>
                                 <option value="2">Nhân viên</option>

@@ -49,17 +49,27 @@ $('#myDiv').on('widthChanged', function () {
   // console.log($('.horizontal-scroll-wrapper').height());
 });
 
+//enter input
+// $('#searchbar').keypress(function (event) {
+//   var keycode = (event.keyCode ? event.keyCode : event.which);
+//   if (keycode == '13') {
+//     alert('You pressed a "enter" key in textbox');
+
+//   }
+// });
+
 //Search script
 $('#searchbar').autocomplete({
-  source: function(req, res){
+  autoFocus: true,
+  source: function (req, res) {
     $.ajax({
-      url:"autocompleteIndex",
+      url: "autocompleteIndex",
       dataType: "json",
       type: "GET",
-      data: req, 
-      success: function(data){
+      data: req,
+      success: function (data) {
         // console.log(data);
-        
+
         res(data);
         // res($.map(data, function(item) {
         //   return {
@@ -68,31 +78,31 @@ $('#searchbar').autocomplete({
         //   };
         // }))
       },
-      err: function(err){
+      err: function (err) {
         console.log(err.status);
       }
     });
   },
   // The minimum number of characters a user must type before a search is performed.
   minLength: 1,
-  focus: function(event, ui) {
+  focus: function (event, ui) {
     this.value = ui.item.label,
-    event.preventDefault();
+      event.preventDefault();
   },
-  select: function(event, ui){
+  select: function (event, ui) {
     //window.location.href = 'Search.aspx?q=' + ui.item.value;;
     window.location.href = 'info/' + ui.item.value;
   }
-  
-}).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-  if (item.picture == null){
+
+}).data("ui-autocomplete")._renderItem = function (ul, item) {
+  if (item.picture == null) {
     var inner_html = '<h4><b>' + item.label + '</b></h4>';
   }
-  else{
+  else {
     var inner_html = '<div class="list_item_container"><div class="imageSearch"><img src="' + item.picture + '" ></div><div class="labelSearch"><h4><b>' + item.label + '</b></h4></div></div>';
   }
-    return $( "<li></li>" )
-          .data( "item.autocomplete", item )
-          .append(inner_html)
-          .appendTo( ul );  
+  return $("<li></li>")
+    .data("item.autocomplete", item)
+    .append(inner_html)
+    .appendTo(ul);
 };
