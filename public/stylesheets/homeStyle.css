@@ -96,7 +96,7 @@ div {
   display: block;
   width: 400px;
   margin: 0;
-  margin-bottom: 50px;
+  margin-bottom: -200px;
   /* background: #abc; */
   overflow-y: auto;
   overflow-x: hidden;
@@ -122,7 +122,7 @@ div {
 }
 
 .squares>div:first-of-type {
-  margin-top: 180px;
+  margin-top: 220px;
 }
 
 .btn-light {
@@ -162,14 +162,14 @@ div {
 
 #preBtn {
   display: none;
-  bottom: 0;
-  right: 0;
+  top: 0;
+  left: 0;
   margin-left: 7em;
 }
 
 #nextBtn {
-  top: 0;
-  left: 0;
+  bottom: 0;
+  right: 0;
   margin-left: 7em;
 }
 
@@ -223,3 +223,92 @@ iframe.width-changed {
   color: black;
   text-align: left;
 }
+
+/* QUOTE */
+      /* carousel */
+      #quote-carousel {
+        padding: 0 10px 30px 10px;
+        margin:  100px 0;
+    }
+
+    /* Control buttons  */
+    #quote-carousel .carousel-control {
+        background: none;
+        color: #222;
+        /* font-size: 2.3em; */
+        text-shadow: none;
+        margin-top: 30px;
+    }
+
+    /* Previous button  */
+    #quote-carousel .carousel-control-prev {
+        left: -12px;
+        color: black;
+    }
+
+    /* Next button  */
+    #quote-carousel .carousel-control-next {
+        right: -12px !important;
+        color: black;
+    }
+
+    #quote-carousel img {
+        width: 250px;
+        height: 100px
+    }
+
+    /* End carousel */
+
+    .carousel-item blockquote {
+        border-left: none;
+        margin: 0;
+    }
+
+    .carousel-item blockquote img {
+        margin-bottom: 10px;
+    }
+
+    .carousel-item blockquote p:before {
+        content: "\f10d";
+        font-family: 'Fontawesome';
+        float: left;
+        margin-right: 10px;
+    }
+
+
+
+    /**
+MEDIA QUERIES
+*/
+
+    /* Small devices (tablets, 768px and up) */
+    @media (min-width: 768px) {
+        #quote-carousel {
+            margin-bottom: 0;
+            padding: 0 40px 30px 40px;
+        }
+
+    }
+
+    /* Small devices (tablets, up to 768px) */
+    @media (max-width: 768px) {
+
+
+
+        #quote-carousel .carousel-indicators {
+            bottom: -20px !important;
+        }
+
+        #quote-carousel .carousel-indicators li {
+            display: inline-block;
+            margin: 0px 5px;
+            width: 15px;
+            height: 15px;
+        }
+
+        #quote-carousel .carousel-indicators li.active {
+            margin: 0px 5px;
+            width: 20px;
+            height: 20px;
+        }
+    }
