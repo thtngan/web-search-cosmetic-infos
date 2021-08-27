@@ -86,17 +86,18 @@ function userDisplay(ctl) {
   editRow = $(ctl).parents("tr");
   var cols = editRow.children("td");
 
+  $("#number").val($(cols[0]).text().split(" ").join(""));
+  // $("#inputName").val($(cols[1]).text().split(" ").join(""));
+  $("#inputName").val($.trim($(cols[1]).text()));
+  $("#inputAccount").val($(cols[2]).text().split(" ").join(""));
+  $("#password").val($(cols[3]).text().split(" ").join(""));
 
-  $("#number").val(parseInt($(cols[0]).text()));
-  $("#inputName").val($(cols[1]).text());
-  $("#inputAccount").val($(cols[2]).text());
-  $("#password").val($(cols[3]).text());
-
-  if ($(cols[4]).text() == "Quản trị viên") {
-    $("#select").val("1");
+  var role = "Quản trị viên";
+  if ($(cols[4]).text().indexOf(role) != -1) {
+    $("#select").val("0");
   }
   else {
-    $("#select").val("2");
+    $("#select").val("1");
   }
 
   // Change Update Button Text
@@ -113,6 +114,7 @@ function userUpdate() {
 
   // Clear form 
   formClear();
+  $("#userForm").hide();
 }
 
 function userUpdateInTable() {
