@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose')
 var product = require('../models/model')
-var user = require('../models/user.model')
+
+const db = require("../models");
+const User = db.user;
 
 /* GET admin page */
 router.get('/', (req, res) => {
@@ -14,12 +16,14 @@ router.get('/products', (req, res) => {
 })
 
 router.get('/users', function (req, res, next) {
-    var productFilter = product.find({});
 
-    user.find({ View: { $eq: 0 } }, (err, products) => {
-        console.log(products);
-        res.render('../views/admin/adUser', { name: products });
+    User.find({}, (err, users) => {
+        // console.log(users);
+        res.render('../views/admin/adUser', {
+            userList: users
+        })
     })
+
 });
 
 module.exports = router;
@@ -35,12 +39,12 @@ const notesSchema = {
 
 const Note = mongoose.model("Note", notesSchema);
 
-router.post('/users', async(req, res) =>{
-   let newNote = await new Note({
-       inputName: req.body.inputName,
-       inputAccount: req.body.inputAccount,
-       password: req.body.password
-   })
-   newNote.save();
-   res.redirect('/users');
+router.post('/users', async (req, res) => {
+    let newNote = await new Note({
+        inputName: req.body.inputName,
+        inputAccount: req.body.inputAccount,
+        password: req.body.password
+    })
+    newNote.save();
+    res.redirect('/users');
 })

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const User = mongoose.model (
+const User = mongoose.model(
 	"User",
 	new mongoose.Schema({
 		userId: String,
@@ -9,9 +9,10 @@ const User = mongoose.model (
 		roles: [
 			{
 				type: mongoose.Schema.Types.ObjectId,
-				ref: "Role"	
+				ref: "Role"
 			}
-		]
+		],
+		role: Number
 	})
 );
 

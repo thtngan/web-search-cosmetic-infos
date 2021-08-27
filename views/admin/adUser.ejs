@@ -6,15 +6,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="../public/stylesheets/admin/styles.css" rel="stylesheet" />
-    <link href="../public/stylesheets/admin/userStyle.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/867a38eeb9.js" crossorigin="anonymous"></script>
+    <link href="../../public/stylesheets/admin/styles.css" rel="stylesheet" />
+    <link href="../../public/stylesheets/admin/userStyle.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
-    <!-- Jquery -->
+
+    <script src="https://kit.fontawesome.com/867a38eeb9.js" crossorigin="anonymous"></script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
@@ -95,29 +94,39 @@
                             </th>
                         </tr>
                         <tbody>
-                            <tr>
-                                <td scope="col" class="edit">1</th>
-                                <td scope="col">
-                                </td>
-                                <td scope="col">admin</td>
-                                <td scope="col" id="pwd">123</td>
-                                <td scope="col">Quản trị viên</td>
-                                <td scope="col" class="edit">
-                                    <a href="#"><i class="fas fa-edit" onclick="userDisplay(this)"></i></a>
-                                    <a href="#"><i class="fas fa-trash-alt" onclick="userDelete(this)"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="col" class="edit">2</th>
-                                <td scope="col">Hoàng Thị B</td>
-                                <td scope="col">user</td>
-                                <td scope="col" id="pwd">123</td>
-                                <td scope="col">Nhân viên</td>
-                                <td scope="col" class="edit">
-                                    <a href="#"><i class="fas fa-edit" onclick="userDisplay(this)"></i></a>
-                                    <a href="#"><i class="fas fa-trash-alt" onclick="userDelete(this)"></i></a>
-                                </td>
-                            </tr>
+                            <% userList.forEach(function(item){ %>
+
+
+                                <tr>
+                                    <td scope="col" class="edit">
+                                        <%=item.userId%>
+                                            </th>
+                                    <td scope="col">
+                                        <%=item.username%>
+                                    </td>
+                                    <td scope="col">
+                                        <%= item.userId %>
+                                    </td>
+                                    <td scope="col" id="pwd">
+                                        <pre><%=item.password%></pre>
+                                    </td>
+                                    <td scope="col">
+                                        <% if(item.role==0){ %>
+                                            Quản trị viên
+                                            <% } else{ %>
+                                                Nhân viên
+                                                <% } %>
+
+
+                                    </td>
+                                    <td scope="col" class="edit">
+                                        <a href="#"><i class="fas fa-edit" onclick="userDisplay(this)"></i></a>
+                                        <a href="#"><i class="fas fa-trash-alt" onclick="userDelete(this)"></i></a>
+                                    </td>
+                                </tr>
+
+
+                                <% }) %>
                         </tbody>
                     </table>
                 </div>
@@ -126,7 +135,7 @@
                         <legend>Thông tin thành viên</legend>
                         <div class="mb-3">
                             <label for="number">Mã nhân viên</label><br>
-                            <input type="number" id="number" name="number">
+                            <input type="text" id="number" name="number">
                         </div>
                         <div class="mb-3">
                             <label for="input">Họ và tên</label><br>
@@ -168,14 +177,9 @@
         </div>
     </div>
 
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script>
         $(function () {
             $("#draggable").draggable();
@@ -189,8 +193,8 @@
             formClear();
         })
     </script>
-    <script src="../public/javascripts/admin/scripts.js"></script>
-    <script src="../public/javascripts/admin/userScript.js"></script>
+    <script src="../../public/javascripts/admin/scripts.js"></script>
+    <script src="../../public/javascripts/admin/userScript.js"></script>
 
 </body>
 
