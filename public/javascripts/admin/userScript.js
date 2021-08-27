@@ -38,16 +38,23 @@ function sortTable(n) {
 }
 
 function searchFunction() {
-  var input, filter, ul, li, a, i, txtValue, table;
+  var input, filter, i, txtValue, table;
   input = document.getElementById("myInput");
-  filter = input.value.toLowerCase();
+  filter = input.value.toUpperCase();
   table = document.getElementById("myTable");
 
   rows = table.rows;
-  for (i = 1; i < (rows.length - 1); i++) {
-    x = rows[i].getElementsByTagName("TD")[n];
-    if (x.innerHTML.toLowerCase().indexOf(filter) > -1) {
 
+  for (i = 1; i < (rows.length); i++) {
+    var rowDisplay = table.rows[i];
+    console.log(rowDisplay);
+    x = rows[i].getElementsByTagName("TD")[1];
+    txtValue = x.textContent || x.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      rowDisplay.style.display = "";
+    }
+    else {
+      rowDisplay.style.display = "none";
     }
   }
 

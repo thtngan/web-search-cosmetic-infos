@@ -45,3 +45,7 @@ form {
 td#pwd{
     -webkit-text-security: disc;
 }
+
+.highlighted{
+    background-color:yellow
+  }
