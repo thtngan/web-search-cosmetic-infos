@@ -109,6 +109,8 @@ function userUpdate() {
     userUpdateInTable();
   }
   else {
+    //POST (add db)
+    ajaxPost();
     userAddToTable();
   }
 
@@ -166,6 +168,7 @@ function userBuildTableRow() {
 
 function userDelete(ctl) {
   $(ctl).parents("tr").remove();
+
 }
 
 function formClear() {
@@ -181,3 +184,29 @@ function formClear() {
 //   var x = $(".edit").html().split(" ").join("");
 //   alert(x);  // now JS variable 'x' has the uid that's passed from the node backend.
 // });
+
+function ajaxPost() {
+
+  //Prepare form data:
+  var formData = {
+    userId: $("#number").val(),
+    username: $("#inputName").val(),
+    password: $("#password").val(),
+    role: $("#select").val()
+
+  }
+  //POST method
+  console.log(formData);
+  $.ajax({
+    type: "POST",
+    contentType: "application/json",
+    url: "/admin/users/save",
+    data: JSON.stringify(formData),
+    success: function (user) {
+      console.log("Cập nhật thành công nhân viên: " + user.username);
+    },
+    error: function (e) {
+      console.log(e);
+    }
+  });
+}

@@ -16,7 +16,6 @@ router.get('/products', (req, res) => {
 })
 
 router.get('/users', function (req, res, next) {
-
     User.find({}, (err, users) => {
         // console.log(users);
         res.render('../views/admin/adUser', {
@@ -25,6 +24,28 @@ router.get('/users', function (req, res, next) {
     })
 
 });
+
+router.post('/users/save', function (req, res) {
+    console.log('Post a User: ' + JSON.stringify(req.body));
+    //Create user
+    const user = new User({
+        userId: req.body.userId,
+        username: req.body.username,
+        password: req.body.password,
+        role: req.body.role
+    });
+    console.log(user);
+
+    //Save to mongoDB
+    user.save()
+        .then(data => {
+            res.send(data);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message
+            });
+        });
+})
 
 module.exports = router;
 //================================================================
