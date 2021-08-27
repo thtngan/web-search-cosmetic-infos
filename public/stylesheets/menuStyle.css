@@ -161,7 +161,7 @@ input[type="checkbox"]:checked+label span {
     border-radius: 2em;
     background-color: #fff;
     padding: 50px 20px 50px 30px;
-    height: auto;
+    height: fit-content;
 }
 /* FOOTER */
 
