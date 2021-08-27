@@ -86,17 +86,18 @@ function userDisplay(ctl) {
   editRow = $(ctl).parents("tr");
   var cols = editRow.children("td");
 
+  $("#number").val($(cols[0]).text().split(" ").join(""));
+  // $("#inputName").val($(cols[1]).text().split(" ").join(""));
+  $("#inputName").val($.trim($(cols[1]).text()));
+  $("#inputAccount").val($(cols[2]).text().split(" ").join(""));
+  $("#password").val($(cols[3]).text().split(" ").join(""));
 
-  $("#number").val(parseInt($(cols[0]).text()));
-  $("#inputName").val($(cols[1]).text());
-  $("#inputAccount").val($(cols[2]).text());
-  $("#password").val($(cols[3]).text());
-
-  if ($(cols[4]).text() == "Quản trị viên") {
-    $("#select").val("1");
+  var role = "Quản trị viên";
+  if ($(cols[4]).text().indexOf(role) != -1) {
+    $("#select").val("0");
   }
   else {
-    $("#select").val("2");
+    $("#select").val("1");
   }
 
   // Change Update Button Text
@@ -108,11 +109,14 @@ function userUpdate() {
     userUpdateInTable();
   }
   else {
+    //POST (add db)
+    ajaxPost();
     userAddToTable();
   }
 
   // Clear form 
   formClear();
+  $("#userForm").hide();
 }
 
 function userUpdateInTable() {
@@ -164,6 +168,7 @@ function userBuildTableRow() {
 
 function userDelete(ctl) {
   $(ctl).parents("tr").remove();
+
 }
 
 function formClear() {
@@ -179,3 +184,29 @@ function formClear() {
 //   var x = $(".edit").html().split(" ").join("");
 //   alert(x);  // now JS variable 'x' has the uid that's passed from the node backend.
 // });
+
+function ajaxPost() {
+
+  //Prepare form data:
+  var formData = {
+    userId: $("#number").val(),
+    username: $("#inputName").val(),
+    password: $("#password").val(),
+    role: $("#select").val()
+
+  }
+  //POST method
+  console.log(formData);
+  $.ajax({
+    type: "POST",
+    contentType: "application/json",
+    url: "/admin/users/save",
+    data: JSON.stringify(formData),
+    success: function (user) {
+      console.log("Cập nhật thành công nhân viên: " + user.username);
+    },
+    error: function (e) {
+      console.log(e);
+    }
+  });
+}
