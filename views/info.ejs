@@ -108,7 +108,7 @@
                                 <i class="fas fa-star active"></i> 5 </span>
                             <span class="bar-block">
                                 <span id="bar-five" class="bar">
-                                    <span id="five">900</span>&nbsp;
+                                    <span id="five"><%= rate.five %></span>&nbsp;
                                 </span>
                             </span>
                         </div>
@@ -118,7 +118,7 @@
                                 <i class="fas fa-star active"></i> 4 </span>
                             <span class="bar-block">
                                 <span id="bar-four" class="bar">
-                                    <span id="four">200</span>&nbsp;
+                                    <span id="four"><%= rate.four %></span>&nbsp;
                                 </span>
                             </span>
                         </div>
@@ -128,7 +128,7 @@
                                 <i class="fas fa-star active"></i> 3 </span>
                             <span class="bar-block">
                                 <span id="bar-three" class="bar">
-                                    <span id="three">150</span>&nbsp;
+                                    <span id="three"><%= rate.three %></span>&nbsp;
                                 </span>
                             </span>
                         </div>
@@ -138,7 +138,7 @@
                                 <i class="fas fa-star active"></i> 2 </span>
                             <span class="bar-block">
                                 <span id="bar-two" class="bar">
-                                    <span id="two">50</span>&nbsp;
+                                    <span id="two"><%= rate.two %></span>&nbsp;
                                 </span>
                             </span>
                         </div>
@@ -148,14 +148,14 @@
                                 <i class="fas fa-star active"></i> 1 </span>
                             <span class="bar-block">
                                 <span id="bar-one" class="bar">
-                                    <span id="one">100</span>&nbsp;
+                                    <span id="one"><%= rate.one %></span>&nbsp;
                                 </span>
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
-            <form class="row g-3 needs-validation rating-form" novalidate>
+            <form class="row g-3 needs-validation rating-form" action="<%= '/info/' + prod[0].Name + '/cmt/' %>" method="POST" novalidate>
                 <fieldset class="form-group">
                     <legend class="form-legend">Đánh giá sản phẩm:</legend>
                     <div class="form-item">
@@ -207,7 +207,7 @@
                 <div class="col-md-6 position-relative">
                     <label for="validationTooltip01" class="form-label">Tên *</label>
                     <input type="text" class="form-control" id="validationTooltip01" placeholder="Họ và tên của bạn"
-                        required>
+                        name="name" required>
                     <div class="invalid-tooltip">
                         Mời bạn điền tên
                     </div>
@@ -223,13 +223,13 @@
                 <div class="col-md-12 position-relative">
                     <label for="validationTooltip04" class="form-label">Nhận xét</label>
                     <textarea class="form-control" rows="3" placeholder="Mô tả chi tiết"
-                        id="validationTooltip04"></textarea>
+                        name="comment" id="validationTooltip04"></textarea>
                 </div>
-                <div class="col-md-12 position-relative">
+                <!-- <div class="col-md-12 position-relative">
                     <label for="img" class="form-label">Chọn ảnh: </label>
                     <input type="file" id="img" name="img" accept="image/*" multiple>
-                </div>
-                <em>* Bắt buộc</em>
+                </div> -->
+                <!-- <em>* Bắt buộc</em> -->
                 <div class="col-12 text-center">
                     <button class="btn btn-primary" type="submit" id="send_request"><i
                             class="fas fa-paper-plane"></i>&nbsp;&nbsp;&nbsp;Gửi yêu cầu</button>
@@ -237,7 +237,7 @@
             </form>
             <br>
             <div class="card">
-                <div class="card-body">
+                <!-- <div class="card-body">
                     <div class="row">
                         <div class="col-md-1">
                             <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid" />
@@ -256,7 +256,31 @@
                             <p>...</p>
                         </div>
                     </div>
+                </div>   -->
+                <% for(var i=0; i < cmt.length; i++) { %>
+                <% console.log(rate) %>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid" />
+                        </div>
+                        <div class="col-md-11">
+                            <p>
+                                <strong><%= cmt[i].Name %></strong>
+                                <span><%= cmt[i].Rating %></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span class="text-secondary float-end"> <%= cmt[i].Date %> <br> <%= cmt[i].Time%></span>
+                            </p>
+                            <div class="clearfix"></div>
+                            <p><%= cmt[i].Details %></p>
+                        </div>
+                    </div>
                 </div>
+                <% } %>
             </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
