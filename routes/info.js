@@ -49,27 +49,45 @@ router.get('/:name',async (req, res) => {
 
 router.post('/:name/cmt', (req, res) =>{
     var prod = req.params.name;
-    console.log(prod)
     console.log(req.params.name.toString())
-    var today = new Date();
-    let date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
-    var time = today.getHours() + ":" + today.getMinutes();
-    var newcmt = new comment({
-        Product: req.params.name,
-        Name: req.body.name,
-        Mail: req.body.email,
-        Rating: parseInt(req.body.rating),
-        Details: req.body.comment,
-        Date: date,
-        Time: time,
-    });
-        console.log(newcmt)
-        newcmt.save(function (err, cmt) {
-            if (err) 
-                return console.error(err);
-            console.log(cmt.Name + " saved to collection.");
-        });
-        res.redirect(`/info/${prod}`);
-    });
+    comment.find({Product: `${prod}`, Mail: req.body.email}, (err, prods) =>{
+        if(prods.length){
+            var today = new Date();
+            let date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
+            var time = today.getHours() + ":" + today.getMinutes();
+            comment.findOneAndUpdate({Mail: req.body.email},{$set:{Name: req.body.name,Rating: parseInt(req.body.rating),
+                Details: req.body.comment,
+                Date: date,
+                Time: time}}, function(err, doc){
+                    if(err){
+                        console.log("Something wrong when updating data!");
+                        res.render('error',{err: err});
+                    }
+                })
+        }
+        else{
+            var today = new Date();
+            let date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
+            var time = today.getHours() + ":" + today.getMinutes();
+            var newcmt = new comment({
+                Product: req.params.name,
+                Name: req.body.name,
+                Mail: req.body.email,
+                Rating: parseInt(req.body.rating),
+                Details: req.body.comment,
+                Date: date,
+                Time: time,
+            });
+            console.log("done")
+            newcmt.save(function(err, doc){
+                if(err){
+                    console.log("Something wrong when create data!");
+                    res.render('error',{err: err})
+                }
+            });
+        }
+    })
+    res.redirect(`/info/${prod}`);
+});
 
 module.exports = router;

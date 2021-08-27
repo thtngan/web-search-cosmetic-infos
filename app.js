@@ -34,7 +34,8 @@ mongoose.connect('mongodb+srv://admin1:0123456789@cluster0.zv3pu.mongodb.net/Cos
   {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex:true
+      useCreateIndex:true,
+      useFindAndModify: false
   },
   (err) => {
       if (!err) {
