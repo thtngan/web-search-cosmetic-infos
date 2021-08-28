@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
 
 router.get('/:name',async (req, res) => {
     var prod = req.params.name;
+    console.log(prod);
     product.find({ Name: prod }, (err, products) => {
-        // console.log(products)
         recommend.find({Type: products[0].Type, Name: { $ne: products[0].Name}},(err, recommends) =>{
             comment.find({Product: prod}, (err, comments) =>{
                 // console.log(comments)
@@ -49,13 +49,12 @@ router.get('/:name',async (req, res) => {
 
 router.post('/:name/cmt', (req, res) =>{
     var prod = req.params.name;
-    console.log(req.params.name.toString())
     comment.find({Product: `${prod}`, Mail: req.body.email}, (err, prods) =>{
-        if(prods.length){
+        if(prods.length !== 0){
             var today = new Date();
             let date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
             var time = today.getHours() + ":" + today.getMinutes();
-            comment.findOneAndUpdate({Mail: req.body.email},{$set:{Name: req.body.name,Rating: parseInt(req.body.rating),
+            comment.updateOne({Product: `${prod}`, Mail: req.body.email},{$set:{Name: req.body.name,Rating: parseInt(req.body.rating),
                 Details: req.body.comment,
                 Date: date,
                 Time: time}}, function(err, doc){
@@ -78,7 +77,6 @@ router.post('/:name/cmt', (req, res) =>{
                 Date: date,
                 Time: time,
             });
-            console.log("done")
             newcmt.save(function(err, doc){
                 if(err){
                     console.log("Something wrong when create data!");
