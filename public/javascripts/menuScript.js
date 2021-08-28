@@ -64,3 +64,24 @@
         }
       }
       });
+
+      $("#subcribeForm").submit(function(e) {
+        e.preventDefault();
+        var fdata = {
+          email: $("#mail").val()
+        };
+        console.log(fdata);
+        $.ajax({
+          type: "POST",
+          contentType: "application/json",
+          url: "/subscribe",
+          data: JSON.stringify(fdata),
+          success: function (result) {
+            alert(result.msg),
+            $('#mail').val('');
+          },
+          error: function (e) {
+            console.log(e.status);
+          }
+        });
+    });

@@ -11,11 +11,13 @@ router.post('/', (req, res) =>{
     newsub.save((err) => {
         if (err) 
         {
-            console.log({ succes: false, message: 'Email already enrolled !' });
+            res.send({"msg":"Email already subscribed !"})
+        }
+        else{
+            res.send({"msg":"Subscribed !"})
         }
         return;
     })
-    res.redirect('back');
 });
 
 module.exports = router;
