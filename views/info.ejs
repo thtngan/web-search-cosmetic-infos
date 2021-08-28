@@ -28,8 +28,8 @@
             <span id="logo">Q</span>
             <h2>QPANK</h2>
             <input type="checkbox" id="action" value=""><label for="action"><span></span></label>
-      <!-- <input type="checkbox" id="action" value="1"/> <label>Bạn có thích blog freetuts.net không?</label> -->
-      <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-caret-left"></i></a> -->
+            <!-- <input type="checkbox" id="action" value="1"/> <label>Bạn có thích blog freetuts.net không?</label> -->
+            <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-caret-left"></i></a> -->
             <a href="/" class="menu"><i class="fas fa-home"></i><span>&nbsp;&nbsp;Trang chủ</span></a>
             <a href="/search" class="menu"><i class="fas fa-search"></i><span>&nbsp;&nbsp;Tìm kiếm</span></a>
             <a href="/about" class="menu"><i class="fas fa-info-circle"></i><span>&nbsp;&nbsp;Về chúng tôi</span></a>
@@ -41,19 +41,27 @@
                     <div class="img-zoom-container">
                         <img id="myimage" src="<%= prod[0].Photos[0].Url1 %>" alt="..." class="img-fluid">
                         <div id="myresult" class="img-zoom-result"></div>
-                      </div>
-                    
+                    </div>
+
                 </div>
                 <div class="col-md-8 col-sm-12 product-info">
-                    <h2><%= prod[0].Name %></h2>
-                    <p><strong>Nhãn hiệu: </strong> <%= prod[0].Brand %></p>
-                    <p><strong>Loại sản phầm: </strong> <%= prod[0].Type %></p>
+                    <h2>
+                        <%= prod[0].Name %>
+                    </h2>
+                    <p><strong>Nhãn hiệu: </strong>
+                        <%= prod[0].Brand %>
+                    </p>
+                    <p><strong>Loại sản phầm: </strong>
+                        <%= prod[0].Type %>
+                    </p>
                     <div>
                         <p><strong>Dung tích:</strong></p>
                         <span class="volume">
-                            <% prod[0].Volume.split(",").forEach(element => { %>
-                                <div> <%= element %></div>
-                            <% }); %>
+                            <% prod[0].Volume.split(",").forEach(element=> { %>
+                                <div>
+                                    <%= element %>
+                                </div>
+                                <% }); %>
                         </span>
                     </div>
                 </div>
@@ -79,304 +87,311 @@
             <div class="row">
                 <div class="col-lg-8 col-md-12">
                     <h4 id="scrollspyHeading1"><br><br>Mô tả</h4>
-            <p>
-                <%= prod[0].Description %>
-            </p>
-            <h4 id="scrollspyHeading2"><br>Thành phần</h4>
-            <ul>
-                <% prod[0].Ingredients.split(",").forEach(element => { %>
-                    <li> <%= element %></li>
-                <% }); %>
-            </ul>
-            <h4 id="scrollspyHeading3"><br><br>Đánh giá & Nhận xét</h4>
-            <div class="statistic">
-                <div class="inner">
-                    <div class="rating">
-                        <span class="rating-num"></span>
-                        <div class="rating-stars">
-                            <span><i class="fas fa-star" id="star-1"></i></span>
-                            <span><i class="fas fa-star" id="star-2"></i></span>
-                            <span><i class="fas fa-star" id="star-3"></i></span>
-                            <span><i class="fas fa-star" id="star-4"></i></span>
-                            <span><i class="fas fa-star" id="star-5"></i></span>
-                        </div>
-                        <div class="rating-users">
-                            <i class="fas fa-user"></i> Tổng: <span id="total"></span>
+                    <p>
+                        <%= prod[0].Description %>
+                    </p>
+                    <h4 id="scrollspyHeading2"><br>Thành phần</h4>
+                    <ul>
+                        <% prod[0].Ingredients.split(",").forEach(element=> { %>
+                            <li>
+                                <%= element %>
+                            </li>
+                            <% }); %>
+                    </ul>
+                    <h4 id="scrollspyHeading3"><br><br>Đánh giá & Nhận xét</h4>
+                    <div class="statistic">
+                        <div class="inner">
+                            <div class="rating">
+                                <span class="rating-num"></span>
+                                <div class="rating-stars">
+                                    <span><i class="fas fa-star" id="star-1"></i></span>
+                                    <span><i class="fas fa-star" id="star-2"></i></span>
+                                    <span><i class="fas fa-star" id="star-3"></i></span>
+                                    <span><i class="fas fa-star" id="star-4"></i></span>
+                                    <span><i class="fas fa-star" id="star-5"></i></span>
+                                </div>
+                                <div class="rating-users">
+                                    <i class="fas fa-user"></i> Tổng: <span id="total"></span>
+                                </div>
+                            </div>
+
+                            <div class="histo">
+                                <div class="five histo-rate">
+                                    <span class="histo-star">
+                                        <i class="fas fa-star active"></i> 5 </span>
+                                    <span class="bar-block">
+                                        <span id="bar-five" class="bar">
+                                            <span id="five">
+                                                <%= rate.five %>
+                                            </span>&nbsp;
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <div class="four histo-rate">
+                                    <span class="histo-star">
+                                        <i class="fas fa-star active"></i> 4 </span>
+                                    <span class="bar-block">
+                                        <span id="bar-four" class="bar">
+                                            <span id="four">
+                                                <%= rate.four %>
+                                            </span>&nbsp;
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <div class="three histo-rate">
+                                    <span class="histo-star">
+                                        <i class="fas fa-star active"></i> 3 </span>
+                                    <span class="bar-block">
+                                        <span id="bar-three" class="bar">
+                                            <span id="three">
+                                                <%= rate.three %>
+                                            </span>&nbsp;
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <div class="two histo-rate">
+                                    <span class="histo-star">
+                                        <i class="fas fa-star active"></i> 2 </span>
+                                    <span class="bar-block">
+                                        <span id="bar-two" class="bar">
+                                            <span id="two">
+                                                <%= rate.two %>
+                                            </span>&nbsp;
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <div class="one histo-rate">
+                                    <span class="histo-star">
+                                        <i class="fas fa-star active"></i> 1 </span>
+                                    <span class="bar-block">
+                                        <span id="bar-one" class="bar">
+                                            <span id="one">
+                                                <%= rate.one %>
+                                            </span>&nbsp;
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <form class="row g-3 needs-validation rating-form" action="<%= '/info/' + prod[0].Name + '/cmt/' %>"
+                        method="POST" novalidate>
+                        <fieldset class="form-group">
+                            <legend class="form-legend">Đánh giá sản phẩm:</legend>
+                            <div class="form-item">
+                                <input id="rating-5" name="rating" type="radio" value="5" />
+                                <label for="rating-5" data-value="5">
+                                    <span class="rating-star">
+                                        <i class="far fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                    <span class="ir">5</span>
+                                </label>
+                                <input id="rating-4" name="rating" type="radio" value="4" />
+                                <label for="rating-4" data-value="4">
+                                    <span class="rating-star">
+                                        <i class="far fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                    <span class="ir">4</span>
+                                </label>
+                                <input id="rating-3" name="rating" type="radio" value="3" />
+                                <label for="rating-3" data-value="3">
+                                    <span class="rating-star">
+                                        <i class="far fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                    <span class="ir">3</span>
+                                </label>
+                                <input id="rating-2" name="rating" type="radio" value="2" />
+                                <label for="rating-2" data-value="2">
+                                    <span class="rating-star">
+                                        <i class="far fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                    <span class="ir">2</span>
+                                </label>
+                                <input id="rating-1" name="rating" type="radio" value="1" />
+                                <label for="rating-1" data-value="1">
+                                    <span class="rating-star">
+                                        <i class="far fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                    <span class="ir">1</span>
+                                </label>
 
-                    <div class="histo">
-                        <div class="five histo-rate">
-                            <span class="histo-star">
-                                <i class="fas fa-star active"></i> 5 </span>
-                            <span class="bar-block">
-                                <span id="bar-five" class="bar">
-                                    <span id="five"><%= rate.five %></span>&nbsp;
-                                </span>
-                            </span>
+                                <div class="form-action">
+                                    <input class="btn-reset" type="reset" value="Reset" />
+                                </div>
+                        </fieldset>
+                        <div class="col-md-6 position-relative">
+                            <label for="validationTooltip01" class="form-label">Tên *</label>
+                            <input type="text" class="form-control" id="validationTooltip01"
+                                placeholder="Họ và tên của bạn" name="name" required>
+                            <div class="invalid-tooltip">
+                                Mời bạn điền tên
+                            </div>
                         </div>
+                        <div class="col-md-6 position-relative">
+                            <label for="validationTooltip02" class="form-label">Email *</label>
+                            <input type="text" name="email" class="form-control" id="validationTooltip02"
+                                placeholder="name@example.com" required>
+                            <div class="invalid-tooltip">
+                                Mời bạn nhập email
+                            </div>
+                        </div>
+                        <div class="col-md-12 position-relative">
+                            <label for="validationTooltip04" class="form-label">Nhận xét</label>
+                            <textarea class="form-control" rows="3" placeholder="Mô tả chi tiết" name="comment"
+                                id="validationTooltip04"></textarea>
+                        </div>
+                        <!-- <div class="col-md-12 position-relative">
+                            <label for="img" class="form-label">Chọn ảnh: </label>
+                            <input type="file" id="img" name="img" accept="image/*" multiple>
+                        </div> -->
+                        <em>* Bắt buộc</em>
+                        <div class="col-12 text-center">
+                            <button class="btn btn-primary" type="submit" id="send_request"><i
+                                    class="fas fa-paper-plane"></i>&nbsp;&nbsp;&nbsp;Gửi yêu cầu</button>
+                        </div>
+                    </form>
+                    <br>
 
-                        <div class="four histo-rate">
-                            <span class="histo-star">
-                                <i class="fas fa-star active"></i> 4 </span>
-                            <span class="bar-block">
-                                <span id="bar-four" class="bar">
-                                    <span id="four"><%= rate.four %></span>&nbsp;
-                                </span>
-                            </span>
-                        </div>
+                    <% for(var i=0; i < cmt.length; i++) { %>
+                        <% console.log(rate) %>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <img src="https://image.ibb.co/jw55Ex/def_face.jpg"
+                                                class="img img-rounded img-fluid" />
+                                        </div>
+                                        <div class="col-md-11">
+                                            <p>
+                                                <strong>
+                                                    <%= cmt[i].Name %>
+                                                </strong>
+                                                <% for(var j = 0; j < cmt[i].Rating; j++) { %>
+                                                    <span><i class="fas fa-star text-warning" ></i></span>
+                                                <% } %>    
+                                                <% for(var j = 0; j < 5-cmt[i].Rating; j++) { %>
+                                                    <span><i class="fas fa-star inactive" ></i></span>
+                                                <% } %>
+                                                <span class="text-secondary float-end">
+                                                    <%= cmt[i].Date %> <br>
+                                                        <%= cmt[i].Time%>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <%= cmt[i].Details %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <div class="three histo-rate">
-                            <span class="histo-star">
-                                <i class="fas fa-star active"></i> 3 </span>
-                            <span class="bar-block">
-                                <span id="bar-three" class="bar">
-                                    <span id="three"><%= rate.three %></span>&nbsp;
-                                </span>
-                            </span>
-                        </div>
-
-                        <div class="two histo-rate">
-                            <span class="histo-star">
-                                <i class="fas fa-star active"></i> 2 </span>
-                            <span class="bar-block">
-                                <span id="bar-two" class="bar">
-                                    <span id="two"><%= rate.two %></span>&nbsp;
-                                </span>
-                            </span>
-                        </div>
-
-                        <div class="one histo-rate">
-                            <span class="histo-star">
-                                <i class="fas fa-star active"></i> 1 </span>
-                            <span class="bar-block">
-                                <span id="bar-one" class="bar">
-                                    <span id="one"><%= rate.one %></span>&nbsp;
-                                </span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <form class="row g-3 needs-validation rating-form" action="<%= '/info/' + prod[0].Name + '/cmt/' %>" method="POST" novalidate>
-                <fieldset class="form-group">
-                    <legend class="form-legend">Đánh giá sản phẩm:</legend>
-                    <div class="form-item">
-                        <input id="rating-5" name="rating" type="radio" value="5" />
-                        <label for="rating-5" data-value="5">
-                            <span class="rating-star">
-                                <i class="far fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </span>
-                            <span class="ir">5</span>
-                        </label>
-                        <input id="rating-4" name="rating" type="radio" value="4" />
-                        <label for="rating-4" data-value="4">
-                            <span class="rating-star">
-                                <i class="far fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </span>
-                            <span class="ir">4</span>
-                        </label>
-                        <input id="rating-3" name="rating" type="radio" value="3" />
-                        <label for="rating-3" data-value="3">
-                            <span class="rating-star">
-                                <i class="far fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </span>
-                            <span class="ir">3</span>
-                        </label>
-                        <input id="rating-2" name="rating" type="radio" value="2" />
-                        <label for="rating-2" data-value="2">
-                            <span class="rating-star">
-                                <i class="far fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </span>
-                            <span class="ir">2</span>
-                        </label>
-                        <input id="rating-1" name="rating" type="radio" value="1" />
-                        <label for="rating-1" data-value="1">
-                            <span class="rating-star">
-                                <i class="far fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </span>
-                            <span class="ir">1</span>
-                        </label>
-
-                        <div class="form-action">
-                            <input class="btn-reset" type="reset" value="Reset" />
-                        </div>
-                </fieldset>
-                <div class="col-md-6 position-relative">
-                    <label for="validationTooltip01" class="form-label">Tên *</label>
-                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Họ và tên của bạn"
-                        name="name" required>
-                    <div class="invalid-tooltip">
-                        Mời bạn điền tên
-                    </div>
-                </div>
-                <div class="col-md-6 position-relative">
-                    <label for="validationTooltip02" class="form-label">Email *</label>
-                    <input type="text" name="email" class="form-control" id="validationTooltip02"
-                        placeholder="name@example.com" required>
-                    <div class="invalid-tooltip">
-                        Mời bạn nhập email
-                    </div>
-                </div>
-                <div class="col-md-12 position-relative">
-                    <label for="validationTooltip04" class="form-label">Nhận xét</label>
-                    <textarea class="form-control" rows="3" placeholder="Mô tả chi tiết"
-                        name="comment" id="validationTooltip04"></textarea>
-                </div>
-                <!-- <div class="col-md-12 position-relative">
-                    <label for="img" class="form-label">Chọn ảnh: </label>
-                    <input type="file" id="img" name="img" accept="image/*" multiple>
-                </div> -->
-                <!-- <em>* Bắt buộc</em> -->
-                <div class="col-12 text-center">
-                    <button class="btn btn-primary" type="submit" id="send_request"><i
-                            class="fas fa-paper-plane"></i>&nbsp;&nbsp;&nbsp;Gửi yêu cầu</button>
-                </div>
-            </form>
-            <br>
-            <div class="card">
-                <!-- <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
-                        </div>
-                        <div class="col-md-11">
-                            <p>
-                                <strong>Myrtille Kim</strong>
-                                <span><i class="fas fa-star text-warning"></i></span>
-                                <span><i class="fas fa-star text-warning"></i></span>
-                                <span><i class="fas fa-star text-warning"></i></span>
-                                <span><i class="fas fa-star text-warning"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span class="text-secondary float-end">15 phút trước</span>
-                            </p>
-                            <p>...</p>
-                        </div>
-                    </div>
-                </div>   -->
-                <% for(var i=0; i < cmt.length; i++) { %>
-                <% console.log(rate) %>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid" />
-                        </div>
-                        <div class="col-md-11">
-                            <p>
-                                <strong><%= cmt[i].Name %></strong>
-                                <span><%= cmt[i].Rating %></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span class="text-secondary float-end"> <%= cmt[i].Date %> <br> <%= cmt[i].Time%></span>
-                            </p>
-                            <div class="clearfix"></div>
-                            <p><%= cmt[i].Details %></p>
-                        </div>
-                    </div>
-                </div>
-                <% } %>
-            </div>
+                            </div>
+                            <% } %>
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div id="place">
                         <h4 id="scrollspyHeading4"><br><br>Địa điểm mua khuyến nghị</h4>
-                          <a href="<%= prod[0].Web[0].Url1 %>">
+                        <a href="<%= prod[0].Web[0].Url1 %>">
                             <img src="<%= prod[0].Web[0].Url2 %>" class="recommend">
-                          </a>
-                          <div></div>
-                          <a href="<%= prod[0].Web[1].Url1 %>">
+                        </a>
+                        <div></div>
+                        <a href="<%= prod[0].Web[1].Url1 %>">
                             <img src="<%= prod[0].Web[1].Url2 %>" class="recommend">
-                          </a>
-                          <div></div>
-                          <a href="<%= prod[0].Web[2].Url1 %>">
+                        </a>
+                        <div></div>
+                        <a href="<%= prod[0].Web[2].Url1 %>">
                             <img src="<%= prod[0].Web[2].Url2 %>" class="recommend">
-                          </a>
-                    </div>      
+                        </a>
+                    </div>
                 </div>
             </div>
-            
             <div class="d-flex p-2" id="myDiv"></div>
-            <div class="head">
-                <h1>Gợi ý dành riêng cho bạn</h1>
-            </div>
-            <div class="horizontal-scroll-wrapper squares" id="list">
-                <button type="button" class="btn btn-light" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
-                <% for(var i=0; i < recomm.length; i++) { %>
-                    <div class="card">
-                      <a href="<%= '/info/' + recomm[i].Name %>">
-                        <img src="<%= recomm[i].Photos[0].Url1 %>" class="card-img-top" alt="product images">
-                        <div class="overlay"><%= recomm[i].Name %></div>
-                      </a>
-                    </div>
-                 <% } %>
-                <button type="button" class="btn btn-light" id="preBtn"><i class="fas fa-chevron-left"></i></button>
+            <div class="wrap-scroll-list">
+                <div class="head">
+                    <h1>Gợi ý dành riêng cho bạn</h1>
+                </div>
+                <div class="horizontal-scroll-wrapper squares" id="list">
+                    <button type="button" class="btn btn-light" id="preBtn"><i class="fas fa-chevron-left"></i></button>
+
+                    <% for(var i=0; i < recomm.length; i++) { %>
+                        <div class="card">
+                            <a href="<%= '/info/' + recomm[i].Name %>">
+                                <img src="<%= recomm[i].Photos[0].Url1 %>" class="card-img-top" alt="product images">
+                                <div class="overlay">
+                                    <%= recomm[i].Name %>
+                                </div>
+                            </a>
+                        </div>
+                        <% } %>
+                            <button type="button" class="btn btn-light" id="nextBtn"><i
+                                    class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
         </div>
         <footer>
             <div class="navigation text-center">
-              <a href="/">Trang chủ</a> <i class="fas fa-circle"></i>
-              <a href="/search">Tìm kiếm</a> <i class="fas fa-circle"></i>
-              <a href="/about">Về chúng tôi</a>
+                <a href="/">Trang chủ</a> <i class="fas fa-circle"></i>
+                <a href="/search">Tìm kiếm</a> <i class="fas fa-circle"></i>
+                <a href="/about">Về chúng tôi</a>
             </div>
             <div class="rounded-social">
-              <a href="https://www.facebook.com/qpankcosmetic/" class="fa fa-facebook media" id="fb"></a>
-              <a href="https://www.instagram.com/qpankcosmetic/" class="fa fa-instagram media" id="ins"></a>
-              <a href="https://www.pinterest.com/qpankcosmetic/_created/" class="fa fa-pinterest media" id="pin"></a>
-          </div>
+                <a href="https://www.facebook.com/qpankcosmetic/" class="fa fa-facebook media" id="fb"></a>
+                <a href="https://www.instagram.com/qpankcosmetic/" class="fa fa-instagram media" id="ins"></a>
+                <a href="https://www.pinterest.com/qpankcosmetic/_created/" class="fa fa-pinterest media" id="pin"></a>
+            </div>
             <p class="text-center">Designed with <i class="far fa-heart"></i> by QPANK</p>
             <p class="rights">&copy;QPANK All Rights Reserved.</p>
             <hr>
-      
+
             <div class="row">
-              <div class="col-md-6 col-sm-4">
-                <table class="table table-borderless">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th>
-                        <h5>LIÊN HỆ</h5>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><i class="fas fa-envelope"></i></td>
-                      <td>QPANK@gmail.com</td>
-                    </tr>
-                    <tr>
-                      <td><i class="fas fa-phone-alt"></i></td>
-                      <td>(84)13 456 789</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="col-md-6 col-sm-8 text-center">
-                <h5>ĐĂNG KÝ</h5>
-                <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control subcribe" name="email" placeholder="Email" aria-label="Email"
-                    aria-describedby="button-addon2">
-                  <button type="button" class="btn btn-outline-secondary" id="button-addon2"><i
-                      class="fas fa-paper-plane"></i></button>
+                <div class="col-md-6 col-sm-4">
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <h5>LIÊN HỆ</h5>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i class="fas fa-envelope"></i></td>
+                                <td>QPANK@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-phone-alt"></i></td>
+                                <td>(84)13 456 789</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-              </div>
+                <div class="col-md-6 col-sm-8 text-center">
+                    <h5>ĐĂNG KÝ</h5>
+                    <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
+                    <form class="input-group mb-3" action="/subscribe" method="POST">
+                        <input type="text" class="form-control subcribe" name="email" placeholder="Email"
+                            aria-label="Email" aria-describedby="button-addon2">
+                        <button type="submit" class="btn btn-outline-secondary" id="button-addon2"><i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
             </div>
-          </footer>
+        </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>
     <script src="../public/javascripts/menuScript.js"></script>
-    <script src="../public/javascripts/homeScript.js"></script>
     <script src="../public/javascripts/infoScript.js"></script>
 </body>
 

@@ -41,19 +41,19 @@
 
     <div id="main">
       <button class="openbtn" onclick="openNav()">&#9776;</button>
-      <div class="col input-group input-group-sm mb-3">
-        <input type="text" class="form-control" id="searchbar" placeholder="Search" aria-label="Search"
-          aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"
-            id="searchicon"></i></i></button>
+
+      <div class="searchbox">
+        <input type="text" id="searchbar" placeholder="Tìm kiếm..." />
+        <button class="submit fas fa-search"></button>
+        <div class="line"></div>
       </div>
       <strong id="numberResult"></strong>
 
       <div id="result" class="hiddenSearch">
         <br>
-        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+        <!-- <div class="btn-group" role="group" aria-label="Basic radio toggle button group"> -->
 
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio0" value="btnradio0" autocomplete="off"
+        <!-- <input type="radio" class="btn-check" name="btnradio" id="btnradio0" value="btnradio0" autocomplete="off"
             checked>
           <label class="btn btn-outline-primary" for="btnradio0">Mọi loại da</label>
 
@@ -67,7 +67,25 @@
           <label class="btn btn-outline-primary" for="btnradio3">Da mụn</label>
 
           <input type="radio" class="btn-check" name="btnradio" id="btnradio4" value="btnradio4" autocomplete="off">
-          <label class="btn btn-outline-primary" for="btnradio4">Da nhạy cảm</label>
+          <label class="btn btn-outline-primary" for="btnradio4">Da nhạy cảm</label> -->
+        <div class="filter">
+          <input type="radio" id="btnradio0" class="btn-check" name="btnradio" value="btnradio0" checked>
+          <label for="btnradio0">Mọi loại da</label>
+
+
+          <input type="radio" id="btnradio1" class="btn-check" name="btnradio" value="btnradio1">
+          <label for="btnradio1">Da dầu</label>
+
+
+          <input type="radio" id="btnradio2" class="btn-check" name="btnradio" value="btnradio2">
+          <label for="btnradio2">Da khô</label>
+
+
+          <input type="radio" id="btnradio3" class="btn-check" name="btnradio" value="btnradio3">
+          <label for="btnradio3">Da mụn</label>
+
+          <input type="radio" id="btnradio4" class="btn-check" name="btnradio" value="btnradio4">
+          <label for="btnradio4">Da nhạy cảm</label>
         </div>
       </div>
 
@@ -119,12 +137,12 @@
         <div class="col-md-6 col-sm-8 text-center">
           <h5>ĐĂNG KÝ</h5>
           <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
-          <div class="input-group mb-3">
+          <form class="input-group mb-3" action="/subscribe" method="POST">
             <input type="text" class="form-control subcribe" name="email" placeholder="Email" aria-label="Email"
               aria-describedby="button-addon2">
-            <button type="button" class="btn btn-outline-secondary" id="button-addon2"><i
+            <button type="submit" class="btn btn-outline-secondary" id="button-addon2"><i
                 class="fas fa-paper-plane"></i></button>
-          </div>
+          </form>
         </div>
       </div>
     </footer>

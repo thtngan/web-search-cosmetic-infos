@@ -1,19 +1,31 @@
-var listmenu = document.getElementById('list');
-listmenu.onscroll = function () { scrollFunction() };
-function scrollFunction() {
-  console.log(listmenu.scrollTop);
-  if (listmenu.scrollTop > 10) {
-    document.getElementById('preBtn').style.display = "block";
+function scrollFunction(list, preBtn) {
+  // console.log(list.scrollTop);
+  if (list.scrollTop > 10) {
+    // console.log("true")
+    document.getElementById(preBtn).style.display = "block";
   } else {
-    document.getElementById('preBtn').style.display = "none";
-  }
+    document.getElementById(preBtn).style.display = "none";
+  } 
 }
+var listmenu = document.getElementById('list');
+listmenu.onscroll = function () { scrollFunction(listmenu, "preBtn") };
+
 document.getElementById('preBtn').addEventListener("click", function () {
   listmenu.scrollTop -= 100;
 });
 document.getElementById('nextBtn').addEventListener("click", function () {
   listmenu.scrollTop += 100;
 });
+
+var list_distributeur = document.getElementById('list_distributeur');
+list_distributeur.onscroll = function () { scrollFunction(list_distributeur,'preBtn_distributeur') };
+document.getElementById('preBtn_distributeur').addEventListener("click", function () {
+  list_distributeur.scrollTop -= 100;
+});
+document.getElementById('nextBtn_distributeur').addEventListener("click", function () {
+  list_distributeur.scrollTop += 100;
+});
+
 $.event.special.widthChanged = {
   remove: function () {
     $(this).children('iframe.width-changed').remove();
@@ -43,9 +55,15 @@ $.event.special.widthChanged = {
 }
 
 $('.horizontal-scroll-wrapper').css({ "maxHeight": $('#myDiv').width() });
+$('.horizontal-scroll-wrapper-1').css({ "maxHeight": $('#myDiv').width() });
 $('#myDiv').on('widthChanged', function () {
   // console.log($(this).width());
   $('.horizontal-scroll-wrapper').css({ "maxHeight": $(this).width() });
+  // console.log($('.horizontal-scroll-wrapper').height());
+});
+$('#myDiv').on('widthChanged', function () {
+  // console.log($(this).width());
+  $('.horizontal-scroll-wrapper-1').css({ "maxHeight": $(this).width() });
   // console.log($('.horizontal-scroll-wrapper').height());
 });
 

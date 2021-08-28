@@ -1,8 +1,4 @@
-$('#myDiv').on('widthChanged', function () {
-  // console.log($(this).width());
-  $('.horizontal-scroll-wrapper').css({ "maxHeight": $(this).width() });
-  // console.log($('.horizontal-scroll-wrapper').height());
-});
+
 
 //Auto fill input search
 var parameter = location.search.split("=");

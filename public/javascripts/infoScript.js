@@ -30,9 +30,9 @@ $(document).ready(function () {
   }, 1000);
 
 });
-for(var i = 0; i < Math.round(avg); i++){
+for (var i = 0; i < Math.round(avg); i++) {
   console.log(i);
-  $('#star-' + (i+1)).addClass('active');
+  $('#star-' + (i + 1)).addClass('active');
 }
 (function () {
   'use strict';
@@ -151,13 +151,39 @@ $('.img-zoom-result').css({ "width": $('#imgProduct').width(), 'height': $('#img
 $('.img-zoom-result').css({ 'left': $('#imgProduct').width() + '10px' });
 $('#imgProduct').on('widthChanged', function () {
   // console.log($(window).width())
-  if ($(window).width() <= 768){
-    $('.img-zoom-result').css({ "width": '0', "height": '0'});
+  if ($(window).width() <= 768) {
+    $('.img-zoom-result').css({ "width": '0', "height": '0' });
   }
-   
+
   else {
     $('.img-zoom-result').css({ "width": $(this).width(), "height": $(this).width() });
     $('.img-zoom-result').css({ 'left': $(this).width() + '10px' });
   }
 });
 imageZoom("myimage", "myresult");
+
+function scrollFunction(list, preBtn) {
+  // console.log(list.scrollTop);
+  if (list.scrollTop > 10) {
+    // console.log("true")
+    document.getElementById(preBtn).style.display = "block";
+  } else {
+    document.getElementById(preBtn).style.display = "none";
+  }
+}
+var listmenu = document.getElementById('list');
+listmenu.onscroll = function () { scrollFunction(listmenu, "preBtn") };
+
+document.getElementById('preBtn').addEventListener("click", function () {
+  listmenu.scrollTop -= 100;
+});
+document.getElementById('nextBtn').addEventListener("click", function () {
+  listmenu.scrollTop += 100;
+});
+$('.horizontal-scroll-wrapper').css({ "maxHeight": $('#myDiv').width() });
+
+$('#myDiv').on('widthChanged', function () {
+  // console.log($(this).width());
+  $('.horizontal-scroll-wrapper').css({ "maxHeight": $(this).width() });
+  // console.log($('.horizontal-scroll-wrapper').height());
+});
