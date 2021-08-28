@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Uploading</title>
+</head>
+ 
+<body>
+    <h1>To Upload Image on mongoDB</h1>
+    <hr>
+    <div>
+        <form action="/test" method="post" enctype="multipart/form-data">
+            <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Name"
+                       value="" name="name" required>
+            </div>
+            <div>
+                <label for="desc">Skin</label>
+                <textarea id="desc" name="skin" value="" rows="2"
+                          placeholder="Description" required>
+                </textarea>
+            </div>
+            <div>
+                <label for="desc">Volume</label>
+                <textarea id="desc" name="volume" value="" rows="2"
+                          placeholder="Description" required>
+                </textarea>
+            </div>
+            <div>
+                <label for="desc">contra</label>
+                <textarea id="desc" name="contra" value="" rows="2"
+                          placeholder="Description" required>
+                </textarea>
+            </div>
+            <div>
+                <label for="desc">ingre</label>
+                <textarea id="desc" name="ingre" value="" rows="2"
+                          placeholder="Description" required>
+                </textarea>
+            </div>
+            <div>
+                <label for="desc">desc</label>
+                <textarea id="desc" name="desc" value="" rows="2"
+                          placeholder="Description" required>
+                </textarea>
+            </div>
+            <div>
+                <label for="desc">type</label>
+                <textarea id="desc" name="type" value="" rows="2"
+                          placeholder="Description" required>
+                </textarea>
+            </div>
+            <div>
+                <label for="desc">brand</label>
+                <textarea id="desc" name="brand" value="" rows="2"
+                          placeholder="Description" required>
+                </textarea>
+            </div>
+            <div>
+                <label for="image">Upload Image</label>
+                <input type="file" id="image"
+                       name="image" value="" required>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+ 
+    <hr>
+ 
+    <h1>Uploaded Images</h1>
+    <div>
+        <% items.forEach(function(image) { %>
+        <div>
+            <div>
+                <img src="data:image/<%=image.img.contentType%>;base64,
+                     <%=image.img.data.toString('base64')%>">
+                <div>
+                    <h5><%= image.name %></h5>
+                     
+ 
+ 
+<p><%= image.desc %></p>
+ 
+ 
+ 
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</body>
+ 
+</html>

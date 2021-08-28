@@ -6,7 +6,6 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 const ejs = require('ejs');
 
-
 const checkDuplicateUsername = require("./middlewares/verifySignUp");
 const controller = require("./middlewares/auth.controller");
 
@@ -17,6 +16,7 @@ var adminRouter = require('./routes/admin');
 var infoRouter = require('./routes/info');
 var loginRouter = require('./routes/login');
 var subscribeRouter = require('./routes/subscribe');
+var testRouter = require('./routes/test');
 var app = express();
 
 // view engine setup
@@ -52,6 +52,7 @@ app.use('/admin', adminRouter);
 app.use('/info', infoRouter);
 app.use('/login',loginRouter);
 app.use('/subscribe',subscribeRouter);
+app.use('/test',testRouter);
 
 
 app.use(function(req, res, next) {
