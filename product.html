@@ -95,7 +95,7 @@
                                 <button type="button" class="btn btn-primary" id="formButton">Thêm</button>
                             </th>
                         </tr>
-                        <tbody>
+                        <tbody id="myTbody">
                             <tr>
                                 <td scope="col">Sữa Rửa Mặt Cetaphil Dịu Nhẹ Không Xà Phòng 500ml</td>
                                 <td scope="col">Cetaphil</td>
@@ -130,24 +130,24 @@
                         <legend>Thông tin sản phẩm</legend>
                         <div class="mb-3">
                             <label for="input">Tên sản phẩm</label><br>
-                            <input type="text" id="inputName">
+                            <input type="text" id="inputName" name="inputName">
                         </div>
                         <div class="mb-3">
                             <label for="input">Hãng</label><br>
-                            <input type="text" id="inputBrand">
+                            <input type="text" id="inputBrand" name="inputBrand">
                         </div>
                         <div class="mb-3">
                             <label for="select">Danh mục</label><br>
-                            <select id="select">
-                                <option value="">(Lựa chọn danh mục)</option>
+                            <select id="select" name="list">
+                                <option value="(Lựa chọn danh mục)" value="">(Lựa chọn danh mục)</option>
                                 <optgroup label="Làm sạch">
-                                    <option value="srm">Sữa rửa mặt</option>
-                                    <option value="ntt">Nước tẩy trang</option>
-                                    <option value="dtt">Dầu tẩy trang</option>
+                                    <option value="Sữa rửa mặt" value="srm">Sữa rửa mặt</option>
+                                    <option value="Nước tẩy trang" value="ntt">Nước tẩy trang</option>
+                                    <option value="Dầu tẩy trang" value="dtt">Dầu tẩy trang</option>
                                 </optgroup>
                                 <optgroup label="Toner/Lotion">
-                                    <option value="toner">Nước hoa hồng</option>
-                                    <option value="lotion">Sữa dưỡng</option>
+                                    <option value="Nước hoa hồng" value="toner">Nước hoa hồng</option>
+                                    <option value="Sữa dưỡng" value="lotion">Sữa dưỡng</option>
                                 </optgroup>
                             </select>
                         </div>
@@ -189,7 +189,7 @@
     </script>
     <script src="js/scripts.js"></script>
     <script src="js/productScript.js"></script>
-
+    <script type="text/javascript" src="/product.js"></script>
 </body>
 
 </html>
