@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 
 router.get('/products', (req, res) => {
     res.render('../views/admin/adProduct')
-})
+});
 
 router.get('/users', function (req, res, next) {
     User.find({}, (err, users) => {
@@ -34,7 +34,7 @@ router.post('/users/save', function (req, res) {
         password: req.body.password,
         role: req.body.role
     });
-    console.log(user);
+    // console.log(user);
 
     //Save to mongoDB
     user.save()
@@ -45,6 +45,21 @@ router.post('/users/save', function (req, res) {
                 message: err.message
             });
         });
+});
+
+router.post('/users/delete/:id', function (req, res) {
+    console.log('Delete a User: ' + JSON.stringify(req.body));
+
+    //Delete from mongoDB
+    User.findByIdAndRemove(req.params.id, function (err, docs) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("Delete successfully: ", docs);
+        }
+    });
+
 })
 
 module.exports = router;

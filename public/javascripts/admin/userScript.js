@@ -110,8 +110,10 @@ function userUpdate() {
   }
   else {
     //POST (add db)
+    var name = $("#inputName").val();
     ajaxPost();
-    userAddToTable();
+    alert("Đã thêm thành công: " + name);
+    // userAddToTable();
   }
 
   // Clear form 
@@ -159,15 +161,18 @@ function userBuildTableRow() {
     $('#select option:selected').text() + "</td>" +
     '<td scope="col" class="edit">' +
     '<i class="fas fa-edit" onclick="userDisplay(this)" style="cursor:pointer>"</i>' + " " +
-    '<i class="fas fa-trash-alt" onclick="userDelete(this)" style="cursor:pointer"></i>' +
+    '<i class="fas fa-trash-alt" onclick="userDelete(this,' + "'<%= item._id %>'" + ')" style="cursor:pointer"></i>' +
     "</td>"
   "</tr>"
 
   return ret;
 }
 
-function userDelete(ctl) {
-  $(ctl).parents("tr").remove();
+function userDelete(obj, id) {
+  //DELETE (add db)
+  ajaxDel(obj, id);
+  alert("Xóa thành công");
+  $(obj).parents("tr").remove();
 
 }
 
@@ -186,7 +191,6 @@ function formClear() {
 // });
 
 function ajaxPost() {
-
   //Prepare form data:
   var formData = {
     userId: $("#number").val(),
@@ -203,10 +207,31 @@ function ajaxPost() {
     url: "/admin/users/save",
     data: JSON.stringify(formData),
     success: function (user) {
+      location.reload();
       console.log("Cập nhật thành công nhân viên: " + user.username);
     },
     error: function (e) {
-      console.log(e);
+      console.log(e.status);
+    }
+  });
+}
+
+function ajaxDel(obj, id) {
+  var formData = {
+    userid: id
+  }
+  console.log(obj);
+  $.ajax({
+    type: "POST",
+    contentType: "application/json",
+    url: "/admin/users/delete/" + id,
+    data: JSON.stringify(formData),
+    dataType: "json",
+    success: function () {
+      // location.reload();
+    },
+    error: function (e) {
+      console.log(e.status);
     }
   });
 }
