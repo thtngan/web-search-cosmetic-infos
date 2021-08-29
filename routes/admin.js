@@ -1,10 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose')
-var product = require('../models/model')
+
+// Model database
+const product = require('../models/model')
 
 const db = require("../models");
 const User = db.user;
+
+const Comment = require('../models/comment');
 
 /* GET admin page */
 router.get('/', (req, res) => {
@@ -15,6 +19,16 @@ router.get('/products', (req, res) => {
     res.render('../views/admin/adProduct')
 });
 
+router.get('/comments', (req, res) => {
+    // res.render('../views/admin/adComment')
+    Comment.find({}, (err, cmts) => {
+        res.render('../views/admin/adComment', {
+            commentList: cmts
+        })
+    })
+});
+
+/* User page */
 router.get('/users', function (req, res, next) {
     User.find({}, (err, users) => {
         // console.log(users);
