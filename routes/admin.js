@@ -26,7 +26,7 @@ router.get('/users', function (req, res, next) {
 });
 
 router.post('/users/save', function (req, res) {
-    console.log('Post a User: ' + JSON.stringify(req.body));
+    console.log('Save a User: ' + JSON.stringify(req.body));
     //Create user
     const user = new User({
         userId: req.body.userId,
@@ -62,25 +62,22 @@ router.post('/users/delete/:id', function (req, res) {
 
 })
 
-module.exports = router;
-//================================================================
+router.put('/users/update', function (req, res) {
+    console.log('Update a User: ' + JSON.stringify(req.body));
 
+    //Create user
+    const newUser = { $set: { username: req.body.username, password: req.body.password, role: req.body.role } };
 
-
-const notesSchema = {
-    inputName: String,
-    inputAccount: String,
-    password: String
-}
-
-const Note = mongoose.model("Note", notesSchema);
-
-router.post('/users', async (req, res) => {
-    let newNote = await new Note({
-        inputName: req.body.inputName,
-        inputAccount: req.body.inputAccount,
-        password: req.body.password
-    })
-    newNote.save();
-    res.redirect('/users');
+    //Update to mongoDB
+    User.updateOne({ userId: req.body.userId }, newUser, (err, docs) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("Update successfully: ", docs);
+        }
+    }
+    );
 })
+
+module.exports = router;

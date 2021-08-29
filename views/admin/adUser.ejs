@@ -118,7 +118,8 @@
 
                                     </td>
                                     <td scope="col" class="edit">
-                                        <a href="#"><i class="fas fa-edit" onclick="userDisplay(this)"></i></a>
+                                        <a href="#"><i class="fas fa-edit"
+                                                onclick="userDisplay(this, '<%= item._id %>')"></i></a>
                                         <a href="#"><i class="fas fa-trash-alt"
                                                 onclick="userDelete(this, '<%= item._id %>')"></i></a>
                                     </td>
@@ -189,6 +190,7 @@
         $("#exitButton").click(function () {
             $("#userForm").hide();
             $("#updateButton").text("Lưu");
+            $("#number").prop('disabled', false);
             formClear();
         })
     </script>
