@@ -107,6 +107,7 @@ function userDisplay(ctl) {
 }
 
 function userUpdate() {
+  if ($('#userForm').is(':invalid') != 0) return
   if ($("#updateButton").text() == "Cập nhật") {
     userUpdateInTable();
   }

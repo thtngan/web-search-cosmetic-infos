@@ -131,23 +131,23 @@
                     </table>
                 </div>
                 <div id="draggable" class="ui-widget-content">
-                    <form id="userForm" method="post" action="/">
-                        <legend>Thông tin thành viên</legend>
+                    <form id="userForm" action="#" onsubmit="return false;">
+                        <legend class="title-info">Thông tin thành viên</legend>
                         <div class="mb-3">
                             <label for="number">Mã nhân viên</label><br>
-                            <input type="text" id="number" name="number">
+                            <input class="frmInput" required type="text" id="number" name="number">
                         </div>
                         <div class="mb-3">
                             <label for="input">Họ và tên</label><br>
-                            <input type="text" id="inputName" name="inputName">
+                            <input class="frmInput" required type="text" id="inputName" name="inputName">
                         </div>
                         <div class="mb-3">
                             <label for="input">Tài khoản</label><br>
-                            <input type="text" id="inputAccount" name="inputAccount">
+                            <input class="frmInput" required type="text" id="inputAccount" name="inputAccount">
                         </div>
                         <div class="mb-3">
                             <label for="password">Mật khẩu</label><br>
-                            <input type="password" id="password" name="password">
+                            <input class="frmInput" required type="password" id="password" name="password">
                             <input type='checkbox' id='toggle' value='0' onchange='togglePassword(this);'>&nbsp;
                             <span id='toggleText'>Hiện</span>
 
@@ -155,16 +155,17 @@
                         </div>
                         <div class="mb-3">
                             <label for="select">Quyền hạn:</label><br>
-                            <select id="select" name="select">
+                            <select class="frmInput" required="required"  id="select" name="select">
                                 <option value="">(Lựa chọn quyền hạn)</option>
                                 <option value="0">Quản trị viên</option>
                                 <option value="1">Nhân viên</option>
                             </select>
                         </div>
-                        <button type="button" class="btn btn-success" id="updateButton"
-                            onclick="userUpdate()">Lưu</button>
-                        <button type="button" class="btn btn-danger" id="exitButton">Thoát</button>
-
+                        <div class="sub">
+                            <button type="submit" class="btn btn-success" id="updateButton"
+                                onclick="userUpdate()">Lưu</button>
+                            <button type="submit" class="btn btn-danger" id="exitButton">Thoát</button>
+                        </div>
 
                     </form>
                 </div>
