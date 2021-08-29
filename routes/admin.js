@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 
 router.get('/products', (req, res) => {
     res.render('../views/admin/adProduct')
-})
+});
 
 router.get('/users', function (req, res, next) {
     User.find({}, (err, users) => {
@@ -26,7 +26,7 @@ router.get('/users', function (req, res, next) {
 });
 
 router.post('/users/save', function (req, res) {
-    console.log('Post a User: ' + JSON.stringify(req.body));
+    console.log('Save a User: ' + JSON.stringify(req.body));
     //Create user
     const user = new User({
         userId: req.body.userId,
@@ -34,7 +34,7 @@ router.post('/users/save', function (req, res) {
         password: req.body.password,
         role: req.body.role
     });
-    console.log(user);
+    // console.log(user);
 
     //Save to mongoDB
     user.save()
@@ -45,27 +45,39 @@ router.post('/users/save', function (req, res) {
                 message: err.message
             });
         });
+});
+
+router.post('/users/delete/:id', function (req, res) {
+    console.log('Delete a User: ' + JSON.stringify(req.body));
+
+    //Delete from mongoDB
+    User.findByIdAndRemove(req.params.id, function (err, docs) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("Delete successfully: ", docs);
+        }
+    });
+
+})
+
+router.put('/users/update', function (req, res) {
+    console.log('Update a User: ' + JSON.stringify(req.body));
+
+    //Create user
+    const newUser = { $set: { username: req.body.username, password: req.body.password, role: req.body.role } };
+
+    //Update to mongoDB
+    User.updateOne({ userId: req.body.userId }, newUser, (err, docs) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("Update successfully: ", docs);
+        }
+    }
+    );
 })
 
 module.exports = router;
-//================================================================
-
-
-
-const notesSchema = {
-    inputName: String,
-    inputAccount: String,
-    password: String
-}
-
-const Note = mongoose.model("Note", notesSchema);
-
-router.post('/users', async (req, res) => {
-    let newNote = await new Note({
-        inputName: req.body.inputName,
-        inputAccount: req.body.inputAccount,
-        password: req.body.password
-    })
-    newNote.save();
-    res.redirect('/users');
-})

@@ -102,16 +102,21 @@ function userDisplay(ctl) {
 
   // Change Update Button Text
   $("#updateButton").text("Cập nhật");
+  //Change input style
+  $("#number").prop('disabled', true);
 }
 
 function userUpdate() {
+  if ($('#userForm').is(':invalid') != 0) return
   if ($("#updateButton").text() == "Cập nhật") {
     userUpdateInTable();
   }
   else {
     //POST (add db)
+    var name = $("#inputName").val();
     ajaxPost();
-    userAddToTable();
+    alert("Đã thêm thành công: " + name);
+    // userAddToTable();
   }
 
   // Clear form 
@@ -121,6 +126,8 @@ function userUpdate() {
 
 function userUpdateInTable() {
   // Add changed user to table
+  ajaxPut();
+  alert("Cập nhật thành công");
   $(editRow).after(userBuildTableRow());
 
   // Remove original product
@@ -131,6 +138,7 @@ function userUpdateInTable() {
 
   // Change Update Button Text
   $("#updateButton").text("Lưu");
+  $("#number").prop('disabled', false);
 }
 
 function userAddToTable() {
@@ -158,16 +166,19 @@ function userBuildTableRow() {
     '<td scope="col">' +
     $('#select option:selected').text() + "</td>" +
     '<td scope="col" class="edit">' +
-    '<i class="fas fa-edit" onclick="userDisplay(this)" style="cursor:pointer>"</i>' + " " +
-    '<i class="fas fa-trash-alt" onclick="userDelete(this)" style="cursor:pointer"></i>' +
+    '<i class="fas fa-edit" onclick="userDisplay(this)" style="cursor:pointer"></i>' + " " +
+    '<i class="fas fa-trash-alt" onclick="userDelete(this,' + "'<%= item._id %>'" + ')" style="cursor:pointer"></i>' +
     "</td>"
   "</tr>"
 
   return ret;
 }
 
-function userDelete(ctl) {
-  $(ctl).parents("tr").remove();
+function userDelete(obj, id) {
+  //DELETE (add db)
+  ajaxDel(obj, id);
+  alert("Xóa thành công");
+  $(obj).parents("tr").remove();
 
 }
 
@@ -186,7 +197,6 @@ function formClear() {
 // });
 
 function ajaxPost() {
-
   //Prepare form data:
   var formData = {
     userId: $("#number").val(),
@@ -203,10 +213,57 @@ function ajaxPost() {
     url: "/admin/users/save",
     data: JSON.stringify(formData),
     success: function (user) {
-      console.log("Cập nhật thành công nhân viên: " + user.username);
+      location.reload();
+      console.log("Lưu thành công nhân viên: " + user.username);
     },
     error: function (e) {
-      console.log(e);
+      console.log(e.status);
+    }
+  });
+}
+
+function ajaxDel(obj, id) {
+  var formData = {
+    userid: id
+  }
+  console.log(obj);
+  $.ajax({
+    type: "POST",
+    contentType: "application/json",
+    url: "/admin/users/delete/" + id,
+    data: JSON.stringify(formData),
+    dataType: "json",
+    success: function () {
+      // location.reload();
+    },
+    error: function (e) {
+      console.log(e.status);
+    }
+  });
+}
+
+function ajaxPut() {
+  //Prepare form data:
+  var formData = {
+    userId: $("#number").val(),
+    username: $("#inputName").val(),
+    password: $("#password").val(),
+    role: $("#select").val()
+
+  }
+  console.log(formData);
+  $.ajax({
+    type: "PUT",
+    contentType: "application/json",
+    url: "/admin/users/update/",
+    data: JSON.stringify(formData),
+    dataType: "json",
+    success: function () {
+      // location.reload();
+      // alert(result.msg);
+    },
+    error: function (e) {
+      console.log(e.status);
     }
   });
 }
