@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose')
 var product = require('../models/model')
-
+const { authUser } = require('../middlewares/basicAuth')
 const db = require("../models");
 const User = db.user;
 
