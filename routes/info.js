@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose')
-var product = require('../models/model')
-var recommend = require('../models/model')
+var item = require('../models/db')
+var recommend = require('../models/db')
 var comment = require('../models/comment')
 // var add = require('../models/comment')
 /* GET home page */
@@ -13,11 +13,9 @@ router.get('/', (req, res) => {
 
 router.get('/:name',async (req, res) => {
     var prod = req.params.name;
-    console.log(prod);
-    product.find({ Name: prod }, (err, products) => {
+    item.find({ Name: prod }, (err, products) => {
         recommend.find({Type: products[0].Type, Name: { $ne: products[0].Name}},(err, recommends) =>{
             comment.find({Product: prod}, (err, comments) =>{
-                // console.log(comments)
                 let a = 0;
                 let b = 0;
                 let c = 0;

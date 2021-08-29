@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-md-4 col-sm-12" id="imgProduct">
                     <div class="img-zoom-container">
-                        <img id="myimage" src="<%= prod[0].Photos[0].Url1 %>" alt="..." class="img-fluid">
+                        <img id="myimage" src="data:image/<%=prod[0].Img.contentType%>;base64, <%=prod[0].Img.data.toString('base64')%>" alt="..." class="img-fluid">
                         <div id="myresult" class="img-zoom-result"></div>
                     </div>
 
@@ -263,7 +263,6 @@
                     <br>
 
                     <% for(var i=0; i < cmt.length; i++) { %>
-                        <% console.log(rate) %>
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">
@@ -298,25 +297,10 @@
                             <% } %>
                 </div>
                 <div class="col-lg-4 col-md-12 gap-3 text-center place_recomm">
-                    <!-- <div id="place">
-                        <h4 id="scrollspyHeading4"><br><br>Địa điểm mua khuyến nghị</h4>
-                        <a href="<%= prod[0].Web[0].Url1 %>">
-                            <img src="<%= prod[0].Web[0].Url2 %>" class="recommend">
-                        </a>
-                        <div></div>
-                        <a href="<%= prod[0].Web[1].Url1 %>">
-                            <img src="<%= prod[0].Web[1].Url2 %>" class="recommend">
-                        </a>
-                        <div></div>
-                        <a href="<%= prod[0].Web[2].Url1 %>">
-                            <img src="<%= prod[0].Web[2].Url2 %>" class="recommend">
-                        </a>
-                    </div> -->
                     <h4 id="scrollspyHeading4"><br><br>Địa điểm mua khuyến nghị</h4>
-                  
-                        <a href="#" class="btn btn-one"> <span>HASAKI</span></a>
-                        <a href="#" class="btn btn-one"><span>GUARDIAN</span></a>
-                        <a href="#" class="btn btn-one"><span>COCOLUX</span></a>
+                        <a href="<%=prod[0].Web1.url%>" class="btn btn-one"> <span><%=prod[0].Web1.name%></span></a>
+                        <a href="<%=prod[0].Web2.url%>" class="btn btn-one"><span><%=prod[0].Web2.name%></span></a>
+                        <a href="<%=prod[0].Web3.url%>" class="btn btn-one"><span><%=prod[0].Web3.name%></span></a>
                    
                 </div>
             </div>
@@ -331,7 +315,7 @@
                     <% for(var i=0; i < recomm.length; i++) { %>
                         <div class="card">
                             <a href="<%= '/info/' + recomm[i].Name %>">
-                                <img src="<%= recomm[i].Photos[0].Url1 %>" class="card-img-top" alt="product images">
+                                <img src="data:image/<%=recomm[i].Img.contentType%>;base64, <%=recomm[i].Img.data.toString('base64')%>" class="card-img-top" alt="product images">
                                 <div class="overlay">
                                     <%= recomm[i].Name %>
                                 </div>

@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose')
-var product = require('../models/model')
+var item = require('../models/db')
 
 /* GET home page */
 router.get('/', (req, res) => {
-    product.find({ View: { $eq: 0 } }, (err, products) => {
+    item.find({}, (err, products) => {
+        console.log(products)
         res.render('index', {
             productList : products
         })

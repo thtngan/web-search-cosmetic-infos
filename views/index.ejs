@@ -108,11 +108,12 @@
         </div>
         <div class="horizontal-scroll-wrapper squares" id="list">
           <button type="button" class="btn btn-light" id="preBtn"><i class="fas fa-chevron-left"></i></button>
-
+          <!-- <img src="<%= productList[0].Img.contentType%>;base64,
+                <%=productList[0].Img.data.toString('base64')%>"> -->
           <% for(var i=0; i < productList.length; i++) { %>
             <div class="card">
               <a href="<%= '/info/' + productList[i].Name %>">
-                <img src="<%= productList[i].Photos[0].Url1 %>" class="card-img-top" alt="product images">
+                <img src="data:image/<%=productList[i].Img.contentType%>;base64, <%=productList[i].Img.data.toString('base64')%>" class="card-img-top" alt="product images">
                 <div class="overlay">
                   <%= productList[i].Name %>
                 </div>
