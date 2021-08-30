@@ -121,7 +121,7 @@ $('#searchbar').autocomplete({
   }
   else {
     var buffer = item.pictureData.toString('base64')
-    var inner_html = '<div class="list_item_container"><div class="imageSearch"><img src="data:image/png;base64,'+buffer+'" alt="product images"></div><div class="labelSearch"><h4><b>' + item.label + '</b></h4></div></div>';
+    var inner_html = '<div class="list_item_container"><div class="imageSearch"><img src="data:image/png;base64,' + buffer + '" alt="product images"></div><div class="labelSearch"><h4><b>' + item.label + '</b></h4></div></div>';
   }
   return $("<li></li>")
     .data("item.autocomplete", item)

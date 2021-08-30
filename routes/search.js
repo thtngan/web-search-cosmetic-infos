@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose')
 var product = require('../models/model')
+var item = require('../models/db')
+
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -11,7 +13,7 @@ router.get('/', function (req, res, next) {
 router.get('/autocompleteSearch/', function (req, res, next) {
     var regex = new RegExp(req.query["term"], 'i');
 
-    var productFilter = product.find({ Name: regex });
+    var productFilter = item.find({ Name: regex });
     productFilter.exec(function (err, data) {
         //console.log(data);
         var result = [];
@@ -22,7 +24,8 @@ router.get('/autocompleteSearch/', function (req, res, next) {
                     let obj = {
                         id: prod._id,
                         label: prod.Name,
-                        picture: prod.Photos[0].Url1,
+                        pictureData: prod.Img.data.toString('base64'),
+                        pictureType: prod.Img.contentType,
                         skin: prod.Skin
                     };
                     result.push(obj);

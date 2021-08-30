@@ -35,14 +35,16 @@ $('#searchbar').autocomplete({
   minLength: 0
 
 }).data("ui-autocomplete")._renderItem = function (ul, item) {
-  if (item.picture == null) {
+  if (item.pictureType == null) {
     var inner_html = '<h4><b>' + item.label + '</b></h4>';
 
   }
   else {
+    var buffer = item.pictureData.toString('base64')
+
     var inner_html = '<div class="list_item_container"><a class="linkSearch" href="/info/'
-      + item.label + '"><div class="imageSearch"><img src="'
-      + item.picture + '" ></div><div class="skinSearch">'
+      + item.label + '"><div class="imageSearch"><img src="data:image/png;base64,'
+      + buffer + '" alt="product images"></div><div class="skinSearch">'
       + item.skin + '</div><div class="labelSearch"><h4><b>'
       + item.label + '</b></h4></div></a></div>';
   }
