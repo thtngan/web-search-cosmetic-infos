@@ -113,16 +113,16 @@ $('#searchbar').autocomplete({
   }
 
 }).data("ui-autocomplete")._renderItem = function (ul, item) {
-  console.log(item);
+  // console.log(item);
   var inner_html = '<div class="list_item_container"><div class="imageSearch"><img src=\"data:image/"' + item.pictureType + ";base64," + "xxxx" + ' alt="product images"></div><div class="labelSearch"><h4><b>' + item.label + '</b></h4></div></div>';
-  console.log(inner_html);
-  if (item.pictureType == null) {
-    var inner_html = '<h4><b>' + item.label + '</b></h4>';
-  }
-  else {
-    var buffer = item.pictureData.toString('base64')
-    var inner_html = '<div class="list_item_container"><div class="imageSearch"><img src="data:image/png;base64,' + buffer + '" alt="product images"></div><div class="labelSearch"><h4><b>' + item.label + '</b></h4></div></div>';
-  }
+  // console.log(inner_html);
+  // if (item.pictureType == null) {
+  var inner_html = '<h4><b>' + item.label + '</b></h4>';
+  // }
+  // else {
+  //   var buffer = item.pictureData.toString('base64')
+  //   var inner_html = '<div class="list_item_container"><div class="imageSearch"><img src="data:image/png;base64,' + buffer + '" alt="product images"></div><div class="labelSearch"><h4><b>' + item.label + '</b></h4></div></div>';
+  // }
   return $("<li></li>")
     .data("item.autocomplete", item)
     .append(inner_html)
