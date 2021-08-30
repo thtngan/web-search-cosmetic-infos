@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose')
 var item = require('../models/db')
+var recom = require('../models/db')
 var recommend = require('../models/db')
 var comment = require('../models/comment')
 // var add = require('../models/comment')
@@ -47,8 +48,11 @@ router.get('/:name',async (req, res) => {
 
 router.post('/:name/cmt', (req, res) =>{
     var prod = req.params.name;
-    comment.find({Product: `${prod}`, Mail: req.body.email}, (err, prods) =>{
-        if(prods.length !== 0){
+    console.log(req.body.email)
+    console.log(req.params.name)
+    comment.find({Product: req.params.name, Mail: req.body.email}, (err, prods) =>{
+        console.log(prods.length)
+        if(prods.length){
             var today = new Date();
             let date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
             var time = today.getHours() + ":" + today.getMinutes();
@@ -59,6 +63,9 @@ router.post('/:name/cmt', (req, res) =>{
                     if(err){
                         console.log("Something wrong when updating data!");
                         res.render('error',{err: err});
+                    }
+                    else{
+                        console.log("done1")
                     }
                 })
         }
@@ -80,8 +87,20 @@ router.post('/:name/cmt', (req, res) =>{
                     console.log("Something wrong when create data!");
                     res.render('error',{err: err})
                 }
+                else{
+                    console.log("done2")
+                }
             });
         }
+        let a = parseInt(req.body.totalscore) + parseInt(req.body.rating);
+        let b = parseInt(req.body.totalcmt) + 1;
+        let c = (a /b);
+        console.log(c);
+        recom.updateOne({Name: `${prod}`},{$set:{Rating: `${c}`}},function(err, doc){
+            if(err){
+                console.log("Something wrong when updating data!");
+            }
+        });
     })
     res.redirect(`/info/${prod}`);
 });
