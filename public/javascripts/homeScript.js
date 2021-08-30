@@ -5,7 +5,7 @@ function scrollFunction(list, preBtn) {
     document.getElementById(preBtn).style.display = "block";
   } else {
     document.getElementById(preBtn).style.display = "none";
-  } 
+  }
 }
 var listmenu = document.getElementById('list');
 listmenu.onscroll = function () { scrollFunction(listmenu, "preBtn") };
@@ -18,7 +18,7 @@ document.getElementById('nextBtn').addEventListener("click", function () {
 });
 
 var list_distributeur = document.getElementById('list_distributeur');
-list_distributeur.onscroll = function () { scrollFunction(list_distributeur,'preBtn_distributeur') };
+list_distributeur.onscroll = function () { scrollFunction(list_distributeur, 'preBtn_distributeur') };
 document.getElementById('preBtn_distributeur').addEventListener("click", function () {
   list_distributeur.scrollTop -= 100;
 });
@@ -78,7 +78,7 @@ $('#myDiv').on('widthChanged', function () {
 
 //Search script
 $('#searchbar').autocomplete({
-  autoFocus: true,
+  // autoFocus: true,
   source: function (req, res) {
     $.ajax({
       url: "autocompleteIndex",
@@ -113,14 +113,17 @@ $('#searchbar').autocomplete({
   }
 
 }).data("ui-autocomplete")._renderItem = function (ul, item) {
-  if (item.picture == null) {
+  var inner_html = '<div class="list_item_container"><div class="imageSearch"><img src=\"data:image/"' + item.pictureType + ";base64," + "xxxx" + ' alt="product images"></div><div class="labelSearch"><h4><b>' + item.label + '</b></h4></div></div>';
+  console.log(inner_html);
+  if (item.pictureType == null) {
     var inner_html = '<h4><b>' + item.label + '</b></h4>';
   }
   else {
-    var inner_html = '<div class="list_item_container"><div class="imageSearch"><img src="' + item.picture + '" ></div><div class="labelSearch"><h4><b>' + item.label + '</b></h4></div></div>';
+    var inner_html = '<div class="list_item_container"><div class="imageSearch"><img src="data:image/"' + item.pictureType + ";base64," + item.pictureData + '" alt="product images"></div><div class="labelSearch"><h4><b>' + item.label + '</b></h4></div></div>';
   }
   return $("<li></li>")
     .data("item.autocomplete", item)
     .append(inner_html)
     .appendTo(ul);
 };
+

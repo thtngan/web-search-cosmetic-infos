@@ -37,3 +37,100 @@ function sortTable(n) {
     }
 }
 
+function searchFunction() {
+    var input, filter, i, txtValue, table;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+
+    rows = table.rows;
+
+    for (i = 1; i < (rows.length); i++) {
+        var rowDisplay = table.rows[i];
+        console.log(rowDisplay);
+        x = rows[i].getElementsByTagName("TD")[0];
+        txtValue = x.textContent || x.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            rowDisplay.style.display = "";
+        }
+        else {
+            rowDisplay.style.display = "none";
+        }
+    }
+
+}
+
+//Show infomation
+$("#buttonDetail").click(function (e) {
+    // e.preventDefault();
+
+    var currentRow = $(this).closest("tr");
+
+    var Product_value = $.trim(currentRow.find("td:eq(0)").text());
+    var Name_value = $.trim(currentRow.find("td:eq(1)").text());
+    var Mail_value = $.trim(currentRow.find("td:eq(5)").text());
+    var Rating_value = $.trim(currentRow.find("td:eq(3)").text());
+    var Detail_value = $.trim(currentRow.find("td:eq(2)").text());
+    var Date_value = $.trim(currentRow.find("td:eq(6)").text());
+    var Time_value = $.trim(currentRow.find("td:eq(7)").text());
+    var Id_value = $.trim(currentRow.find("td:eq(8)").text());
+
+    // Set up modal-body
+    $('.modal-body').empty(); // clear the body of any old content
+    var ul = document.createElement('ul');
+    var li = document.createElement('li');
+    li.innerHTML = "<b>Tên sản phẩm: </b>" + Product_value;
+    ul.appendChild(li);
+    var li = document.createElement('li');
+    li.innerHTML = "<b>Tên người dùng: </b>" + Name_value;
+    ul.appendChild(li);
+    var li = document.createElement('li');
+    li.innerHTML = "<b>Email: </b>" + Mail_value;
+    ul.appendChild(li);
+    var li = document.createElement('li');
+    li.innerHTML = "<b>Xếp hạng: </b>" + Rating_value;
+    ul.appendChild(li);
+    var li = document.createElement('li');
+    li.innerHTML = "<b>Bình luận: </b>" + Detail_value;
+    ul.appendChild(li);
+    var li = document.createElement('li');
+    li.innerHTML = "<b>Ngày giờ tạo: </b>" + Date_value + " - " + Time_value;
+    var li = document.createElement('li');
+
+    li.innerHTML = '<div class="hideIdData" >' + Id_value + '</div>';
+
+    ul.appendChild(li);
+    $('.modal-body').append(ul);
+
+    //Show
+    $("#modal").modal('show');
+
+    // myModal.show()
+})
+
+$("#btnDelete").click((e) => {
+    // e.preventDefault();
+    const id = $('.hideIdData').text();
+    var formData = {
+        userid: id
+    }
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/admin/comments/delete/" + id,
+        data: JSON.stringify(formData),
+        dataType: "json",
+        success: function () {
+            location.reload();
+
+        },
+        error: function (e) {
+            console.log(e.status);
+        }
+    });
+
+    alert("Xóa thành công");
+    location.reload();
+
+});

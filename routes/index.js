@@ -8,34 +8,35 @@ router.get('/', (req, res) => {
     item.find({}, (err, products) => {
         console.log(products)
         res.render('index', {
-            productList : products
+            productList: products
         })
     })
 });
 
-router.get('/autocompleteIndex/', function(req, res, next) {
+router.get('/autocompleteIndex/', function (req, res, next) {
     var regex = new RegExp(req.query["term"], 'i');
-    
-    var productFilter = product.find({Name:regex}).limit(5);
-    productFilter.exec(function(err, data){
+
+    var productFilter = item.find({ Name: regex }).limit(5);
+    productFilter.exec(function (err, data) {
         //console.log(data);
-        var result =[];
-        if (!err){
-            if (data && data.length && data.length >0){
-               data.forEach(prod =>{
-                   //console.log(prod);
+        var result = [];
+        if (!err) {
+            if (data && data.length && data.length > 0) {
+                data.forEach(prod => {
+                    console.log(prod);
                     let obj = {
                         id: prod._id,
                         label: prod.Name,
-                        picture: prod.Photos[0].Url1
+                        pictureData: prod.Img.data.toString('base64'),
+                        pictureType: prod.Img.contentType
                     };
                     result.push(obj);
-               });
+                });
             }
-            else{
+            else {
                 let obj = {
                     label: 'Không tìm thấy sản phẩm',
-                    picture: null
+                    pictureType: null
                 }
                 result.push(obj);
             }

@@ -25,6 +25,9 @@
 td.edit {
     text-align: center !important;
 }
+td.hideData {
+    display: none;
+}
 
 i.fas.fa-edit {
     size: 30px;
@@ -76,5 +79,10 @@ a.buttonDetail:hover{
     color: #6f0c30;
 }
 
+li {
+    list-style-type: none;
+}
 
-
+div.hideIdData {
+    display: none;
+}

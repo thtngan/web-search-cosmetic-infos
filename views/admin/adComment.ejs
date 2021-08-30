@@ -94,7 +94,9 @@
                         aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/admin">Trang chủ</a></li>
-                            <li class="breadcrumb-item active">Thông tin thành viên</li>
+                            <li class="breadcrumb-item active">Quản lý người dùng</li>
+                            <li class="breadcrumb-item">Thông tin phản hồi</li>
+
                         </ol>
                     </nav>
                     <input type="text" id="myInput" onkeyup="searchFunction()"
@@ -126,7 +128,24 @@
                                             <%=item.Rating%>
                                         </td>
                                         <td scope="col" class="edit">
-                                            <a href="#" class="buttonDetail">Chi tiết</a>
+
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal" id="buttonDetail" data-backdrop="static"
+                                                data-keyboard="false">
+                                                Chi tiết
+                                            </button>
+                                        </td>
+                                        <td scope="col" class="hideData">
+                                            <%=item.Mail%>
+                                        </td>
+                                        <td scope="col" class="hideData">
+                                            <%=item.Date%>
+                                        </td>
+                                        <td scope="col" class="hideData">
+                                            <%=item.Time%>
+                                        </td>
+                                        <td scope="col" class="hideData">
+                                            <%=item._id%>
                                         </td>
                                     </tr>
 
@@ -136,45 +155,17 @@
                     </div>
 
                 </div>
-                <div id="draggable" class="ui-widget-content">
-                    <form id="userForm" action="#" onsubmit="return false;">
-                        <legend class="title-info">Thông tin thành viên</legend>
-                        <div class="mb-3">
-                            <label for="number">Mã nhân viên</label><br>
-                            <input class="frmInput" required type="text" id="number" name="number">
-                        </div>
-                        <div class="mb-3">
-                            <label for="input">Họ và tên</label><br>
-                            <input class="frmInput" required type="text" id="inputName" name="inputName">
-                        </div>
-                        <div class="mb-3">
-                            <label for="input">Tài khoản</label><br>
-                            <input class="frmInput" required type="text" id="inputAccount" name="inputAccount">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password">Mật khẩu</label><br>
-                            <input class="frmInput" required type="password" id="password" name="password">
-                            <input type='checkbox' id='toggle' value='0' onchange='togglePassword(this);'>&nbsp;
-                            <span id='toggleText'>Hiện</span>
+
+                <!-- <div id="draggable" class="ui-widget-content">
+                    <div id="detailProduct">Tên: </div>
+                    <div id="detailName"></div>
+                    <div id="detailMail"></div>
+                    <div id="detailRating"></div>
+                    <div id="detailDetails"></div>
+                    <div id="detailDate"></div>
+                </div> -->
 
 
-                        </div>
-                        <div class="mb-3">
-                            <label for="select">Quyền hạn:</label><br>
-                            <select class="frmInput" required="required" id="select" name="select">
-                                <option value="">(Lựa chọn quyền hạn)</option>
-                                <option value="0">Quản trị viên</option>
-                                <option value="1">Nhân viên</option>
-                            </select>
-                        </div>
-                        <div class="sub">
-                            <button type="submit" class="btn btn-success" id="updateButton"
-                                onclick="userUpdate()">Lưu</button>
-                            <button type="submit" class="btn btn-danger" id="exitButton">Thoát</button>
-                        </div>
-
-                    </form>
-                </div>
 
             </main>
 
@@ -183,10 +174,25 @@
             </footer>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thông tin bình luận</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
 
+                </div>
+                <div class="modal-footer">
+                    <button id="btnDelete" type="button" class="btn btn-danger">Xóa bình luận</button>
+                </div>
 
-
-
+            </div>
+        </div>
+    </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>

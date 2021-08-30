@@ -17,6 +17,8 @@ router.get('/products', (req, res) => {
     res.render('../views/admin/adProduct')
 });
 
+
+/* COMMENT page */
 router.get('/comments', (req, res) => {
     // res.render('../views/admin/adComment')
     Comment.find({}, (err, cmts) => {
@@ -26,7 +28,23 @@ router.get('/comments', (req, res) => {
     })
 });
 
-/* User page */
+router.post('/comments/delete/:id', function (req, res) {
+    console.log('Delete a comment: ' + JSON.stringify(req.body));
+
+    //Delete from mongoDB
+    Comment.findByIdAndRemove(req.params.id, function (err, docs) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("Delete successfully: ", docs);
+        }
+    });
+
+})
+
+
+/* USER page */
 router.get('/users', function (req, res, next) {
     User.find({}, (err, users) => {
         // console.log(users);
