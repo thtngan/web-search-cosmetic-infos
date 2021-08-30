@@ -37,64 +37,46 @@ function sortTable(n) {
     }
 }
 
-function searchFunction() {
-    var input, filter, i, txtValue, table;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
-
-    rows = table.rows;
-
-    for (i = 1; i < (rows.length); i++) {
-        var rowDisplay = table.rows[i];
-        console.log(rowDisplay);
-        x = rows[i].getElementsByTagName("TD")[0];
-        txtValue = x.textContent || x.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            rowDisplay.style.display = "";
-        }
-        else {
-            rowDisplay.style.display = "none";
-        }
-    }
-
-}
-
 //Show infomation
-var currentRow = null;
+//Show infomation
+var editRow = null;
 function display(ctl) {
-    currentRow = $(ctl).parents("tr");
+    editRow = $(ctl).parents("tr");
+    var currentRow = editRow.children("td");
 
-    var Product_value = $.trim(currentRow.find("td:eq(0)").text());
-    var Name_value = $.trim(currentRow.find("td:eq(1)").text());
-    var Mail_value = $.trim(currentRow.find("td:eq(5)").text());
-    var Rating_value = $.trim(currentRow.find("td:eq(3)").text());
-    var Detail_value = $.trim(currentRow.find("td:eq(2)").text());
-    // var Date_value = $.trim(currentRow.find("td:eq(6)").text());
-    var Date_value = currentRow.find("td:eq(6)").text().split(" ").join("");
-    var Time_value = currentRow.find("td:eq(7)").text().split(" ").join("");
-    var Id_value = $.trim(currentRow.find("td:eq(8)").text());
+
+    // console.log($(currentRow).text());
+    var User_value = $.trim($(currentRow[0]).text());
+    var Date_value = $(currentRow[1]).text().split(" ").join("");
+    var Title_value = $.trim($(currentRow[2]).text());
+    var Detail_value = $.trim($(currentRow[3]).text());
+    var Number_value = $.trim($(currentRow[5]).text());
+    var Mail_value = $.trim($(currentRow[6]).text());
+    var Id_value = $.trim($(currentRow[7]).text());
+
+    console.log(Id_value);
+
 
     // Set up modal-body
     $('.modal-body').empty(); // clear the body of any old content
     var ul = document.createElement('ul');
     var li = document.createElement('li');
-    li.innerHTML = "<b>Tên sản phẩm: </b>" + Product_value;
+    li.innerHTML = "<b>Tên người dùng: </b>" + User_value;
     ul.appendChild(li);
     var li = document.createElement('li');
-    li.innerHTML = "<b>Tên người dùng: </b>" + Name_value;
+    li.innerHTML = "<b>Số điện thoại: </b>" + Number_value;
     ul.appendChild(li);
     var li = document.createElement('li');
     li.innerHTML = "<b>Email: </b>" + Mail_value;
     ul.appendChild(li);
     var li = document.createElement('li');
-    li.innerHTML = "<b>Xếp hạng: </b>" + Rating_value;
+    li.innerHTML = "<b>Tiêu đề: </b>" + Title_value;
     ul.appendChild(li);
     var li = document.createElement('li');
-    li.innerHTML = "<b>Bình luận: </b>" + Detail_value;
+    li.innerHTML = "<b>Chi tiết: </b>" + Detail_value;
     ul.appendChild(li);
     var li = document.createElement('li');
-    li.innerHTML = "<b>Ngày giờ tạo: </b>" + Date_value + " - " + Time_value;
+    li.innerHTML = "<b>Ngày gửi: </b>" + Date_value;
     ul.appendChild(li);
     var li = document.createElement('li');
     li.innerHTML = '<div class="hideIdData" >' + Id_value + '</div>';
@@ -111,6 +93,7 @@ function display(ctl) {
 
 $("#btnDelete").click((e) => {
     // e.preventDefault();
+    // console.log($('.hideIdData').text());
     const id = $('.hideIdData').text();
     var formData = {
         userid: id
@@ -119,7 +102,7 @@ $("#btnDelete").click((e) => {
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url: "/admin/comments/delete/" + id,
+        url: "/admin/feeds/delete/" + id,
         data: JSON.stringify(formData),
         dataType: "json",
         success: function () {

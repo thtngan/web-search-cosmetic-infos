@@ -54,15 +54,29 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Trang chủ
                         </a>
+                        <!-- <div class="sb-sidenav-menu-heading">Quản lý giao diện</div> -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Quản lý người dùng
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/admin/feeds">Người dùng phản hồi</a>
+                                <a class="nav-link" href="/admin/comments">Người dùng bình luận</a>
+                                <a class="nav-link" href="/admin/subs">Người dùng đăng ký</a>
+                            </nav>
+                        </div>
 
                         <a class="nav-link" href="/admin/products">
                             <div class="sb-nav-link-icon"><i class="fas fa-server"></i></div>
                             Quản lý sản phẩm
                         </a>
-
                         <a class="nav-link" href="/admin/users">
-                            <div class="sb-nav-link-icon"><i class="fas fa-exclamation-triangle"></i></div>
-                            Thông tin thành viên
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Quản lý thành viên
                         </a>
                     </div>
                 </div>

@@ -64,8 +64,9 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="/admin/comments">Thông tin phản hồi</a>
-                                <a class="nav-link" href="#">Thông tin đăng ký</a>
+                                <a class="nav-link" href="/admin/feeds">Người dùng phản hồi</a>
+                                <a class="nav-link" href="/admin/comments">Người dùng bình luận</a>
+                                <a class="nav-link" href="/admin/subs">Người dùng đăng ký</a>
                             </nav>
                         </div>
 
@@ -92,7 +93,7 @@
                         aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/admin">Trang chủ</a></li>
-                            <li class="breadcrumb-item active">Thông tin thành viên</li>
+                            <li class="breadcrumb-item active">Quản lý thành viên</li>
                         </ol>
                     </nav>
                     <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Tìm kiếm tên nhân viên.."
@@ -141,8 +142,6 @@
                                                 onclick="userDelete(this, '<%= item._id %>')"></i></a>
                                     </td>
                                 </tr>
-
-
                                 <% }) %>
                         </tbody>
                     </table>

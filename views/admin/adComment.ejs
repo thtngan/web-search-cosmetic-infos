@@ -66,8 +66,9 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="/admin/comments">Thông tin phản hồi</a>
-                                <a class="nav-link" href="#">Thông tin đăng ký</a>
+                                <a class="nav-link" href="/admin/feeds">Người dùng phản hồi</a>
+                                <a class="nav-link" href="/admin/comments">Người dùng bình luận</a>
+                                <a class="nav-link" href="/admin/subs">Người dùng đăng ký</a>
                             </nav>
                         </div>
 
@@ -95,7 +96,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/admin">Trang chủ</a></li>
                             <li class="breadcrumb-item active">Quản lý người dùng</li>
-                            <li class="breadcrumb-item">Thông tin phản hồi</li>
+                            <li class="breadcrumb-item">Người dùng bình luận</li>
 
                         </ol>
                     </nav>
@@ -130,8 +131,8 @@
                                         <td scope="col" class="edit">
 
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal" id="buttonDetail" data-backdrop="static"
-                                                data-keyboard="false">
+                                                data-bs-target="#exampleModal" id="buttonDetail"
+                                                onclick="display(this)">
                                                 Chi tiết
                                             </button>
                                         </td>
@@ -148,9 +149,9 @@
                                             <%=item._id%>
                                         </td>
                                     </tr>
+                                    <% }) %>
 
                             </tbody>
-                            <% }) %>
                         </table>
                     </div>
 
