@@ -151,19 +151,19 @@
                         <legend class="title-info">Thông tin thành viên</legend>
                         <div class="mb-3">
                             <label for="number">Mã nhân viên</label><br>
-                            <input class="frmInput" required type="text" id="number" name="number">
+                            <input class="frmInput"  oninvalid="validateId(this);" required type="text" id="number" name="number">
                         </div>
                         <div class="mb-3">
                             <label for="input">Họ và tên</label><br>
-                            <input class="frmInput" required type="text" id="inputName" name="inputName">
+                            <input class="frmInput" oninvalid="validateName(this);" required type="text" id="inputName" name="inputName">
                         </div>
                         <div class="mb-3">
                             <label for="input">Tài khoản</label><br>
-                            <input class="frmInput" required type="text" id="inputAccount" name="inputAccount">
+                            <input class="frmInput" oninvalid="validateAccount(this);" required type="text" id="inputAccount" name="inputAccount">
                         </div>
                         <div class="mb-3">
                             <label for="password">Mật khẩu</label><br>
-                            <input class="frmInput" required type="password" id="password" name="password">
+                            <input class="frmInput" oninvalid="validatePassword(this);" required type="password" id="password" name="password">
                             <input type='checkbox' id='toggle' value='0' onchange='togglePassword(this);'>&nbsp;
                             <span id='toggleText'>Hiện</span>
 
@@ -171,7 +171,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="select">Quyền hạn:</label><br>
-                            <select class="frmInput" required="required" id="select" name="select">
+                            <select oninvalid="validateRole(this);" class="frmInput" required="required" id="select" name="select">
                                 <option value="">(Lựa chọn quyền hạn)</option>
                                 <option value="0">Quản trị viên</option>
                                 <option value="1">Nhân viên</option>

@@ -1,3 +1,72 @@
+function validateId(textbox) {
+  if (textbox.value == '') {
+        textbox.setCustomValidity('Chưa nhập mã nhân viên');
+    }
+    else if (textbox.validity.typeMismatch){
+        textbox.setCustomValidity('Nhập sai định dạng');
+    }
+    else {
+       textbox.setCustomValidity('');
+    }
+    return true;
+}
+
+function validateName(textbox) {
+  if (textbox.value == '') {
+        textbox.setCustomValidity('Chưa nhập họ và tên');
+    }
+    else if (textbox.validity.typeMismatch){
+        textbox.setCustomValidity('Nhập sai định dạng');
+    }
+    else {
+       textbox.setCustomValidity('');
+    }
+    return true;
+}
+
+
+function validateAccount(textbox) {
+  if (textbox.value == '') {
+        textbox.setCustomValidity('Chưa nhập tài khoản');
+    }
+    else if (textbox.validity.typeMismatch){
+        textbox.setCustomValidity('Nhập sai định dạng');
+    }
+    else {
+       textbox.setCustomValidity('');
+    }
+    return true;
+}
+
+
+function validatePassword(textbox) {
+  if (textbox.value == '') {
+        textbox.setCustomValidity('Chưa nhập mật khẩu');
+    }
+    else if (textbox.validity.typeMismatch){
+        textbox.setCustomValidity('Nhập sai định dạng');
+    }
+    else {
+       textbox.setCustomValidity('');
+    }
+    return true;
+}
+
+
+function validateRole(textbox) {
+  if (textbox.value == '') {
+        textbox.setCustomValidity('Chưa chọn quyền hạn');
+    }
+    else if (textbox.validity.typeMismatch){
+        textbox.setCustomValidity('Nhập sai định dạng');
+    }
+    else {
+       textbox.setCustomValidity('');
+    }
+    return true;
+}
+
+
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("myTable");
