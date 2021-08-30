@@ -6,7 +6,6 @@ var item = require('../models/db')
 /* GET home page */
 router.get('/', (req, res) => {
     item.find({}, (err, products) => {
-        console.log(products)
         res.render('index', {
             productList: products
         })
