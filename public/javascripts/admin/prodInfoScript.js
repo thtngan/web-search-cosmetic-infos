@@ -97,10 +97,10 @@ $("#btnEdit").click(() => {
 })
 
 //Update data
-$("#btnSave").click(() => {
-    ajaxUpdate();
+// $("#btnSave").click(() => {
+//     ajaxUpdate();
 
-})
+// })
 
 function ajaxUpdate() {
     //Prepare form data:
@@ -163,20 +163,21 @@ function ajaxUpdate() {
     }
 
     console.log(formData);
-    // $.ajax({
-    //     type: "PUT",
-    //     contentType: "application/json",
-    //     url: "/admin/users/update/",
-    //     data: JSON.stringify(formData),
-    //     dataType: "json",
-    //     success: function () {
-    //         // location.reload();
-    //         // alert(result.msg);
-    //     },
-    //     error: function (e) {
-    //         console.log(e.status);
-    //     }
-    // });
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url:'/admin/products/update',
+        data: JSON.stringify(formData),
+        dataType: "json",
+        success: function () {
+            console.log("done")
+            // location.reload();
+            // alert(result.msg);
+        },
+        error: function (e) {
+            console.log(e.status);
+        }
+    });
 }
 
 
