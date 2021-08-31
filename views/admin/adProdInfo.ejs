@@ -113,12 +113,18 @@
                                             alt="..." class="img-fluid">
                                         <div id="myresult" class="img-zoom-result"></div>
                                     </div>
-                                    <div class="input-group">
+                                    <!-- <div class="input-group">
                                         <label for="image">Upload Image</label>
-                                        <input type="file" id="image"
-                                            name="image" value="">
+                                         <input type="file" id="image"> 
+                                            </div> 
+                                    -->
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" id="inputGroupFile04"
+                                            aria-describedby="inputGroupFileAddon04" aria-label="Upload"
+                                            title="your text" name="image" value="">
+
                                     </div>
-                                    <input name="_id" type="hidden" value="<%=prod[0]._id%>"/>
+                                    <input name="_id" type="hidden" value="<%=prod[0]._id%>" />
                                 </div>
                                 <div class="col-md-8 col-sm-12 product-info">
                                     <h2>
@@ -131,7 +137,6 @@
                                         <input type="text" name="brand" id="brand" placeholder="Nhãn hiệu">
                                     </p>
                                     <p><strong>Loại sản phẩm: </strong>
-                                        <input type="text" name="brand" id="brand" placeholder="Nhãn hiệu">
                                         <select id="select" name="type" id="type">
                                             <option value="">(Lựa chọn danh mục)</option>
                                             <optgroup label="Làm sạch">
@@ -213,7 +218,8 @@
                                         <div>
                                             <h5 class="text-center">Trang web thứ 1</h5>
                                             <strong>Nhà phân phối:</strong>
-                                            <input type="text" name="web1Name" id="nameWeb1" placeholder="Tên nhà phân phối"
+                                            <input type="text" name="web1Name" id="nameWeb1"
+                                                placeholder="Tên nhà phân phối"
                                                 style="width: 100%; box-sizing: border-box;">
 
 
@@ -224,7 +230,8 @@
                                         <div>
                                             <h5 class="text-center">Trang web thứ 2</h5>
                                             <strong>Nhà phân phối:</strong>
-                                            <input type="text" name="web2Name" id="nameWeb2" placeholder="Tên nhà phân phối"
+                                            <input type="text" name="web2Name" id="nameWeb2"
+                                                placeholder="Tên nhà phân phối"
                                                 style="width: 100%; box-sizing: border-box;">
 
 
@@ -236,7 +243,8 @@
                                         <div>
                                             <h5 class="text-center">Trang web thứ 3</h5>
                                             <strong>Nhà phân phối:</strong>
-                                            <input type="text" name="web3Name" id="nameWeb3" placeholder="Tên nhà phân phối"
+                                            <input type="text" name="web3Name" id="nameWeb3"
+                                                placeholder="Tên nhà phân phối"
                                                 style="width: 100%; box-sizing: border-box;">
 
 

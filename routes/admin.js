@@ -56,9 +56,47 @@ router.post('/products/post', async (req, res) => {
 /* update product*/
 router.post('/products/update', upload.single('image'), async (req, res) => {
     var prod = req.body._id;
-    console.log(prod);
-    console.log(req.body);
-    console.log(req.file);
+    // console.log(prod);
+    // console.log(req.body);
+    // console.log(req.file);
+
+    var type;
+    switch (req.body.type) {
+        case "srm":
+            type = "Sữa rửa mặt";
+            break;
+        case "Nước tẩy trang":
+            break;
+        case "dtt":
+            type = "Dầu tẩy trang";
+            break;
+        case "toner":
+            type = "Nước hoa hồng";
+            break;
+        case "lotion":
+            type = "Sữa dưỡng"
+            break;
+        case "es":
+            type = "Essence"
+            break;
+        case "amp":
+            type = "Ampoule"
+            break;
+        case "kcn":
+            type = "Kem chống nắng"
+            break;
+        case "xcn":
+            type = "Xịt chống nắng"
+            break;
+        case "xk":
+            type = "Xịt khoáng"
+            break;
+        default:
+            type = "";
+            break;
+    }
+    console.log(type);
+
     if (req.file) {
         item.updateOne({ _id: prod }, {
             $set: {
@@ -68,7 +106,7 @@ router.post('/products/update', upload.single('image'), async (req, res) => {
                 contraindications: req.body.contra,
                 Ingredients: req.body.ingre,
                 Description: req.body.desc,
-                Type: req.body.type,
+                Type: type,
                 Brand: req.body.brand,
                 Web1: { "name": req.body.web1Name, "url": req.body.web1Url },
                 Web2: { "name": req.body.web2Name, "url": req.body.web2Url },
@@ -91,7 +129,7 @@ router.post('/products/update', upload.single('image'), async (req, res) => {
                 contraindications: req.body.contra,
                 Ingredients: req.body.ingre,
                 Description: req.body.desc,
-                Type: req.body.type,
+                Type: type,
                 Brand: req.body.brand,
                 Web1: { "name": req.body.web1Name, "url": req.body.web1Url },
                 Web2: { "name": req.body.web2Name, "url": req.body.web2Url },

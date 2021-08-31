@@ -166,7 +166,7 @@ function ajaxUpdate() {
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url:'/admin/products/update',
+        url: '/admin/products/update',
         data: JSON.stringify(formData),
         dataType: "json",
         success: function () {
