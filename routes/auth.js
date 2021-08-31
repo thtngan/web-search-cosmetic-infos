@@ -9,10 +9,10 @@ module.exports = function(app) {
 	    );
 	    next();
 	});
-	app.post("/signup",
-		[
-			checkDuplicateUsername
-		],
-		controller.signup);
+	// app.post("/signup",
+	// 	[
+	// 		checkDuplicateUsername
+	// 	],
+	// 	controller.signup);
 	app.post("/signin", controller.signin);
 };

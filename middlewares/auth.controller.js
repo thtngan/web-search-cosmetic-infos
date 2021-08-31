@@ -1,7 +1,8 @@
 const db = require("../models");
+var jwt = require("jsonwebtoken");
+const config = require("../config/auth");
 
 const User = db.user;
-const Role = db.role;
 
 exports.signin = (req, res) => {
 	console.log(req.body);
@@ -21,15 +22,15 @@ exports.signin = (req, res) => {
 		if(!passwordIsValid) {
 			return res.status(401).send({message: "Sai mật khẩu!"});
 		}
-		var authorities = [];
-		for(let i = 0; i < user.roles.length; i++) {
-			authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
-		}
+		var token = jwt.sign({ id: user.id }, config.secret, {
+			expiresIn: 86400
+		});
 		res.status(200).send({
 			message: "Xin chào " + user.username,
 			id: user._id,
 			username: user.username,
-			roles: authorities
+			roles: user.role,
+			acessToken: token
 		});
 	});
 };

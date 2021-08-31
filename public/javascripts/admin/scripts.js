@@ -15,3 +15,6 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+function navigate(page){
+    window.location = page + "?token=" + localStorage.getItem('QPANKtoken');
+}

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose')
 var product = require('../models/model')
-const { authUser } = require('../middlewares/basicAuth')
+const { verifyToken, isAdmin } = require("../middlewares/auth.jwt");
 
 const db = require("../models");
 const User = db.user;
@@ -13,12 +13,12 @@ const Feedback = require('../models/feedback');
 const item = require('../models/db')
 
 /* GET admin page */
-router.get('/', (req, res) => {
+router.get('/', verifyToken, (req, res) => {
     res.render('../views/admin/admin')
 });
 
 /* PRODUCT page */
-router.get('/products', function (req, res, next) {
+router.get('/products', verifyToken, function (req, res, next) {
     item.find({}, (err, prods) => {
         // console.log(users);
         res.render('../views/admin/adProduct', {
@@ -50,7 +50,7 @@ router.post('/products/post', async (req, res) => {
 });
 
 /* USER page */
-router.get('/users', function (req, res, next) {
+router.get('/users', verifyToken, isAdmin, function (req, res, next) {
     User.find({}, (err, users) => {
         // console.log(users);
         res.render('../views/admin/adUser', {
@@ -116,7 +116,7 @@ router.put('/users/update', function (req, res) {
 })
 
 /* SUBSCRIPTION page */
-router.get('/subs', (req, res) => {
+router.get('/subs', verifyToken, (req, res) => {
     // res.render('../views/admin/adComment')
     Subscription.find({}, (err, sub) => {
         res.render('../views/admin/adSubscript', {
@@ -126,7 +126,7 @@ router.get('/subs', (req, res) => {
 });
 
 /* FEEBACK page */
-router.get('/feeds', (req, res) => {
+router.get('/feeds', verifyToken, (req, res) => {
     // res.render('../views/admin/adComment')
     Feedback.find({}, (err, fds) => {
         res.render('../views/admin/adFeedback', {
@@ -151,7 +151,7 @@ router.post('/feeds/delete/:id', function (req, res) {
 })
 
 /* COMMENT page */
-router.get('/comments', (req, res) => {
+router.get('/comments', verifyToken, (req, res) => {
     // res.render('../views/admin/adComment')
     Comment.find({}, (err, cmts) => {
         res.render('../views/admin/adComment', {
