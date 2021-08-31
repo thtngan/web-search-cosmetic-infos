@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../../public/images/cat.png" />
+    <link href="../../public/stylesheets/admin/styles.css" rel="stylesheet" />
+    <link href="../../public/stylesheets/admin/prodInfoStyle.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
+    <!-- Jquery -->
+    <script src="https://kit.fontawesome.com/867a38eeb9.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <title>Admin QPANK</title>
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-pink">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="/admin">TRANG QUẢN TRỊ</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <!-- Navbar Blank-->
+        <div class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        </div>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Thoát</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <span id="logo">Q</span>
+                        <h2>QPANK</h2>
+                        <a class="nav-link" href="/admin">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Trang chủ
+                        </a>
+                        <!-- <div class="sb-sidenav-menu-heading">Quản lý giao diện</div> -->
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Quản lý người dùng
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/admin/feeds">Người dùng phản hồi</a>
+                                <a class="nav-link" href="/admin/comments">Người dùng bình luận</a>
+                                <a class="nav-link" href="/admin/subs">Người dùng đăng ký</a>
+                            </nav>
+                        </div>
+
+                        <a class="nav-link" href="/admin/products">
+                            <div class="sb-nav-link-icon"><i class="fas fa-server"></i></div>
+                            Quản lý sản phẩm
+                        </a>
+                        <a class="nav-link" href="/admin/users">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Quản lý thành viên
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+                        aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/admin">Trang chủ</a></li>
+                            <li class="breadcrumb-item">Quản lý sản phẩm</li>
+                            <li class="breadcrumb-item active">Thông tin sản phẩm</li>
+
+                        </ol>
+                    </nav>
+                    <% for(var i=0; i < prod.length; i++) { %>
+                        <div id="main">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12" id="imgProduct">
+                                    <div class="img-zoom-container">
+                                        <img id="myimage"
+                                            src="data:image/<%=prod[0].Img.contentType%>;base64, <%=prod[0].Img.data.toString('base64')%>"
+                                            alt="..." class="img-fluid">
+                                        <div id="myresult" class="img-zoom-result"></div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-8 col-sm-12 product-info">
+                                    <h2>
+                                        <!-- <%= prod[0].Name %> -->
+                                        <textarea type="text" id="name" placeholder="Tên sản phẩm"> </textarea>
+                                    </h2>
+                                    <p><strong>Nhãn hiệu: </strong>
+                                        <!-- <%= prod[0].Brand %> -->
+                                        <input type="text" id="brand" placeholder="Nhãn hiệu">
+                                    </p>
+                                    <p><strong>Loại sản phẩm: </strong>
+                                        <!-- <%= prod[0].Type %> -->
+                                        <select id="select" id="type">
+                                            <option value="">(Lựa chọn danh mục)</option>
+                                            <optgroup label="Làm sạch">
+                                                <option value="srm">Sữa rửa mặt</option>
+                                                <option value="ntt">Nước tẩy trang</option>
+                                                <option value="dtt">Dầu tẩy trang</option>
+                                            </optgroup>
+                                            <optgroup label="Toner/Lotion">
+                                                <option value="toner">Nước hoa hồng</option>
+                                                <option value="lotion">Sữa dưỡng</option>
+                                            </optgroup>
+                                            <optgroup label="Serum">
+                                                <option value="es">Essence</option>
+                                                <option value="amp">Ampoule</option>
+                                            </optgroup>
+                                            <optgroup label="Chống nắng">
+                                                <option value="kcn">Kem chống nắng</option>
+                                                <option value="xcn">Xịt chống nắng</option>
+                                            </optgroup>
+                                            <optgroup label="Khác">
+                                                <option value="xk">Xịt khoáng</option>
+                                            </optgroup>
+
+
+                                        </select>
+                                    </p>
+                                    <div>
+                                        <p><strong>Dung tích:</strong></p>
+                                        <input type="text" id="volume" placeholder="Dung tích">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sticky-top">
+                                <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#scrollspyHeading1">Mô tả</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#scrollspyHeading2">Thành phần</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#scrollspyHeading3">Đánh giá & Nhận xét</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#scrollspyHeading4">Địa điểm mua hàng</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-8 col-md-12">
+                                    <h4 id="scrollspyHeading1"><br><br>Mô tả</h4>
+                                    <p>
+                                        <!-- <%= prod[0].Description %> -->
+                                        <textarea type="text" id="description" placeholder="Mô tả sản phẩm"> </textarea>
+                                    </p>
+                                    <h4 id="scrollspyHeading2"><br>Thành phần</h4>
+                                    <ul>
+                                        <% prod[0].Ingredients.split(",").forEach(element=> { %>
+                                            <li>
+                                                <%= element %>
+                                            </li>
+                                            <% }); %>
+                                    </ul>
+                                    <h4 id="scrollspyHeading2" style="color:rgb(255, 60, 0);"><br>Chống chỉ định</h4>
+                                    <ul>
+                                        <% prod[0].Contraindications.split(",").forEach(element=> { %>
+                                            <li>
+                                                <%= element %>
+                                            </li>
+                                            <% }); %>
+                                    </ul>
+
+
+                                </div>
+                                <div class="col-lg-4 col-md-12 gap-3 text-center place_recomm">
+                                    <h4 id="scrollspyHeading4"><br><br>Địa điểm mua khuyến nghị</h4>
+                                    <a href="<%=prod[0].Web1.url%>" class="btn btn-one"> <span>
+                                            <%=prod[0].Web1.name%>
+                                        </span></a>
+                                    <a href="<%=prod[0].Web2.url%>" class="btn btn-one"><span>
+                                            <%=prod[0].Web2.name%>
+                                        </span></a>
+                                    <a href="<%=prod[0].Web3.url%>" class="btn btn-one"><span>
+                                            <%=prod[0].Web3.name%>
+                                        </span></a>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <% } %>
+                </div>
+            </main>
+            <footer>
+                <p class="text-center">Designed with <i class="far fa-heart"></i> by QPANK</p>
+            </footer>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="../../public/javascripts/admin/scripts.js"></script>
+    <script src="../../public/javascripts/admin/prodInfoScript.js"></script>
+
+</body>
+
+</html>
