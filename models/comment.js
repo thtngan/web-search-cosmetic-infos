@@ -13,7 +13,6 @@ const commentSchema = new mongoose.Schema({
     },
     "Mail":{
         type: String,
-        Unique:true,
         required: true
     },
     "Details":{

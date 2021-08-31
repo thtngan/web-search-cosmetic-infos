@@ -49,7 +49,9 @@ const item = new mongoose.Schema({
     Web3:{
         type: web
     },
-    Rating: mongoose.Decimal128
+    Rating: {
+        type:Number
+    }
 });
  
 //Image is a model which has a schema imageSchema

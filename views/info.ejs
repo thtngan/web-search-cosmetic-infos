@@ -292,6 +292,8 @@
                             <input type="file" id="img" name="img" accept="image/*" multiple>
                         </div> -->
                         <em>* Bắt buộc</em>
+                        <input name="totalscore" type="hidden" value="<%=rate.one*1 + rate.two*2 + rate.three*3 + rate.four*4 + rate.five*5%>"/>
+                        <input name="totalcmt" type="hidden" value="<%= rate.one + rate.two + rate.three + rate.four + rate.five%>" />
                         <div class="col-12 text-center">
                             <button class="btn btn-primary" type="submit" id="send_request"><i
                                     class="fas fa-paper-plane"></i>&nbsp;&nbsp;&nbsp;Gửi yêu cầu</button>
