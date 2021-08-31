@@ -7424,7 +7424,22 @@ textarea.form-control-lg {
 }
 
 .bg-pink {
-  background-color: #f288Af;
+  background-color: #f48fb1;
+}
+
+.bg-1{
+  background-color: #a8d1e7 !important;
+}
+.bg-2{
+  background-color: #b3dbda !important;
+}
+.bg-3{
+  background-color: #ef9a9a !important;
+}
+.bg-2 .card-body,
+.bg-1 .card-body, 
+.bg-3 .card-body{
+  color: #111 !important;
 }
 
 .bg-primary {
@@ -11065,33 +11080,33 @@ body {
   color: rgba(255, 255, 255, 0.5);
 }
 .sb-sidenav-dark .sb-sidenav-menu .sb-sidenav-menu-heading {
-  color: rgba(255, 255, 255, 0.25);
+  color: #fff;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link {
-  color: rgba(255, 255, 255, 0.5);
+  color: #fff;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-nav-link-icon {
-  color: rgba(255, 255, 255, 0.25);
+  color: #fff;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-sidenav-collapse-arrow {
-  color: rgba(255, 255, 255, 0.25);
+  color: #fff;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link:hover {
-  color: #fff;
+  color: #cfcfcf;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link.active {
-  color: #fff;
+  color: #cfcfcf;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link.active .sb-nav-link-icon {
-  color: #fff;
+  color: #cfcfcf;
 }
 .sb-sidenav-dark .sb-sidenav-footer {
-  background-color: #f7b6ce;
+  background-color: #ffc1e3;
 }
 
 .sb-sidenav-footer{
   font-weight: bolder;
-  color: #fff !important;
+  color: #616161 !important;
 }
 
 .sb-sidenav-light {
@@ -11287,9 +11302,7 @@ body {
 
 #logo {
   display: block;
-  color: #bf1725
-
-  ;
+  color: #b4004e;
   font-family: 'Merienda', cursive;
   font-size: 70px;
   width: 100%;
@@ -11303,7 +11316,7 @@ body {
   font-weight: bolder;
   font-size: 50px;
   text-align: center;
-  color: #e21b2c  ;
+  color: #b4004e;
   margin-bottom: 20px;
 }
 
