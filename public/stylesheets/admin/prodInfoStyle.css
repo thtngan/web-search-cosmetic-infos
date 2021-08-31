@@ -17,7 +17,10 @@
     font-size: 20px;
   }
   
-
+  #myimage{
+    width: 350px;
+    height: 300px;
+  }
   
   .product-info .volume div {
     display: inline-block;

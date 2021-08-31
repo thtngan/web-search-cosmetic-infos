@@ -101,168 +101,161 @@
                                 onclick="navigate('/admin/products')">Thoát</button>
                             <button type="button" class="btn btn-primary" id="btnEdit">Chỉnh sửa</button>
                         </div>
-                        <!-- <% for(var i=0; i < prod.length; i++) { %> -->
-                        <div id="main">
+                        <% productList.forEach(function(prod){ %>
+                            <div id="main">
 
 
-                            <div class="row">
-                                <div class="col-md-4 col-sm-12" id="imgProduct">
-                                    <div class="img-zoom-container">
-                                        <img id="myimage"
-                                            src="data:image/<%=prod[0].Img.contentType%>;base64, <%=prod[0].Img.data.toString('base64')%>"
-                                            alt="..." class="img-fluid">
-                                        <div id="myresult" class="img-zoom-result"></div>
-                                    </div>
-                                    <!-- <div class="input-group">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-12" id="imgProduct">
+                                        <div class="img-zoom-container">
+                                            <img id="myimage"
+                                                src="data:image/<%=prod.Img.contentType%>;base64, <%=prod.Img.data.toString('base64')%>"
+                                                alt="..." class="img-fluid">
+                                            <div id="myresult" class="img-zoom-result"></div>
+                                        </div>
+                                        <!-- <div class="input-group">
                                         <label for="image">Upload Image</label>
                                          <input type="file" id="image"> 
                                             </div> 
                                     -->
-                                    <div class="input-group">
-                                        <input type="file" class="form-control" id="inputGroupFile04"
-                                            aria-describedby="inputGroupFileAddon04" aria-label="Upload"
-                                            title="your text" name="image" value="">
+                                        <div class="input-group">
+                                            <input type="file" class="form-control" id="inputGroupFile04"
+                                                aria-describedby="inputGroupFileAddon04" aria-label="Upload"
+                                                title="your text" name="image" value="">
 
+                                        </div>
+                                        <input name="_id" type="hidden" value="<%=prod._id%>" />
                                     </div>
-                                    <input name="_id" type="hidden" value="<%=prod[0]._id%>" />
-                                </div>
-                                <div class="col-md-8 col-sm-12 product-info">
-                                    <h2>
-                                        <!-- <%= prod[0].Name %> -->
-                                        <textarea type="text" id="name" placeholder="Tên sản phẩm" name="name" style="	max-width:100%;
+                                    <div class="col-md-8 col-sm-12 product-info">
+                                        <h2>
+                                            <textarea type="text" id="name" placeholder="Tên sản phẩm" name="name"
+                                                style="	max-width:100%;
                                                 box-sizing: border-box; width:100%; "> </textarea>
-                                    </h2>
-                                    <p><strong>Nhãn hiệu: </strong>
-                                        <!-- <%= prod[0].Brand %> -->
-                                        <input type="text" name="brand" id="brand" placeholder="Nhãn hiệu">
-                                    </p>
-                                    <p><strong>Loại sản phẩm: </strong>
-                                        <select id="select" name="type" id="type">
-                                            <option value="">(Lựa chọn danh mục)</option>
-                                            <optgroup label="Làm sạch">
-                                                <option value="srm">Sữa rửa mặt</option>
-                                                <option value="ntt">Nước tẩy trang</option>
-                                                <option value="dtt">Dầu tẩy trang</option>
-                                            </optgroup>
-                                            <optgroup label="Toner/Lotion">
-                                                <option value="toner">Nước hoa hồng</option>
-                                                <option value="lotion">Sữa dưỡng</option>
-                                            </optgroup>
-                                            <optgroup label="Serum">
-                                                <option value="es">Essence</option>
-                                                <option value="amp">Ampoule</option>
-                                            </optgroup>
-                                            <optgroup label="Chống nắng">
-                                                <option value="kcn">Kem chống nắng</option>
-                                                <option value="xcn">Xịt chống nắng</option>
-                                            </optgroup>
-                                            <optgroup label="Khác">
-                                                <option value="xk">Xịt khoáng</option>
-                                            </optgroup>
+                                        </h2>
+                                        <p><strong>Nhãn hiệu: </strong>
+                                            <input type="text" name="brand" id="brand" placeholder="Nhãn hiệu">
+                                        </p>
+                                        <p><strong>Loại sản phẩm: </strong>
+                                            <select id="select" name="type" id="type">
+                                                <option value="">(Lựa chọn danh mục)</option>
+                                                <optgroup label="Làm sạch">
+                                                    <option value="srm">Sữa rửa mặt</option>
+                                                    <option value="ntt">Nước tẩy trang</option>
+                                                    <option value="dtt">Dầu tẩy trang</option>
+                                                </optgroup>
+                                                <optgroup label="Toner/Lotion">
+                                                    <option value="toner">Nước hoa hồng</option>
+                                                    <option value="lotion">Sữa dưỡng</option>
+                                                </optgroup>
+                                                <optgroup label="Serum">
+                                                    <option value="es">Essence</option>
+                                                    <option value="amp">Ampoule</option>
+                                                </optgroup>
+                                                <optgroup label="Chống nắng">
+                                                    <option value="kcn">Kem chống nắng</option>
+                                                    <option value="xcn">Xịt chống nắng</option>
+                                                </optgroup>
+                                                <optgroup label="Khác">
+                                                    <option value="xk">Xịt khoáng</option>
+                                                </optgroup>
 
 
-                                        </select>
-                                    </p>
-                                    <div>
-                                        <p><strong>Dung tích:</strong></p>
-                                        <input type="text" name="volume" id="volume" placeholder="Dung tích">
+                                            </select>
+                                        </p>
+                                        <div>
+                                            <p><strong>Dung tích:</strong></p>
+                                            <input type="text" name="volume" id="volume" placeholder="Dung tích">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="sticky-top">
-                                <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
-                                    <ul class="nav nav-tabs">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#scrollspyHeading1">Mô tả</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#scrollspyHeading2">Thành phần</a>
-                                        </li>
+                                <div class="sticky-top">
+                                    <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
+                                        <ul class="nav nav-tabs">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#scrollspyHeading1">Mô tả</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#scrollspyHeading2">Thành phần</a>
+                                            </li>
 
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#scrollspyHeading4">Địa điểm mua hàng</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-8 col-md-12">
-                                    <h4 id="scrollspyHeading1"><br><br>Mô tả</h4>
-                                    <p>
-                                        <!-- <%= prod[0].Description %> -->
-                                        <textarea type="text" name="desc" id="description" placeholder="Mô tả sản phẩm"
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#scrollspyHeading4">Địa điểm mua hàng</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-8 col-md-12">
+                                        <h4 id="scrollspyHeading1"><br><br>Mô tả</h4>
+                                        <p>
+                                            <textarea type="text" name="desc" id="description"
+                                                placeholder="Mô tả sản phẩm"
+                                                style="width: 100%; box-sizing: border-box;"> </textarea>
+                                        </p>
+                                        <h4 id="scrollspyHeading2"><br>Thành phần</h4>
+                                        <textarea type="text" name="ingre" id="ingredient" placeholder="Thành phần"
                                             style="width: 100%; box-sizing: border-box;"> </textarea>
-                                    </p>
-                                    <h4 id="scrollspyHeading2"><br>Thành phần</h4>
-                                    <textarea type="text" name="ingre" id="ingredient" placeholder="Thành phần"
-                                        style="width: 100%; box-sizing: border-box;"> </textarea>
 
-                                    <h4 id="scrollspyHeading2" style="color:rgb(255, 60, 0);"><br>Chống chỉ định</h4>
-                                    <input type="text" name="contra" id="contraindication" placeholder="Chống chỉ định">
+                                        <h4 id="scrollspyHeading2" style="color:rgb(255, 60, 0);"><br>Chống chỉ định
+                                        </h4>
+                                        <input type="text" name="contra" id="contraindication"
+                                            placeholder="Chống chỉ định">
 
 
 
-                                </div>
-                                <div class="col-lg-4 col-md-12 place_recomm">
-                                    <h4 id="scrollspyHeading4"><br><br>Địa điểm mua khuyến nghị</h4>
-                                    <!-- <a href="<%=prod[0].Web1.url%>" class="btn btn-one"> <span>
-                                                <%=prod[0].Web1.name%>
-                                            </span></a>
-                                        <a href="<%=prod[0].Web2.url%>" class="btn btn-one"><span>
-                                                <%=prod[0].Web2.name%>
-                                            </span></a>
-                                        <a href="<%=prod[0].Web3.url%>" class="btn btn-one"><span>
-                                                <%=prod[0].Web3.name%>
-                                            </span></a> -->
-                                    <div>
-                                        <div>
-                                            <h5 class="text-center">Trang web thứ 1</h5>
-                                            <strong>Nhà phân phối:</strong>
-                                            <input type="text" name="web1Name" id="nameWeb1"
-                                                placeholder="Tên nhà phân phối"
-                                                style="width: 100%; box-sizing: border-box;">
-
-
-                                            <strong>Link mua hàng:</strong>
-                                            <input type="text" name="web1Url" id="link1" placeholder="Link"
-                                                style="width: 100%; box-sizing: border-box;">
-                                        </div>
-                                        <div>
-                                            <h5 class="text-center">Trang web thứ 2</h5>
-                                            <strong>Nhà phân phối:</strong>
-                                            <input type="text" name="web2Name" id="nameWeb2"
-                                                placeholder="Tên nhà phân phối"
-                                                style="width: 100%; box-sizing: border-box;">
-
-
-                                            <strong>Link mua hàng:</strong>
-                                            <input type="text" name="web2Url" id="link2" placeholder="Link"
-                                                style="width: 100%; box-sizing: border-box;">
-                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12 place_recomm">
+                                        <h4 id="scrollspyHeading4"><br><br>Địa điểm mua khuyến nghị</h4>
 
                                         <div>
-                                            <h5 class="text-center">Trang web thứ 3</h5>
-                                            <strong>Nhà phân phối:</strong>
-                                            <input type="text" name="web3Name" id="nameWeb3"
-                                                placeholder="Tên nhà phân phối"
-                                                style="width: 100%; box-sizing: border-box;">
+                                            <div>
+                                                <h5 class="text-center">Trang web thứ 1</h5>
+                                                <strong>Nhà phân phối:</strong>
+                                                <input type="text" name="web1Name" id="nameWeb1"
+                                                    placeholder="Tên nhà phân phối"
+                                                    style="width: 100%; box-sizing: border-box;">
 
 
-                                            <strong>Link mua hàng:</strong>
-                                            <input type="text" name="web3Url" id="link3" placeholder="Link"
-                                                style="width: 100%; box-sizing: border-box;">
+                                                <strong>Link mua hàng:</strong>
+                                                <input type="text" name="web1Url" id="link1" placeholder="Link"
+                                                    style="width: 100%; box-sizing: border-box;">
+                                            </div>
+                                            <div>
+                                                <h5 class="text-center">Trang web thứ 2</h5>
+                                                <strong>Nhà phân phối:</strong>
+                                                <input type="text" name="web2Name" id="nameWeb2"
+                                                    placeholder="Tên nhà phân phối"
+                                                    style="width: 100%; box-sizing: border-box;">
+
+
+                                                <strong>Link mua hàng:</strong>
+                                                <input type="text" name="web2Url" id="link2" placeholder="Link"
+                                                    style="width: 100%; box-sizing: border-box;">
+                                            </div>
+
+                                            <div>
+                                                <h5 class="text-center">Trang web thứ 3</h5>
+                                                <strong>Nhà phân phối:</strong>
+                                                <input type="text" name="web3Name" id="nameWeb3"
+                                                    placeholder="Tên nhà phân phối"
+                                                    style="width: 100%; box-sizing: border-box;">
+
+
+                                                <strong>Link mua hàng:</strong>
+                                                <input type="text" name="web3Url" id="link3" placeholder="Link"
+                                                    style="width: 100%; box-sizing: border-box;">
+                                            </div>
+
                                         </div>
 
                                     </div>
-
                                 </div>
-                            </div>
 
-                        </div>
-                        <div class="text-center" id="btnAfter">
-                            <button type="submit" class="btn btn-success" id="btnSave">Lưu</button>
-                        </div>
-                        <!-- <% } %> -->
+                            </div>
+                            <div class="text-center" id="btnAfter">
+                                <button type="submit" class="btn btn-success" id="btnSave">Lưu</button>
+                            </div>
+                            <% }) %>
                 </div>
                 </form>
             </main>

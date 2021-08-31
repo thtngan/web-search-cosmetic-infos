@@ -31,15 +31,91 @@ router.get('/products', verifyToken, function (req, res, next) {
     })
 });
 
+/* new product*/
 router.get('/products/:id', async (req, res) => {
     var prod = req.params.id;
     // console.log(prod);
     item.find({ _id: prod }, (err, products) => {
         res.render('../views/admin/adProdInfo', {
-            prod: products
+            productList: products
         })
     })
 });
+
+/* add new product*/
+router.post('/products/addNew', upload.single('image'), async (req, res) => {
+    // var prod = req.body._id;
+    // console.log(prod);
+    console.log(req.body);
+    console.log(req.file);
+
+    var type;
+    switch (req.body.type) {
+        case "srm":
+            type = "Sữa rửa mặt";
+            break;
+        case "Nước tẩy trang":
+            break;
+        case "dtt":
+            type = "Dầu tẩy trang";
+            break;
+        case "toner":
+            type = "Nước hoa hồng";
+            break;
+        case "lotion":
+            type = "Sữa dưỡng"
+            break;
+        case "es":
+            type = "Essence"
+            break;
+        case "amp":
+            type = "Ampoule"
+            break;
+        case "kcn":
+            type = "Kem chống nắng"
+            break;
+        case "xcn":
+            type = "Xịt chống nắng"
+            break;
+        case "xk":
+            type = "Xịt khoáng"
+            break;
+        default:
+            type = "";
+            break;
+    }
+    // console.log(type);
+
+    const prod = new item({
+        Name: req.body.name,
+        Skin: req.body.skin,
+        Volume: req.body.volume,
+        contraindications: req.body.contra,
+        Ingredients: req.body.ingre,
+        Description: req.body.desc,
+        Type: type,
+        Brand: req.body.brand,
+        Web1: { "name": req.body.web1Name, "url": req.body.web1Url },
+        Web2: { "name": req.body.web2Name, "url": req.body.web2Url },
+        Web3: { "name": req.body.web3Name, "url": req.body.web3Url },
+        Img: { "data": req.file.buffer, "ContentType": "png" }
+    });
+
+    prod.save()
+        .then(data => {
+            res.send(data);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message
+            });
+        });
+    res.redirect(`/admin/products/`)
+
+});
+
+router.get('/info', (req, res) => {
+    res.render('../views/admin/adProdAdd.ejs');
+})
 
 //== **** Show data in prodInfo
 router.post('/products/post', async (req, res) => {
@@ -53,11 +129,26 @@ router.post('/products/post', async (req, res) => {
     })
 });
 
+router.post('/products/delete/:id', function (req, res) {
+    console.log('Delete a product: ' + JSON.stringify(req.body));
+
+    //Delete from mongoDB
+    item.findByIdAndRemove(req.params.id, function (err, docs) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("Delete successfully: ", docs);
+        }
+    });
+
+})
+
 /* update product*/
 router.post('/products/update', upload.single('image'), async (req, res) => {
     var prod = req.body._id;
     // console.log(prod);
-    // console.log(req.body);
+    console.log(req.body);
     // console.log(req.file);
 
     var type;
@@ -65,7 +156,8 @@ router.post('/products/update', upload.single('image'), async (req, res) => {
         case "srm":
             type = "Sữa rửa mặt";
             break;
-        case "Nước tẩy trang":
+        case "ntt":
+            type = "Nước tẩy trang"
             break;
         case "dtt":
             type = "Dầu tẩy trang";
