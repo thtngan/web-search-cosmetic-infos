@@ -145,6 +145,7 @@ function ajaxUpdate() {
         _id: id.split("#")[0],
         Name: $("#name").val(),
         Type: type,
+        Img: $("#inputGroupFile04").val(),
         Brand: $("#brand").val(),
         Volume: $("#volume").val(),
         Description: $("#description").val(),
