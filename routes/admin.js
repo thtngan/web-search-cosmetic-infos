@@ -7,6 +7,10 @@ const { verifyToken, isAdmin } = require("../middlewares/auth.jwt");
 const db = require("../models");
 const User = db.user;
 
+var multer = require('multer');
+var storage = multer.memoryStorage()
+var upload = multer({ storage: storage });
+
 const Comment = require('../models/comment');
 const Subscription = require('../models/subscribe');
 const Feedback = require('../models/feedback');
@@ -49,20 +53,61 @@ router.post('/products/post', async (req, res) => {
     })
 });
 
-router.post('/products/delete/:id', function (req, res) {
-    console.log('Delete a product: ' + JSON.stringify(req.body));
+/* update product*/
+router.post('/products/update', upload.single('image'), async (req, res) => {
+    var prod = req.body._id;
+    console.log(prod);
+    console.log(req.body);
+    console.log(req.file);
+    if (req.file) {
+        item.updateOne({ _id: prod }, {
+            $set: {
+                Name: req.body.name,
+                Skin: req.body.skin,
+                Volume: req.body.volume,
+                contraindications: req.body.contra,
+                Ingredients: req.body.ingre,
+                Description: req.body.desc,
+                Type: req.body.type,
+                Brand: req.body.brand,
+                Web1: { "name": req.body.web1Name, "url": req.body.web1Url },
+                Web2: { "name": req.body.web2Name, "url": req.body.web2Url },
+                Web3: { "name": req.body.web3Name, "url": req.body.web3Url },
+                Img: { "data": req.file.buffer, "ContentType": "png" }
+            }
+        }, function (err, doc) {
+            if (err) {
+                console.log("Something wrong when updating data!");
+                console.log(err)
+            }
+        })
+    }
+    else {
+        item.updateOne({ _id: prod }, {
+            $set: {
+                Name: req.body.name,
+                Skin: req.body.skin,
+                Volume: req.body.volume,
+                contraindications: req.body.contra,
+                Ingredients: req.body.ingre,
+                Description: req.body.desc,
+                Type: req.body.type,
+                Brand: req.body.brand,
+                Web1: { "name": req.body.web1Name, "url": req.body.web1Url },
+                Web2: { "name": req.body.web2Name, "url": req.body.web2Url },
+                Web3: { "name": req.body.web3Name, "url": req.body.web3Url }
+            }
+        }, function (err, doc) {
+            if (err) {
+                console.log("Something wrong when updating data!");
+                console.log(err)
+            }
+        })
+    }
+    res.redirect(`/admin/products/${prod}`)
+});
 
-    //Delete from mongoDB
-    item.findByIdAndRemove(req.params.id, function (err, docs) {
-        if (err) {
-            console.log(err)
-        }
-        else {
-            console.log("Delete successfully: ", docs);
-        }
-    });
 
-})
 
 /* USER page */
 router.get('/users', verifyToken, isAdmin, function (req, res, next) {
