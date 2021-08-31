@@ -5,7 +5,7 @@ var item = require('../models/db')
 
 /* GET home page */
 router.get('/', (req, res) => {
-    item.find({}, (err, products) => {
+    item.find({Rating:{ $gte: 3.5}}, (err, products) => {
         res.render('index', {
             productList: products
         })

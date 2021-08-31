@@ -7,12 +7,14 @@ function verifyToken(req, res, next) {
     // let token = req.headers["x-access-token"];
     let token = req.query.token;
     if (!token) {
-        return res.status(403).send({ message: 'Need to signin' });
+        res.status(403)
+        return res.render('forbidden',{ message: 'Need to signin', code: '403'})
     }
 
     jwt.verify(token, config.secret, (err, decoded) => {
         if (err) {
-            return res.status(401).send({ message: "Unauthorized!" });
+            res.status(401);
+            return res.render('forbidden',{ message: 'Unauthorized!', code: '401'})
         }
         req.userId = decoded.id;
         next();
@@ -21,14 +23,16 @@ function verifyToken(req, res, next) {
 function isAdmin(req, res, next) {
     User.findById(req.userId).exec((err, user) => {
         if (err) {
-            res.status(500).send({ message: err });
+            res.status(500)
+            res.render('forbidden',{ message: err, code: '500'})
             return;
         }
         if (user.role === 0) {
             next();
             return;
         }
-        res.status(403).send({ message: "Not Allow" })
+        res.status(403)
+        res.render('forbidden',{ message: 'Not Allow', code: '403'})
         return;
 
     });
