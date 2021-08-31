@@ -1,13 +1,12 @@
 function validateId(textbox) {
+  console.log(textbox);
   if (textbox.value == '') {
     textbox.setCustomValidity('Chưa nhập mã nhân viên');
   }
-  else if (textbox.validity.typeMismatch) {
-    textbox.setCustomValidity('Nhập sai định dạng');
+  else if ((textbox.value).slice(0, 2) != "AD" || (textbox.value).slice(0, 2) != "NV") {
+    textbox.setCustomValidity('Định dạng phải gồm AD hoặc NV đứng đầu');
   }
-  else {
-    textbox.setCustomValidity('');
-  }
+
   return true;
 }
 

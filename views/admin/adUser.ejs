@@ -96,9 +96,9 @@
                     <div class="panel">
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="col-sm-5 col-xs-12">
-                                    <h4 class="title">THÔNG TIN CÁC SẢN PHẨM</h4>
-                                </div>
+
+                                <h4 class="title">THÔNG TIN CÁC THÀNH VIÊN</h4>
+
 
                             </div>
                         </div>
@@ -163,22 +163,22 @@
                     <form id="userForm" action="#" onsubmit="return false;">
                         <legend class="title-info">Thông tin thành viên</legend>
                         <div class="mb-3">
-                            <label for="number">Mã nhân viên</label><br>
+                            <label for="number">Mã nhân viên *</label><br>
                             <input class="frmInput" oninvalid="validateId(this);" required type="text" id="number"
                                 name="number">
                         </div>
                         <div class="mb-3">
-                            <label for="input">Họ và tên</label><br>
+                            <label for="input">Họ và tên *</label><br>
                             <input class="frmInput" oninvalid="validateName(this);" required type="text" id="inputName"
                                 name="inputName">
                         </div>
                         <div class="mb-3">
-                            <label for="input">Tài khoản</label><br>
+                            <label for="input">Tài khoản *</label><br>
                             <input class="frmInput" oninvalid="validateAccount(this);" required type="text"
                                 id="inputAccount" name="inputAccount">
                         </div>
                         <div class="mb-3">
-                            <label for="password">Mật khẩu</label><br>
+                            <label for="password">Mật khẩu *</label><br>
                             <input class="frmInput" oninvalid="validatePassword(this);" required type="password"
                                 id="password" name="password">
                             <input type='checkbox' id='toggle' value='0' onchange='togglePassword(this);'>&nbsp;
@@ -187,7 +187,7 @@
 
                         </div>
                         <div class="mb-3">
-                            <label for="select">Quyền hạn:</label><br>
+                            <label for="select">Quyền hạn *</label><br>
                             <select oninvalid="validateRole(this);" class="frmInput" required="required" id="select"
                                 name="select">
                                 <option value="">(Lựa chọn quyền hạn)</option>

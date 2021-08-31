@@ -180,11 +180,20 @@
   color: white;
 }
 
-#btnSave, #btnExit {
+#btnPreSave, #btnSave, #btnExit {
   width:150px;
   text-align:center;
   line-height:1.1em;
   font-size:1.1em;
   text-transform: uppercase;
   font-weight: bolder;
+}
+
+.borderClass{
+  border-color: red;
+  border-width:1px;
+  border-style: solid;
+  /** OR USE INLINE
+  border: 1px solid #C1E0FF;
+  **/
 }
