@@ -19,13 +19,13 @@
 - Chống chỉ định đóng khung
 
 #Trang admin
-- Xác nhận 2 lần xóa (Trang feed, comt, product)
+<!-- - Xác nhận 2 lần xóa (Trang feed, comt, product) -->
 - Giao diện người dùng đăng kí
 - Trang chủ admin ô thứ 3, vẽ thêm ô để hiện số
-- Hiện star rating 
-- Button trang sản phẩm 
-- Tăng kích thước 2 button trang sản phẩm
-- Đổi đường dẫn trang sản phẩm add
+<!-- - Hiện star rating  -->
+<!-- - Button trang sản phẩm  -->
+<!-- - Tăng kích thước 2 button trang sản phẩm -->
+<!-- - Đổi đường dẫn trang sản phẩm add -->
 - Render các trang báo lỗi, hoặc dẫn về trang chủ
 
 #Báo cáo

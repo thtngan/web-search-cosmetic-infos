@@ -38,6 +38,10 @@ i.fas.fa-trash-alt {
     color: red;
 }
 
+.fa-star {
+    color: yellow
+}
+
 form {
     padding: 15px;
     border: 1px solid #666;

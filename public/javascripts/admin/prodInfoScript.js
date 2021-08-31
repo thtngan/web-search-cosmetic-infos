@@ -73,6 +73,25 @@ function displayProduct(item) {
 
     }
 
+    switch (item.Skin) {
+        case "Da dầu":
+            $("#selectSkin").val("dd");
+            break;
+        case "Da khô":
+            $("#selectSkin").val("dk");
+            break;
+        case "Da mụn":
+            $("#selectSkin").val("dm");
+            break;
+        case "Da nhạy cảm":
+            $("#selectSkin").val("dnc");
+            break;
+
+        default:
+            type = "";
+            break;
+    }
+
     $("#volume").val(item.Volume);
     $("#description").val(item.Description);
     $("#ingredient").val(item.Ingredients);
@@ -91,6 +110,7 @@ function displayProduct(item) {
 //Edit button 
 $("#btnEdit").click(() => {
     $('#main :input').attr('disabled', false);
+    $('#name').attr('disabled', true);
     $('#btnAfter').show();
     $('#btnEdit').hide();
 
@@ -102,83 +122,87 @@ $("#btnEdit").click(() => {
 
 // })
 
-function ajaxUpdate() {
-    //Prepare form data:
-    var type;
-    switch ($("#select").val()) {
-        case "srm":
-            type = "Sữa rửa mặt";
-            break;
-        case "Nước tẩy trang":
-            break;
-        case "dtt":
-            type = "Dầu tẩy trang";
-            break;
-        case "toner":
-            type = "Nước hoa hồng";
-            break;
-        case "lotion":
-            type = "Sữa dưỡng"
-            break;
-        case "es":
-            type = "Essence"
-            break;
-        case "amp":
-            type = "Ampoule"
-            break;
-        case "kcn":
-            type = "Kem chống nắng"
-            break;
-        case "xcn":
-            type = "Xịt chống nắng"
-            break;
-        case "xk":
-            type = "Xịt khoáng"
-            break;
-        default:
-            type = "";
-            break;
-    }
+// function ajaxUpdate() {
+//     $('#name').attr('disabled', false);
 
-    var id = window.location.href.split("/")[5];
-    var formData = {
-        _id: id.split("#")[0],
-        Name: $("#name").val(),
-        Type: type,
-        Img: $("#inputGroupFile04").val(),
-        Brand: $("#brand").val(),
-        Volume: $("#volume").val(),
-        Description: $("#description").val(),
-        Ingredients: $("#ingredient").val(),
-        Contraindications: $("#contraindication").val(),
-        //Web 1
-        Web1_name: $("#nameWeb1").val(),
-        Web1_link: $("#link1").val(),
-        //Web 2
-        Web2_name: $("#nameWeb2").val(),
-        Web2_link: $("#link2").val(),
-        //Web 3
-        Web3_name: $("#nameWeb3").val(),
-        Web3_link: $("#link3").val()
-    }
+//     //Prepare form data:
+//     var type;
+//     switch ($("#select").val()) {
+//         case "srm":
+//             type = "Sữa rửa mặt";
+//             break;
+//         case "Nước tẩy trang":
+//             break;
+//         case "dtt":
+//             type = "Dầu tẩy trang";
+//             break;
+//         case "toner":
+//             type = "Nước hoa hồng";
+//             break;
+//         case "lotion":
+//             type = "Sữa dưỡng"
+//             break;
+//         case "es":
+//             type = "Essence"
+//             break;
+//         case "amp":
+//             type = "Ampoule"
+//             break;
+//         case "kcn":
+//             type = "Kem chống nắng"
+//             break;
+//         case "xcn":
+//             type = "Xịt chống nắng"
+//             break;
+//         case "xk":
+//             type = "Xịt khoáng"
+//             break;
+//         default:
+//             type = "";
+//             break;
+//     }
 
-    console.log(formData);
-    $.ajax({
-        type: "POST",
-        contentType: "application/json",
-        url: '/admin/products/update',
-        data: JSON.stringify(formData),
-        dataType: "json",
-        success: function () {
-            console.log("done")
-            // location.reload();
-            // alert(result.msg);
-        },
-        error: function (e) {
-            console.log(e.status);
-        }
-    });
-}
+
+
+//     var id = window.location.href.split("/")[5];
+//     var formData = {
+//         _id: id.split("#")[0],
+//         Name: $("#name").val(),
+//         Type: type,
+//         Img: $("#inputGroupFile04").val(),
+//         Brand: $("#brand").val(),
+//         Volume: $("#volume").val(),
+//         Description: $("#description").val(),
+//         Ingredients: $("#ingredient").val(),
+//         Contraindications: $("#contraindication").val(),
+//         //Web 1
+//         Web1_name: $("#nameWeb1").val(),
+//         Web1_link: $("#link1").val(),
+//         //Web 2
+//         Web2_name: $("#nameWeb2").val(),
+//         Web2_link: $("#link2").val(),
+//         //Web 3
+//         Web3_name: $("#nameWeb3").val(),
+//         Web3_link: $("#link3").val()
+//     }
+
+//     console.log(formData);
+//     $.ajax({
+//         type: "POST",
+//         contentType: "application/json",
+//         url: '/admin/products/update',
+//         data: JSON.stringify(formData),
+//         dataType: "json",
+//         success: function () {
+//             console.log("done")
+//             // location.reload();
+//             // alert(result.msg);
+//         },
+//         error: function (e) {
+//             console.log(e.status);
+//         }
+//     });
+// }
 
 
 

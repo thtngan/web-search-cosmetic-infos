@@ -20,6 +20,8 @@
     padding: 12px 20px 12px 40px;
     border: 1px solid #ddd;
     margin-bottom: 12px;
+    margin: 0;
+    border: 5px solid #aff288;
 }
 
 td.edit {
@@ -61,4 +63,69 @@ td#pwd{
 
 .highlighted{
     background-color:yellow
+  }
+
+  .panel{
+    padding: 0;
+    border-radius: 20px;
+    border: none;
+  }
+  .panel .panel-heading{
+    background: #aff288;
+    padding: 15px;
+    border-radius: 20px 20px 0 0;
+    margin: 0;
+  }
+  .panel .panel-heading .title{
+    color: #fff;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 39px;
+    text-transform: capitalize;
+    margin: 0;
+  }
+  .panel .panel-heading .add-new{
+    color: #333;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 12px 8px;
+    border-radius: 5px;
+    transition: all 0.3s ease 0s;
+  }
+  .panel .panel-heading .add-new:hover,
+  .panel .panel-heading .add-new:focus{
+    color: #fff;
+    background-color: #333;
+  }
+  
+
+  i.fas.fa-edit {
+    font-size: 35px;
+    color: #89ff89;
+    transition: all 0.3s ease;
+  }
+  i.fas.fa-edit:hover {
+    color: #00eb00;
+  
+  }
+  
+  i.fas.fa-trash-alt {
+    font-size: 35px;
+    color: #ff8989;
+    transition: all 0.3s ease;
+  }
+  
+  i.fas.fa-trash-alt:hover {
+    color: #eb0000;
+  
+  }
+
+  .table-responsive {
+    display: table;
+    width: 100%;
+    border: 5px solid #aff288;
+  }
+  table {
+    margin: 0 !important;
   }

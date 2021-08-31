@@ -64,16 +64,16 @@ function searchFunction() {
 var currentRow = null;
 function display(ctl) {
     currentRow = $(ctl).parents("tr");
-
+    console.log(currentRow.find("td:eq(3)"));
     var Product_value = $.trim(currentRow.find("td:eq(0)").text());
     var Name_value = $.trim(currentRow.find("td:eq(1)").text());
     var Mail_value = $.trim(currentRow.find("td:eq(5)").text());
-    var Rating_value = $.trim(currentRow.find("td:eq(3)").text());
+    var Rating_value = $.trim(currentRow.find("td:eq(8)").text());
     var Detail_value = $.trim(currentRow.find("td:eq(2)").text());
     // var Date_value = $.trim(currentRow.find("td:eq(6)").text());
     var Date_value = currentRow.find("td:eq(6)").text().split(" ").join("");
     var Time_value = currentRow.find("td:eq(7)").text().split(" ").join("");
-    var Id_value = $.trim(currentRow.find("td:eq(8)").text());
+    var Id_value = $.trim(currentRow.find("td:eq(9)").text());
 
     // Set up modal-body
     $('.modal-body').empty(); // clear the body of any old content

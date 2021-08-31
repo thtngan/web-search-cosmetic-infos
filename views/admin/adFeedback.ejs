@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html>
 
 <head>
     <!-- Required meta tags -->
@@ -83,10 +83,6 @@
                         </a>
                     </div>
                 </div>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Đăng nhập với tư cách:</div>
-                    Quản trị viên
-                </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">
@@ -96,18 +92,18 @@
                         aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a onclick="navigate('/admin')">Trang chủ</a></li>
-                            <li class="breadcrumb-item active">Quản lý người dùng</li>
-                            <li class="breadcrumb-item">Người dùng phản hồi</li>
+                            <li class="breadcrumb-item">Quản lý người dùng</li>
+                            <li class="breadcrumb-item active">Người dùng phản hồi</li>
 
                         </ol>
                     </nav>
 
                     <div class="table-responsive">
-                        <table id="myTable" class="table table-bordered table-hover ">
+                        <table id="myTable" class="table table-bordered table-hover align-middle">
                             <tr>
-                                <th scope="col" onclick="sortTable(0)" class="text-center">Tên người dùng <i
-                                        class="fas fa-sort"></i> </th>
-                                <th scope="col" class="text-center">Ngày gửi</th>
+                                <th scope="col" class="text-center">Tên người dùng</th>
+                                <th scope="col" class="text-center" onclick="sortTable(1)">Ngày gửi <i
+                                        class="fas fa-sort"></i></th>
                                 <th scope="col" class="text-center">Tiêu đề</th>
                                 <th scope="col" class="text-center">Chi tiết </th>
                                 <!-- <th scope="col" class="text-center">Nội dung</th> -->
@@ -135,8 +131,7 @@
                                                 Chi tiết
                                             </button> -->
                                             <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle"
-                                                role="button" onclick="display(this)" id="buttonDetail">Open
-                                                first modal</a>
+                                                role="button" onclick="display(this)" id="buttonDetail">Xem chi tiết</a>
                                         </td>
                                         <td scope=" col" class="hideData">
                                             <%=item.Number%>
@@ -165,8 +160,8 @@
     </div>
 
     <!-- Modal xác nhận -->
-    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
-        tabindex="-1">
+    <div class="modal fade" id="exampleModalToggle" data-bs-backdrop="static" data-bs-keyboard="false"
+        aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">

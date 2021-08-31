@@ -31,69 +31,78 @@ router.get('/products', verifyToken, function (req, res, next) {
     })
 });
 
-/* new product*/
-router.get('/products/:id', async (req, res) => {
-    var prod = req.params.id;
-    // console.log(prod);
-    item.find({ _id: prod }, (err, products) => {
-        res.render('../views/admin/adProdInfo', {
-            productList: products
-        })
-    })
-});
-
-/* add new product*/
+/* ========= Add new product ========= */
 router.post('/products/addNew', upload.single('image'), async (req, res) => {
     // var prod = req.body._id;
     // console.log(prod);
     console.log(req.body);
     console.log(req.file);
 
-    var type;
+    var typeType;
     switch (req.body.type) {
         case "srm":
-            type = "Sữa rửa mặt";
+            typeType = "Sữa rửa mặt";
             break;
         case "Nước tẩy trang":
+            typeType = "Nước tẩy trang";
             break;
         case "dtt":
-            type = "Dầu tẩy trang";
+            typeType = "Dầu tẩy trang";
             break;
         case "toner":
-            type = "Nước hoa hồng";
+            typeType = "Nước hoa hồng";
             break;
         case "lotion":
-            type = "Sữa dưỡng"
+            typeType = "Sữa dưỡng"
             break;
         case "es":
-            type = "Essence"
+            typeType = "Essence"
             break;
         case "amp":
-            type = "Ampoule"
+            typeType = "Ampoule"
             break;
         case "kcn":
-            type = "Kem chống nắng"
+            typeType = "Kem chống nắng"
             break;
         case "xcn":
-            type = "Xịt chống nắng"
+            typeType = "Xịt chống nắng"
             break;
         case "xk":
-            type = "Xịt khoáng"
+            typeType = "Xịt khoáng"
             break;
         default:
-            type = "";
+            typeType = "";
             break;
     }
+    var typeSkin;
+    switch (req.body.typeSkin) {
+        case "dd":
+            typeSkin = "Da dầu";
+            break;
+        case "dk":
+            typeSkin = "Da khô";
+            break;
+        case "dm":
+            typeSkin = "Da mụn";
+            break;
+        case "dnc":
+            typeSkin = "Da nhạy cảm";
+            break;
+        default:
+            typeSkin = "";
+            break;
+    }
+
     // console.log(type);
 
     const prod = new item({
         Name: req.body.name,
-        Skin: req.body.skin,
+        Skin: typeSkin,
         Volume: req.body.volume,
-        contraindications: req.body.contra,
+        Contraindications: req.body.contra,
         Ingredients: req.body.ingre,
         Description: req.body.desc,
-        Type: type,
+        Type: typeType,
         Brand: req.body.brand,
         Web1: { "name": req.body.web1Name, "url": req.body.web1Url },
         Web2: { "name": req.body.web2Name, "url": req.body.web2Url },
@@ -103,32 +112,23 @@ router.post('/products/addNew', upload.single('image'), async (req, res) => {
 
     prod.save()
         .then(data => {
-            res.send(data);
+            // res.send(data);
+            res.redirect(`/admin/products/${data._id}`);
         }).catch(err => {
             res.status(500).send({
                 message: err.message
             });
         });
-    res.redirect(`/admin/products/`)
+    // res.redirect(`/admin/products/`)
 
 });
 
-router.get('/info', (req, res) => {
+//Show page add product
+router.get('/products/info', (req, res) => {
     res.render('../views/admin/adProdAdd.ejs');
 })
 
-//== **** Show data in prodInfo
-router.post('/products/post', async (req, res) => {
-    var prod = req.body.prodId;
-    // console.log(prod);
-    item.find({ _id: prod }, (err, products) => {
-        // console.log(products);
-        res.send({
-            prod: products
-        })
-    })
-});
-
+/* ========= Delete product ========= */
 router.post('/products/delete/:id', function (req, res) {
     console.log('Delete a product: ' + JSON.stringify(req.body));
 
@@ -144,61 +144,79 @@ router.post('/products/delete/:id', function (req, res) {
 
 })
 
-/* update product*/
+/* ========= Update product ========= */
 router.post('/products/update', upload.single('image'), async (req, res) => {
     var prod = req.body._id;
     // console.log(prod);
     console.log(req.body);
     // console.log(req.file);
 
-    var type;
+    var typeType;
     switch (req.body.type) {
         case "srm":
-            type = "Sữa rửa mặt";
+            typeType = "Sữa rửa mặt";
             break;
         case "ntt":
-            type = "Nước tẩy trang"
+            typeType = "Nước tẩy trang"
             break;
         case "dtt":
-            type = "Dầu tẩy trang";
+            typeType = "Dầu tẩy trang";
             break;
         case "toner":
-            type = "Nước hoa hồng";
+            typeType = "Nước hoa hồng";
             break;
         case "lotion":
-            type = "Sữa dưỡng"
+            typeType = "Sữa dưỡng"
             break;
         case "es":
-            type = "Essence"
+            typeType = "Essence"
             break;
         case "amp":
-            type = "Ampoule"
+            typeType = "Ampoule"
             break;
         case "kcn":
-            type = "Kem chống nắng"
+            typeType = "Kem chống nắng"
             break;
         case "xcn":
-            type = "Xịt chống nắng"
+            typeType = "Xịt chống nắng"
             break;
         case "xk":
-            type = "Xịt khoáng"
+            typeType = "Xịt khoáng"
             break;
         default:
-            type = "";
+            typeType = "";
             break;
     }
-    console.log(type);
+    // console.log(type);
+    var typeSkin;
+    switch (req.body.typeSkin) {
+        case "dd":
+            typeSkin = "Da dầu";
+            break;
+        case "dk":
+            typeSkin = "Da khô";
+            break;
+        case "dm":
+            typeSkin = "Da mụn";
+            break;
+        case "dnc":
+            typeSkin = "Da nhạy cảm";
+            break;
+        default:
+            typeSkin = "";
+            break;
+    }
 
     if (req.file) {
         item.updateOne({ _id: prod }, {
             $set: {
-                Name: req.body.name,
-                Skin: req.body.skin,
+                // Name: req.body.name,
+                Skin: typeSkin,
                 Volume: req.body.volume,
-                contraindications: req.body.contra,
+                Contraindications: req.body.contra,
                 Ingredients: req.body.ingre,
                 Description: req.body.desc,
-                Type: type,
+                Type: typeType,
                 Brand: req.body.brand,
                 Web1: { "name": req.body.web1Name, "url": req.body.web1Url },
                 Web2: { "name": req.body.web2Name, "url": req.body.web2Url },
@@ -215,13 +233,13 @@ router.post('/products/update', upload.single('image'), async (req, res) => {
     else {
         item.updateOne({ _id: prod }, {
             $set: {
-                Name: req.body.name,
-                Skin: req.body.skin,
+                // Name: req.body.name,
+                Skin: typeSkin,
                 Volume: req.body.volume,
-                contraindications: req.body.contra,
+                Contraindications: req.body.contra,
                 Ingredients: req.body.ingre,
                 Description: req.body.desc,
-                Type: type,
+                Type: typeType,
                 Brand: req.body.brand,
                 Web1: { "name": req.body.web1Name, "url": req.body.web1Url },
                 Web2: { "name": req.body.web2Name, "url": req.body.web2Url },
@@ -235,6 +253,25 @@ router.post('/products/update', upload.single('image'), async (req, res) => {
         })
     }
     res.redirect(`/admin/products/${prod}`)
+});
+router.post('/products/post', async (req, res) => {
+    var prod = req.body.prodId;
+    // console.log(prod);
+    item.find({ _id: prod }, (err, products) => {
+        // console.log(products);
+        res.send({
+            prod: products
+        })
+    })
+});
+router.get('/products/:id', async (req, res) => {
+    var prod = req.params.id;
+    // console.log(prod);
+    item.find({ _id: prod }, (err, products) => {
+        res.render('../views/admin/adProdInfo', {
+            productList: products
+        })
+    })
 });
 
 

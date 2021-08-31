@@ -153,7 +153,7 @@ function productBuildTableRow() {
 function productDelete(obj, id) {
   //DELETE (add db)
   ajaxDel(obj, id);
-  alert("Xóa thành công");
+  alert("Xóa thành công sản phẩm");
   $(obj).parents("tr").remove();
 }
 
