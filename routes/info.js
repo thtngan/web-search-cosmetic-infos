@@ -48,10 +48,7 @@ router.get('/:name',async (req, res) => {
 
 router.post('/:name/cmt', (req, res) =>{
     var prod = req.params.name;
-    console.log(req.body.email)
-    console.log(req.params.name)
     comment.find({Product: req.params.name, Mail: req.body.email}, (err, prods) =>{
-        console.log(prods.length)
         if(prods.length){
             var today = new Date();
             let date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
@@ -63,9 +60,6 @@ router.post('/:name/cmt', (req, res) =>{
                     if(err){
                         console.log("Something wrong when updating data!");
                         res.render('error',{err: err});
-                    }
-                    else{
-                        console.log("done1")
                     }
                 })
         }
@@ -87,15 +81,11 @@ router.post('/:name/cmt', (req, res) =>{
                     console.log("Something wrong when create data!");
                     res.render('error',{err: err})
                 }
-                else{
-                    console.log("done2")
-                }
             });
         }
         let a = parseInt(req.body.totalscore) + parseInt(req.body.rating);
         let b = parseInt(req.body.totalcmt) + 1;
         let c = (a /b);
-        console.log(c);
         recom.updateOne({Name: `${prod}`},{$set:{Rating: `${c}`}},function(err, doc){
             if(err){
                 console.log("Something wrong when updating data!");
