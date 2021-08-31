@@ -93,7 +93,7 @@ function display(ctl) {
 
 $("#btnDelete").click((e) => {
     // e.preventDefault();
-    // console.log($('.hideIdData').text());
+    console.log($('.hideIdData').text());
     const id = $('.hideIdData').text();
     var formData = {
         userid: id

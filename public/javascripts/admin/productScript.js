@@ -145,13 +145,34 @@ function productBuildTableRow() {
   return ret;
 }
 
-function productDelete(ctl) {
-  $(ctl).parents("tr").remove();
+// function productDelete(ctl) {
+//   $(ctl).parents("tr").remove();
+// }
+
+//Delete a product
+function productDelete(obj, id) {
+  //DELETE (add db)
+  ajaxDel(obj, id);
+  alert("Xóa thành công");
+  $(obj).parents("tr").remove();
 }
 
-function formClear() {
-  $("#inputName").val("");
-  $("#inputBrand").val("");
-  $("#select").val("");
-
+function ajaxDel(obj, id) {
+  var formData = {
+    userid: id
+  }
+  console.log(obj);
+  $.ajax({
+    type: "POST",
+    contentType: "application/json",
+    url: "/admin/products/delete/" + id,
+    data: JSON.stringify(formData),
+    dataType: "json",
+    success: function () {
+      // location.reload();
+    },
+    error: function (e) {
+      console.log(e.status);
+    }
+  });
 }

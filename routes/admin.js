@@ -40,7 +40,7 @@ router.get('/products/:id', async (req, res) => {
 //== **** Show data in prodInfo
 router.post('/products/post', async (req, res) => {
     var prod = req.body.prodId;
-    console.log(prod);
+    // console.log(prod);
     item.find({ _id: prod }, (err, products) => {
         // console.log(products);
         res.send({
@@ -48,6 +48,21 @@ router.post('/products/post', async (req, res) => {
         })
     })
 });
+
+router.post('/products/delete/:id', function (req, res) {
+    console.log('Delete a product: ' + JSON.stringify(req.body));
+
+    //Delete from mongoDB
+    item.findByIdAndRemove(req.params.id, function (err, docs) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("Delete successfully: ", docs);
+        }
+    });
+
+})
 
 /* USER page */
 router.get('/users', verifyToken, isAdmin, function (req, res, next) {

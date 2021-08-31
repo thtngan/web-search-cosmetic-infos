@@ -104,7 +104,7 @@
                                 <th scope="col" onclick="sortTable(1)" class="text-center">Tên sản phẩm <i
                                         class="fas fa-sort"></i>
                                 </th>
-                                <th scope="col" onclick="sortTable(2)" class="text-center" style="width:13%">Danh mục
+                                <th scope="col" onclick="sortTable(2)" class="text-center">Danh mục
                                     <i class="fas fa-sort"></i>
                                 </th>
                                 <th scope="col" class="text-center">Hãng</th>
@@ -138,12 +138,12 @@
                                             <a class="btn-9" href="<%= item.Web3.url %>" class="brandBtn"><span>
                                                     <%= item.Web3.name %>
                                                 </span></a>
-
                                         </td>
                                         <td scope="col" class="edit">
                                             <a href="<%= '/admin/products/' + item._id %>">
                                                 <i class="fas fa-edit"></i></a>
-                                            <a href="#"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="#"><i class="fas fa-trash-alt"
+                                                    onclick="productDelete(this, '<%= item._id %>')"></i></a>
                                         </td>
                                     </tr>
                                     <% }) %>

@@ -128,13 +128,16 @@
                                             <%=item.Details%>
                                         </td>
                                         <td scope="col" class="edit">
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                 data-bs-target="#exampleModal" id="buttonDetail"
                                                 onclick="display(this)">
                                                 Chi tiết
-                                            </button>
+                                            </button> -->
+                                            <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle"
+                                                role="button" onclick="display(this)" id="buttonDetail">Open
+                                                first modal</a>
                                         </td>
-                                        <td scope="col" class="hideData">
+                                        <td scope=" col" class="hideData">
                                             <%=item.Number%>
                                         </td>
                                         <td scope="col" class="hideData">
@@ -159,30 +162,53 @@
             </footer>
         </div>
     </div>
-    <!-- Modal -->
-    <div class="modal" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+
+    <!-- Modal xác nhận -->
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Thông tin phản hồi</h5>
+                    <h5 class="modal-title" id="exampleModalToggleLabel">
+                        <i class="far fa-circle-info"></i> Chi tiết phản hồi
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
+                    Show a second modal and hide this one with the button below.
                 </div>
                 <div class="modal-footer">
-                    <button id="btnDelete" type="button" class="btn btn-danger">Xóa phản hồi</button>
+                    <button class="btn btn-danger" data-bs-target="#staticBackdrop" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Xóa phản hồi</button>
                 </div>
-
             </div>
         </div>
     </div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel2">Bạn có chắc chắn sẽ xóa phản hồi này?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+
+                <div class="text-center">
+                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Quay lại</button>
+                    <button id="btnDelete" type="button" class="btn btn-danger">Đồng ý</button>
+                </div>
+            </div>
+        </div>
     </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
-    <script src="../../public/javascripts/admin/scripts.js"></script>
-    <script src="../public/javascripts/admin/feedScript.js"></script>
+    <script src="../../../public/javascripts/admin/scripts.js"></script>
+    <script src="../../public/javascripts/admin/feedScript.js"></script>
 
 </body>
 

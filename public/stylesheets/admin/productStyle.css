@@ -11,6 +11,7 @@
 
 .table-responsive {
   display: table;
+  width: 100%;
 }
 
 td.edit {
