@@ -11,9 +11,9 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/autocompleteSearch/', function (req, res, next) {
-    var regex = new RegExp(req.query["term"], 'i');
 
-    var productFilter = item.find({ Name: regex });
+
+    var productFilter = item.find({});
     productFilter.exec(function (err, data) {
         //console.log(data);
         var result = [];
@@ -26,7 +26,8 @@ router.get('/autocompleteSearch/', function (req, res, next) {
                         label: prod.Name,
                         pictureData: prod.Img.data.toString('base64'),
                         pictureType: prod.Img.contentType,
-                        skin: prod.Skin
+                        skin: prod.Skin,
+                        type: prod.Type
                     };
                     result.push(obj);
                 });
