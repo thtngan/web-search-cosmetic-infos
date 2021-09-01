@@ -2,6 +2,7 @@
 var records = [];
 var flagType = [];
 var flagSkin = [];
+var flagLabel = [];
 
 $.ajax({
   url: "/search/autocompleteSearch",
@@ -29,6 +30,7 @@ function generateLi() {
     // console.log(item);
     flagType[i] = 1;
     flagSkin[i] = 1;
+    flagLabel[i] = 1;
     i++;
     var li = document.createElement('li');
     if (item.skin == null) {
@@ -68,7 +70,7 @@ $('input[type=radio][name=btnradio]').on('change', function () {
       const ul0 = document.querySelectorAll("#containerItem li .linkSearch .skinSearch");
       var numberLength0 = 0;
       for (let i = 0; i < ul0.length; i++) {
-        if (flagType[i] == 1) {
+        if (flagType[i] == 1 && flagLabel[i] == 1) {
           $(`#containerItem li:nth-child(${i + 1})`).show();
           flagSkin[i] = 1; numberLength0++;
         }
@@ -85,7 +87,7 @@ $('input[type=radio][name=btnradio]').on('change', function () {
       for (let i = 0; i <= ul1.length - 1; i++) {
         if (ul1[i].textContent == "Da dầu") {
           flagSkin[i] = 1; //show
-          if (flagType[i] == 1) {
+          if (flagType[i] == 1 && flagLabel[i] == 1) {
             $(`#containerItem li:nth-child(${i + 1})`).show();
             numberLength1++;
           }
@@ -106,7 +108,7 @@ $('input[type=radio][name=btnradio]').on('change', function () {
       for (let i = 0; i <= ul2.length - 1; i++) {
         if (ul2[i].textContent == "Da khô") {
           flagSkin[i] = 1;
-          if (flagType[i] == 1) {
+          if (flagType[i] == 1 && flagLabel[i] == 1) {
             $(`#containerItem li:nth-child(${i + 1})`).show();
             numberLength2++;
           }
@@ -127,7 +129,7 @@ $('input[type=radio][name=btnradio]').on('change', function () {
       for (let i = 0; i <= ul3.length - 1; i++) {
         if (ul3[i].textContent == "Da mụn") {
           flagSkin[i] = 1;
-          if (flagType[i] == 1) {
+          if (flagType[i] == 1 && flagLabel[i] == 1) {
             $(`#containerItem li:nth-child(${i + 1})`).show();
             numberLength3++;
           }
@@ -147,7 +149,7 @@ $('input[type=radio][name=btnradio]').on('change', function () {
       for (let i = 0; i <= ul4.length - 1; i++) {
         if (ul4[i].textContent == "Da nhạy cảm") {
           flagSkin[i] = 1;
-          if (flagType[i] == 1) {
+          if (flagType[i] == 1 && flagLabel[i] == 1) {
             $(`#containerItem li:nth-child(${i + 1})`).show();
             numberLength4++;
           }
@@ -181,7 +183,7 @@ $('input[type=radio][name=btnradio-type]').on('change', function () {
       for (let i = 0; i <= ul.length - 1; i++) {
         if (ul[i].textContent == "Sữa rửa mặt") {
           flagType[i] = 1;
-          if (flagSkin[i] == 1) {
+          if (flagSkin[i] == 1 && flagLabel[i] == 1) {
             $(`#containerItem li:nth-child(${i + 1})`).show();
             numberLength++;
           }
@@ -199,7 +201,7 @@ $('input[type=radio][name=btnradio-type]').on('change', function () {
       for (let i = 0; i <= ul.length - 1; i++) {
         if (ul[i].textContent == "Nước tẩy trang") {
           flagType[i] = 1;
-          if (flagSkin[i] == 1) {
+          if (flagSkin[i] == 1 && flagLabel[i] == 1) {
             $(`#containerItem li:nth-child(${i + 1})`).show();
             numberLength++;
           }
@@ -217,7 +219,7 @@ $('input[type=radio][name=btnradio-type]').on('change', function () {
       for (let i = 0; i <= ul.length - 1; i++) {
         if (ul[i].textContent == "Dầu tẩy trang") {
           flagType[i] = 1;
-          if (flagSkin[i] == 1) {
+          if (flagSkin[i] == 1 && flagLabel[i] == 1) {
             $(`#containerItem li:nth-child(${i + 1})`).show();
             numberLength++;
           }
@@ -235,7 +237,7 @@ $('input[type=radio][name=btnradio-type]').on('change', function () {
       for (let i = 0; i <= ul.length - 1; i++) {
         if (ul[i].textContent == "Nước hoa hồng") {
           flagType[i] = 1
-          if (flagSkin[i] == 1) {
+          if (flagSkin[i] == 1 && flagLabel[i] == 1) {
             $(`#containerItem li:nth-child(${i + 1})`).show();
             numberLength++;
           }
@@ -253,7 +255,7 @@ $('input[type=radio][name=btnradio-type]').on('change', function () {
       for (let i = 0; i <= ul.length - 1; i++) {
         if (ul[i].textContent == "Sữa dưỡng") {
           flagType[i] = 1;
-          if (flagSkin[i] == 1) {
+          if (flagSkin[i] == 1 && flagLabel[i] == 1) {
             $(`#containerItem li:nth-child(${i + 1})`).show();
             numberLength++;
           }
@@ -271,7 +273,7 @@ $('input[type=radio][name=btnradio-type]').on('change', function () {
       for (let i = 0; i <= ul.length - 1; i++) {
         if (ul[i].textContent == "Essence") {
           flagType[i] = 1
-          if (flagSkin[i] == 1) {
+          if (flagSkin[i] == 1 && flagLabel[i] == 1) {
             $(`#containerItem li:nth-child(${i + 1})`).show();
             numberLength++;
           }
@@ -289,7 +291,7 @@ $('input[type=radio][name=btnradio-type]').on('change', function () {
       for (let i = 0; i <= ul.length - 1; i++) {
         if (ul[i].textContent == "Ampoule") {
           flagType[i] = 1
-          if (flagSkin[i] == 1) {
+          if (flagSkin[i] == 1 && flagLabel[i] == 1) {
             $(`#containerItem li:nth-child(${i + 1})`).show();
             numberLength++;
           }
@@ -307,7 +309,7 @@ $('input[type=radio][name=btnradio-type]').on('change', function () {
       for (let i = 0; i <= ul.length - 1; i++) {
         if (ul[i].textContent == "Kem chống nắng") {
           flagType[i] = 1
-          if (flagSkin[i] == 1) {
+          if (flagSkin[i] == 1 && flagLabel[i] == 1) {
             $(`#containerItem li:nth-child(${i + 1})`).show();
             numberLength++;
           }
@@ -325,7 +327,7 @@ $('input[type=radio][name=btnradio-type]').on('change', function () {
       for (let i = 0; i <= ul.length - 1; i++) {
         if (ul[i].textContent == "Xịt chống nắng") {
           flagType[i] = 1
-          if (flagSkin[i] == 1) {
+          if (flagSkin[i] == 1 && flagLabel[i] == 1) {
             $(`#containerItem li:nth-child(${i + 1})`).show();
             numberLength++;
           }
@@ -343,7 +345,7 @@ $('input[type=radio][name=btnradio-type]').on('change', function () {
       for (let i = 0; i <= ul.length - 1; i++) {
         if (ul[i].textContent == "Xịt khoáng") {
           flagType[i] = 1
-          if (flagSkin[i] == 1) {
+          if (flagSkin[i] == 1 && flagLabel[i] == 1) {
             $(`#containerItem li:nth-child(${i + 1})`).show();
             numberLength++;
           }
@@ -357,4 +359,31 @@ $('input[type=radio][name=btnradio-type]').on('change', function () {
 
   }
 });
+
+
+function searchFunction() {
+  var input, filter, i, txtValue, table;
+  input = document.getElementById("searchbar");
+  filter = input.value.toUpperCase();
+
+  ul = document.querySelectorAll("#containerItem li .linkSearch .labelSearch");
+  $("#containerItem li").hide();
+  numberLength = 0;
+
+  for (let i = 0; i <= ul.length - 1; i++) {
+    txtValue = ul[i].textContent || ul[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      flagLabel[i] = 1;
+      if (flagType[i] == 1 && flagSkin[i] == 1) {
+        $(`#containerItem li:nth-child(${i + 1})`).show();
+        numberLength++;
+      }
+    }
+    else {
+      flagLabel[i] = 0;
+    }
+  }
+  document.getElementById('numberResult').innerHTML = numberLength + " kết quả";
+
+}
 
