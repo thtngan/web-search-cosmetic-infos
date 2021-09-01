@@ -107,8 +107,18 @@ button {
   color: #fff;
   margin: 0px 0px 8px;
   text-align: left;
-  background-color: #6c3ada;
+  background-color: #3b1985;
   display: inline;
+}
+
+.typeSearch {
+  width: 85%;
+  color: #fff;
+  margin: 0px 0px 8px;
+  text-align: left;
+  background-color: #b69ded;
+  display: inline;
+  border-radius: 5px;
 }
 
 .labelSearch {
