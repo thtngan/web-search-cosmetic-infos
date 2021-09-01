@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>QPANK Home</title>
+    <title>QPANK Info</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
@@ -87,9 +87,9 @@
                     <div>
                         <p><strong>Loại da:</strong></p>
                         <span class="volume">
-                                <div>
-                                    <%= prod[0].Skin %>
-                                </div>
+                            <div>
+                                <%= prod[0].Skin %>
+                            </div>
                         </span>
                     </div><br>
                     <div>
@@ -300,8 +300,10 @@
                             <input type="file" id="img" name="img" accept="image/*" multiple>
                         </div> -->
                         <em>* Bắt buộc</em>
-                        <input name="totalscore" type="hidden" value="<%=rate.one*1 + rate.two*2 + rate.three*3 + rate.four*4 + rate.five*5%>"/>
-                        <input name="totalcmt" type="hidden" value="<%= rate.one + rate.two + rate.three + rate.four + rate.five%>" />
+                        <input name="totalscore" type="hidden"
+                            value="<%=rate.one*1 + rate.two*2 + rate.three*3 + rate.four*4 + rate.five*5%>" />
+                        <input name="totalcmt" type="hidden"
+                            value="<%= rate.one + rate.two + rate.three + rate.four + rate.five%>" />
                         <div class="col-12 text-center">
                             <button class="btn btn-primary" type="submit" id="send_request"><i
                                     class="fas fa-paper-plane"></i>&nbsp;&nbsp;&nbsp;Gửi yêu cầu</button>
@@ -397,6 +399,16 @@
             <hr>
 
             <div class="row">
+                <div class="col-md-6 col-sm-8 text-center">
+                    <h5>ĐĂNG KÝ</h5>
+                    <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
+                    <form class="input-group mb-3" id="subcribeForm" method="POST">
+                        <input type="text" class="form-control subcribe" placeholder="Email" aria-label="Email"
+                            aria-describedby="button-addon2" id="mail">
+                        <button type="submit" class="btn btn-outline-secondary" id="button-addon2"><i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
                 <div class="col-md-6 col-sm-4">
                     <table class="table table-borderless">
                         <thead>
@@ -418,16 +430,6 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                <div class="col-md-6 col-sm-8 text-center">
-                    <h5>ĐĂNG KÝ</h5>
-                    <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
-                    <form class="input-group mb-3" id="subcribeForm" method="POST">
-                        <input type="text" class="form-control subcribe" placeholder="Email" aria-label="Email"
-                            aria-describedby="button-addon2" id="mail">
-                        <button type="submit" class="btn btn-outline-secondary" id="button-addon2"><i
-                                class="fas fa-paper-plane"></i></button>
-                    </form>
                 </div>
             </div>
         </footer>
