@@ -1,9 +1,12 @@
+#stat{
+    margin-bottom: 2em;
+}
 .counter{
     color: #FE8105;
     background: linear-gradient(to right, #FE8105, #FE9F1E);
     font-family: 'Poppins', sans-serif;
     text-align: center;
-    width: 200px;
+    width: 450px;
     padding: 45px 10px 0;
     margin: 0 auto;
     position: relative;
@@ -22,12 +25,12 @@
     clip-path: polygon(50% 0%, 100% 25%, 100% 100%, 0 100%, 0 25%);
 }
 .counter .counter-icon{
-    font-size: 37px;
-    line-height: 37px;
+    font-size: 90px;
+    line-height: 90px;
     margin: 0 0 15px;
 }
 .counter h3{
-    font-size: 19px;
+    font-size: 25px;
     font-weight: 400;
     text-transform: capitalize;
     margin: 0 0 20px;

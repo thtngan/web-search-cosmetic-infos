@@ -162,86 +162,16 @@
         <div class="horizontal-scroll-wrapper-1 distributeur" id="list_distributeur">
           <button type="button" class="btn btn-light" id="preBtn_distributeur"><i
               class="fas fa-chevron-left"></i></button>
-          <div class="card">
-            <a href="https://hasaki.vn/">
-              <img src="../public/images/hasaki.png" class="card-img-top" alt="product images">
-              <div class="overlay">
-                Hasaki
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="https://sammishop.com/">
-              <img src="../public/images/sammi.png" class="card-img-top" alt="product images">
-              <div class="overlay">
-                Sammi Shop
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="https://www.guardian.com.vn/">
-              <img src="../public/images/guardian.jpg" class="card-img-top" alt="product images">
-              <div class="overlay">
-                Guardian
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="https://cocoshop.vn/">
-              <img src="../public/images/coco.png" class="card-img-top" alt="product images">
-              <div class="overlay">
-                CoCo Shop
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="https://mathoadaphan.com">
-              <img src="../public/images/MatHoaDaPhan.png" class="card-img-top" alt="product images">
-              <div class="overlay">
-                Mặt Hoa Da Phấn
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="https://mint07.com/">
-              <img src="../public/images/mint.png" class="card-img-top" alt="product images">
-              <div class="overlay">
-                Mint Cosmetic
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="https://thefaceshop.com.vn/">
-              <img src="../public/images/TheFace.jpg" class="card-img-top" alt="product images">
-              <div class="overlay">
-                The Face Shop
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="https://beautygarden.vn/">
-              <img src="../public/images/BeautyGarden.png" class="card-img-top" alt="product images">
-              <div class="overlay">
-                Beauty Garden
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="https://www.watsons.vn/">
-              <img src="../public/images/watson.png" class="card-img-top" alt="product images">
-              <div class="overlay">
-                Watsons
-              </div>
-            </a>
-          </div>
-          <div class="card">
-            <a href="https://www.lixibox.com/">
-              <img src="../public/images/lili.png" class="card-img-top" alt="product images">
-              <div class="overlay">
-                LixiBox
-              </div>
-            </a>
-          </div>
+          <% for(var i=0; i < shopList.length; i++) { %>
+            <div class="card">
+              <a href="<%=shopList[i].Link%>">
+                <img src="<%=shopList[i].Img%>" class="card-img-top" alt="product images">
+                <div class="overlay">
+                  <%=shopList[i].Name%>
+                </div>
+              </a>
+            </div>
+            <% } %>
           <button type="button" class="btn btn-light" id="nextBtn_distributeur"><i
               class="fas fa-chevron-right"></i></button>
         </div>
@@ -344,6 +274,16 @@
       <hr>
 
       <div class="row">
+        <div class="col-md-6 col-sm-8 text-center">
+          <h5>ĐĂNG KÝ</h5>
+          <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
+          <form class="input-group mb-3" id="subcribeForm" method="POST">
+            <input type="text" class="form-control subcribe" placeholder="Email" aria-label="Email"
+              aria-describedby="button-addon2" id="mail">
+            <button type="submit" class="btn btn-outline-secondary" id="button-addon2"><i
+                class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
         <div class="col-md-6 col-sm-4">
           <table class="table table-borderless">
             <thead>
@@ -365,16 +305,6 @@
               </tr>
             </tbody>
           </table>
-        </div>
-        <div class="col-md-6 col-sm-8 text-center">
-          <h5>ĐĂNG KÝ</h5>
-          <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
-          <form class="input-group mb-3" id="subcribeForm" method="POST">
-            <input type="text" class="form-control subcribe" placeholder="Email" aria-label="Email"
-              aria-describedby="button-addon2" id="mail">
-            <button type="submit" class="btn btn-outline-secondary" id="button-addon2"><i
-                class="fas fa-paper-plane"></i></button>
-          </form>
         </div>
       </div>
     </footer>
