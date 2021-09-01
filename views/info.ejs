@@ -85,6 +85,14 @@
                         <%= prod[0].Type %>
                     </p>
                     <div>
+                        <p><strong>Loại da:</strong></p>
+                        <span class="volume">
+                                <div>
+                                    <%= prod[0].Skin %>
+                                </div>
+                        </span>
+                    </div><br>
+                    <div>
                         <p><strong>Dung tích:</strong></p>
                         <span class="volume">
                             <% prod[0].Volume.split(",").forEach(element=> { %>
