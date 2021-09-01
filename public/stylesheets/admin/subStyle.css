@@ -1,9 +1,15 @@
-ul#listEmail {
+ul#listEmail li{
     list-style-image: url("../../images/envelope-regular.svg");
     list-style-position: inside;
-    filter: invert(11%) sepia(92%) saturate(4882%) hue-rotate(323deg) brightness(84%) contrast(113%);
+    font-size: 30px;
+    border-bottom: 2px solid #111;
 }
-ul#listEmail .email span{
-    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(307deg) brightness(97%) contrast(107%) !important;
-    /* color: #000 !important; */
+ul#listEmail li.email span{
+    /* filter: invert(11%) sepia(92%) saturate(4882%) hue-rotate(323deg) brightness(84%) contrast(113%); */
+
+    color: #000 !important;
+    padding-bottom: 3em;
+}
+ul#listEmail li:hover {
+    background-color: #f8bbd0;
 }
