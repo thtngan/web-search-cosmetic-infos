@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose')
 var item = require('../models/db')
-
+var shop = require('../models/shop')
 /* GET home page */
 router.get('/', (req, res) => {
-    item.find({Rating:{ $gte: 3.5}}, (err, products) => {
-        res.render('index', {
-            productList: products
+    shop.find({}, (err, shops) => {
+        item.find({Rating:{ $gte: 3.5}}, (err, products) => {
+            res.render('index', {productList: products, shopList: shops})
         })
     })
 });
