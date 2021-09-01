@@ -1,8 +1,6 @@
-# [web-search-cosmetic-infos](http://https://websearchcosmeticinfo.herokuapp.com/ "web-search-cosmetic-infos")
+# [web-search-cosmetic-infos](https://websearchcosmeticinfo.herokuapp.com/ "web-search-cosmetic-infos")
 
 **web-search-cosmetic-infos is a cosmetic information search site**. Currently, on the Vietnamese market, there are many types of cosmetics that contain different ingredients or are not reputable sellers, providing fake goods, making it difficult to choose or use for buyers and users. Therefore, the QPANK team took that idea to build a Website with the purpose of helping users look up information about cosmetics. From there, users can see the ingredients, origin, reviews or reputable cosmetic stores.
-
-## Features
 
 ## Usage
 
