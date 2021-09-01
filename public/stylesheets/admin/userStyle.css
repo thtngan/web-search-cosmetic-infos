@@ -21,7 +21,7 @@
     border: 1px solid #ddd;
     margin-bottom: 12px;
     margin: 0;
-    border: 5px solid #b3dbda
+    border: 5px solid #a6d5d4
     ;
 }
 
@@ -72,16 +72,16 @@ td#pwd{
     border: none;
   }
   .panel .panel-heading{
-    background: #b3dbda
+    background: #a6d5d4
     ;
     padding: 15px;
     border-radius: 20px 20px 0 0;
     margin: 0;
   }
   .panel .panel-heading .title{
-    color: black;
+    color: #285453;
     font-size: 28px;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 39px;
     text-transform: capitalize;
     margin: 0;
@@ -126,7 +126,7 @@ td#pwd{
   .table-responsive {
     display: table;
     width: 100%;
-    border: 5px solid #b3dbda
+    border: 5px solid #a6d5d4
     ;
   }
   table {
