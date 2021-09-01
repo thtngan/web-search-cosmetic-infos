@@ -1,34 +1,25 @@
-# web-search-cosmetic-infos
+#web-search-cosmetic-infos
 
-- Giao diện tìm kiếm sản phẩm
-- Giao diện /login vào admin 
-- Thêm input rating trong form ẩn
-- Authen trang admin
-- Button Trang Chủ ở Footer giao diện Tìm Kiếm không hoạt động
+**web-search-cosmetic-infos is a cosmetic information search site
+**
+Currently, on the Vietnamese market, there are many types of cosmetics that contain different ingredients or are not reputable sellers, providing fake goods, making it difficult to choose or use for buyers and users. Therefore, the QPANK team took that idea to build a Website with the purpose of helping users look up information about cosmetics. From there, users can see the ingredients, origin, reviews or reputable cosmetic stores.
 
-- Trang info: 
--- Thanh mô tả/thành phần/địa điểm mua hàng thêm "Chống chỉ định"
+##Features
 
-## CÔNG VIỆC CHUNG
-#Trang chính
-- Chữ trên hình Nguyên liệu Hãy tận dụng những nguyên liệu từ thiên nhiên để có một làn da thật khỏe đẹp nhé 
-- Nút search ở thanh menu chưa responsive
-- Hiển thị sản phẩm theo loại
-- Hiển thị sản phẩm theo top đánh giá người dùng 
-- Đổi chỗ thanh footer
-- Chống chỉ định đóng khung
-- Đổi chỗ footer
-- Thêm skin cho trang info
+##Usage
+Clone the repo and install the dependencies.
+```bash
+git clone https://github.com/thtngan/web-search-cosmetic-infos.git
+cd web-search-cosmetic-infos
+```
+To start the express server, run the following
+```bash
+npm start
+```
 
-#Trang admin
-<!-- - Xác nhận 2 lần xóa (Trang feed, comt, product) -->
-- Giao diện người dùng đăng kí
-- Trang chủ admin ô thứ 3, vẽ thêm ô để hiện số
-<!-- - Hiện star rating  -->
-<!-- - Button trang sản phẩm  -->
-<!-- - Tăng kích thước 2 button trang sản phẩm -->
-<!-- - Đổi đường dẫn trang sản phẩm add -->
-- Render các trang báo lỗi, hoặc dẫn về trang chủ
+##Current project team members
+- Lê Thiên Kim – 19126022 
+- Ngô Thiên Quang – 19126031 
+- Vũ Hoàng Anh – 19126039 
+- Trần Hoàng Thảo Ngân – 19126055 
 
-#Báo cáo
-- Show code: responsive, button, 
