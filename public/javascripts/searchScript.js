@@ -42,7 +42,7 @@ function generateLi() {
 
       li.innerHTML = '<div class="list_item_container"><a class="linkSearch" href="/info/'
         + item.label + '"><div class="imageSearch"><img src="data:image/png;base64,'
-        + buffer + '" alt="product images"></div><div class="skinSearch">'
+        + buffer + '" alt="product images" class="img-fluid"in></div><div class="skinSearch">'
         + item.skin + '</div><div class="typeSearch">'
         + item.type + '</div><div class="labelSearch"><h4><b>'
         + item.label + '</b></h4></div></a></div>';
