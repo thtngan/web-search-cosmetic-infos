@@ -17,8 +17,8 @@ npm start
 ```
 
 ## Current project team members
-- Lê Thiên Kim – 19126022 
-- Ngô Thiên Quang – 19126031 
-- Vũ Hoàng Anh – 19126039 
-- Trần Hoàng Thảo Ngân – 19126055 
+- [@MyrtilleKim](https://github.com/MyrtilleKim): Lê Thiên Kim – 19126022 
+- [@ThQuang21](https://github.com/ThQuang21): Ngô Thiên Quang – 19126031 
+- [@vuhoanganh6401](https://github.com/vuhoanganh6401): Vũ Hoàng Anh – 19126039 
+- [@thtngan](https://github.com/thtngan): Trần Hoàng Thảo Ngân – 19126055 
 
