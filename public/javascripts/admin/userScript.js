@@ -3,9 +3,6 @@ function validateId(textbox) {
   if (textbox.value == '') {
     textbox.setCustomValidity('Chưa nhập mã nhân viên');
   }
-  else if ((textbox.value).slice(0, 2) != "AD" || (textbox.value).slice(0, 2) != "NV") {
-    textbox.setCustomValidity('Định dạng phải gồm AD hoặc NV đứng đầu');
-  }
 
   return true;
 }
