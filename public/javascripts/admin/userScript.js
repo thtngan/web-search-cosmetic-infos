@@ -1,9 +1,13 @@
 function validateId(textbox) {
-  console.log(textbox);
   if (textbox.value == '') {
-    textbox.setCustomValidity('Chưa nhập mã nhân viên');
+    textbox.setCustomValidity('Chưa nhập họ và tên');
   }
-
+  else if (textbox.validity.typeMismatch) {
+    textbox.setCustomValidity('Nhập sai định dạng');
+  }
+  else {
+    textbox.setCustomValidity('');
+  }
   return true;
 }
 
