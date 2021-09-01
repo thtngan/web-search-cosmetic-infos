@@ -105,7 +105,9 @@
                                         <i class="fa fa-briefcase"></i>
                                     </div>
                                     <h3>Tổng số sản phẩm</h3>
-                                    <span class="counter-value">1000</span>
+                                    <span class="counter-value">
+                                        <%= prod %>
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6">
@@ -114,7 +116,9 @@
                                         <i class="fa fa-users"></i>
                                     </div>
                                     <h3>Tổng số thành viên</h3>
-                                    <span class="counter-value">1000</span>
+                                    <span class="counter-value">
+                                        <%= user %>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -124,39 +128,40 @@
                         <div class="col-xl-4 col-md-4">
                             <div class="card bg-1 text-white mb-4">
                                 <div class="card-body">
-                                    <div class="card-title">Nombre d'infections</div>
-                                    <span class="counter-value">1000</span>
+                                    <div class="card-title">
+                                        <h2>Số lượng phản hồi</h2>
+                                    </div> <span class="counter-value">
+                                        <%= feed %>
+                                    </span>
                                 </div>
 
-                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-dark stretched-link" href="#">Xem chi tiết</a>
-                                    <div class="small text-dark"><i class="fas fa-angle-right"></i></div>
-                                </div>
+
                             </div>
                         </div>
 
                         <div class="col-xl-4 col-md-4">
                             <div class="card bg-2 text-white mb-4">
                                 <div class="card-body">
-                                    <div class="card-title">Nombre de récupérations</div>
-                                    <span class="counter-value">1000</span>
+                                    <div class="card-title">
+                                        <h2>Số lượng bình luận</h2>
+                                    </div> <span class="counter-value">
+                                        <%= cmt %>
+                                    </span>
                                 </div>
-                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-dark stretched-link" href="#">Xem chi tiết</a>
-                                    <div class="small text-dark"><i class="fas fa-angle-right"></i></div>
-                                </div>
+
                             </div>
                         </div>
                         <div class="col-xl-4 col-md-4">
                             <div class="card bg-3 text-white mb-4">
                                 <div class="card-body">
-                                    <div class="card-title">Nombre de morts</div>
-                                    <span class="counter-value">1000</span>
+                                    <div class="card-title">
+                                        <h2>Số lượng đăng ký</h2>
+                                    </div>
+                                    <span class="counter-value">
+                                        <%= sub %>
+                                    </span>
                                 </div>
-                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-dark stretched-link" href="#">Xem chi tiết</a>
-                                    <div class="small text-dark"><i class="fas fa-angle-right"></i></div>
-                                </div>
+
                             </div>
                         </div>
                     </div>

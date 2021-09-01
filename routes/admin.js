@@ -18,7 +18,18 @@ const item = require('../models/db')
 
 /* GET admin page */
 router.get('/', verifyToken, (req, res) => {
-    res.render('../views/admin/admin')
+    item.find({}, (err, products) => {
+        User.find({}, (err, users) => {
+            Comment.find({}, (err, comments) => {
+                Feedback.find({}, (err, feeds) => {
+                    Subscription.find({}, (err, subs) => {
+                        res.render('../views/admin/admin',
+                            { prod: products.length, user: users.length, cmt: comments.length, feed: feeds.length, sub: subs.length })
+                    })
+                })
+            })
+        })
+    })
 });
 
 /* PRODUCT page */
