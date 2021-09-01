@@ -75,5 +75,13 @@
     color: #118FCF;
     background: linear-gradient(to right, #118FCF, #009FFD);
 }
+
+.counter-value{
+    font-size: 40px;
+    font-weight: bold;
+}
+.card-body{
+    text-align: center;
+}
 @media screen and (max-width:990px){
     .counter{ margin-bottom: 40px; }}
