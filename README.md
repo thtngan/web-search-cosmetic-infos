@@ -17,6 +17,8 @@
 - Hiển thị sản phẩm theo top đánh giá người dùng 
 - Đổi chỗ thanh footer
 - Chống chỉ định đóng khung
+- Đổi chỗ footer
+- Thêm skin cho trang info
 
 #Trang admin
 <!-- - Xác nhận 2 lần xóa (Trang feed, comt, product) -->

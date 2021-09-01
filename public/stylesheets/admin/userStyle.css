@@ -21,7 +21,8 @@
     border: 1px solid #ddd;
     margin-bottom: 12px;
     margin: 0;
-    border: 5px solid #aff288;
+    border: 5px solid #b3dbda
+    ;
 }
 
 td.edit {
@@ -71,13 +72,14 @@ td#pwd{
     border: none;
   }
   .panel .panel-heading{
-    background: #aff288;
+    background: #b3dbda
+    ;
     padding: 15px;
     border-radius: 20px 20px 0 0;
     margin: 0;
   }
   .panel .panel-heading .title{
-    color: #fff;
+    color: black;
     font-size: 28px;
     font-weight: 600;
     line-height: 39px;
@@ -124,7 +126,8 @@ td#pwd{
   .table-responsive {
     display: table;
     width: 100%;
-    border: 5px solid #aff288;
+    border: 5px solid #b3dbda
+    ;
   }
   table {
     margin: 0 !important;
