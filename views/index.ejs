@@ -70,10 +70,14 @@
     <div id="main">
       <button class="openbtn" onclick="openNav()">&#9776;</button>
 
-      <form class="search-container" method="GET">
+      <!-- <form class="search-container" method="GET">
         <input id="searchbar" type="text" class="search-box" name="q" />
         <label for="search-box"><span class="fas fa-search search-icon"></span></label>
         <input type="submit" id="search-submit" />
+      </form> -->
+      <form class="search-container input-group mb-3" method="GET">
+          <input type="text" id="searchbar" class="search-box form-control name="q" aria-describedby="basic-addon2">
+          <span class="input-group-text search-icon" id="basic-addon2"><i class="fas fa-search"></i></span>
       </form>
       <div class="d-flex p-2" id="myDiv"></div>
       <div class="head">

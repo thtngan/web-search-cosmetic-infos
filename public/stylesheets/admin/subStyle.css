@@ -1,0 +1,9 @@
+ul#listEmail {
+    list-style-image: url("../../images/envelope-regular.svg");
+    list-style-position: inside;
+    filter: invert(11%) sepia(92%) saturate(4882%) hue-rotate(323deg) brightness(84%) contrast(113%);
+}
+ul#listEmail .email span{
+    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(307deg) brightness(97%) contrast(107%) !important;
+    /* color: #000 !important; */
+}
