@@ -5,7 +5,6 @@
     <title>QPANK Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="../public/images/main.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
@@ -22,33 +21,7 @@
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
-    <!-- Messenger Plugin chat Code -->
-    <div id="fb-root"></div>
 
-    <!-- Your Plugin chat code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
-
-    <script>
-        var chatbox = document.getElementById('fb-customer-chat');
-        chatbox.setAttribute("page_id", "104128298667528");
-        chatbox.setAttribute("attribution", "biz_inbox");
-
-        window.fbAsyncInit = function () {
-            FB.init({
-                xfbml: true,
-                version: 'v11.0'
-            });
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
     <div class="container-fluid">
         <div id="mySidebar" class="sidebar">
             <span id="logo">Q</span>
@@ -153,13 +126,13 @@
                     </div>
                 </div>
 
-                <!-- <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem;">
                     <img src="../public/images/Phong.png" class="card-img-top" alt="Trọng Phong">
                     <div class="card-body">
                         <h5 class="card-title">Phan Võ Trọng Phong</h5>
                         <p class="card-text">Thành viên</p>
                     </div>
-                </div> -->
+                </div>
 
             </div>
             <h4 id="scrollspyHeading3"><br><br>Đóng góp ý kiến</h4>
@@ -236,34 +209,34 @@
                 <h5>ĐĂNG KÝ</h5>
                 <p>Đăng ký tại đây để nhận các thông báo mới nhất từ QPANK</p>
                 <form class="input-group mb-3" id="subcribeForm" method="POST">
-                  <input type="text" class="form-control subcribe" placeholder="Email" aria-label="Email"
-                    aria-describedby="button-addon2" id="mail">
-                  <button type="submit" class="btn btn-outline-secondary" id="button-addon2"><i
-                      class="fas fa-paper-plane"></i></button>
+                    <input type="text" class="form-control subcribe" placeholder="Email" aria-label="Email"
+                        aria-describedby="button-addon2" id="mail">
+                    <button type="submit" class="btn btn-outline-secondary" id="button-addon2"><i
+                            class="fas fa-paper-plane"></i></button>
                 </form>
-              </div>
-              <div class="col-md-6 col-sm-4">
+            </div>
+            <div class="col-md-6 col-sm-4">
                 <table class="table table-borderless">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th>
-                        <h5>LIÊN HỆ</h5>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><i class="fas fa-envelope"></i></td>
-                      <td>QPANK@gmail.com</td>
-                    </tr>
-                    <tr>
-                      <td><i class="fas fa-phone-alt"></i></td>
-                      <td>(84)13 456 789</td>
-                    </tr>
-                  </tbody>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>
+                                <h5>LIÊN HỆ</h5>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-envelope"></i></td>
+                            <td>QPANK@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-phone-alt"></i></td>
+                            <td>(84)13 456 789</td>
+                        </tr>
+                    </tbody>
                 </table>
-              </div>
+            </div>
         </div>
     </footer>
     </div>
